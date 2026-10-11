@@ -1,11 +1,8 @@
 import { createBrowserClient } from '@supabase/ssr'
-
-const FALLBACK_SUPABASE_URL = 'https://example.supabase.co'
-const FALLBACK_SUPABASE_ANON_KEY = 'placeholder-anon-key'
+import { getSupabaseConfig } from './config'
 
 export function createClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || FALLBACK_SUPABASE_URL
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || FALLBACK_SUPABASE_ANON_KEY
+  const { url, anonKey } = getSupabaseConfig({ allowBuildFallback: true })
 
-  return createBrowserClient(supabaseUrl, supabaseAnonKey)
+  return createBrowserClient(url, anonKey)
 }

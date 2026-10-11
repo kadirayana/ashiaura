@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
@@ -39,6 +39,7 @@ export default function RootLayout({
             } catch (e) {}
           })();
         ` }} />
+        <meta name="color-scheme" content="light dark" />
       </head>
       <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`}>
         {children}

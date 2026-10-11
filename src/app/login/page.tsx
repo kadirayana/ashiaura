@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { ThemeLogo } from '@/components/theme-logo'
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google"
 
 const spaceGrotesk = Space_Grotesk({
@@ -66,8 +67,8 @@ export default function LoginPage() {
                     <div className="h-1 bg-rust w-full" />
                     
                     <CardHeader className="text-center pt-8 pb-4">
-                        <div className="mx-auto w-16 h-16 mb-4 rounded-full border border-hairline/60 bg-paper flex items-center justify-center shadow-inner">
-                            <img src="/icon.png" className="w-10 h-10 object-contain" alt="Logo" />
+                        <div className="mx-auto w-32 h-16 mb-4 border border-hairline/60 bg-paper flex items-center justify-center shadow-inner px-3">
+                            <ThemeLogo className="w-full h-auto object-contain" />
                         </div>
                         <CardTitle className="text-xl font-bold tracking-tight text-ink font-storefront uppercase">
                             Kadir Ayana Parfumes

@@ -1,21 +1,24 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
-
-const FALLBACK_SUPABASE_URL = 'https://example.supabase.co'
-const FALLBACK_SUPABASE_ANON_KEY = 'placeholder-anon-key'
+import { getSupabaseConfig } from './config'
 
 export async function updateSession(request: NextRequest) {
     const ALLOWED_EMAIL = process.env.ALLOWED_EMAIL
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || FALLBACK_SUPABASE_URL
-    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || FALLBACK_SUPABASE_ANON_KEY
+    let config: ReturnType<typeof getSupabaseConfig>
+    try {
+        config = getSupabaseConfig()
+    } catch (error) {
+        console.error('[Supabase] Missing runtime configuration:', error)
+        return NextResponse.next({ request })
+    }
 
     let supabaseResponse = NextResponse.next({
         request,
     })
 
     const supabase = createServerClient(
-        supabaseUrl,
-        supabaseAnonKey,
+        config.url,
+        config.anonKey,
         {
             cookies: {
                 getAll() {

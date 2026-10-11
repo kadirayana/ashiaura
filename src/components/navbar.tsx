@@ -2,9 +2,9 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Menu, X, ShoppingBag } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
+import { ThemeLogo } from "./theme-logo"
 import { useCart } from "@/context/CartContext"
 
 export function Navbar() {
@@ -23,14 +23,7 @@ export function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
                 <div className="flex items-center justify-between h-16">
                     <Link href="/" className="flex items-center gap-2.5">
-                        <Image
-                            src="/logo.png"
-                            alt="Ashi"
-                            width={72}
-                            height={32}
-                            className="h-8 w-auto object-contain"
-                            priority
-                        />
+                        <ThemeLogo className="h-8 w-auto object-contain" priority />
                         <span className="font-storefront-mono text-[11px] tracking-[0.18em] text-rust font-semibold hidden sm:inline">
                             AURA
                         </span>
