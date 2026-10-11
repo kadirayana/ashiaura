@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --card: #121215;
+    --card-foreground: #fafafa;
+    --gold: #c5a880;
+    --gold-light: #dfc8a8;
+    --gold-dark: #9e7f56;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-gold: rgba(197, 168, 128, 0.3);
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* Editoryal Tipografi Yardımcıları */
+.font-editorial {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+/* Altın Vurgu Degrade & Yazı */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #dfc8a8 0%, #c5a880 50%, #9e7f56 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #dfc8a8 0%, #c5a880 50%, #9e7f56 100%);
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #dfc8a8 0%, #c5a880 50%, #9e7f56 100%) 1;
+}
+
+/* Lüks Cam Efekti (Glassmorphism) */
+.glass-panel {
+  background: rgba(18, 18, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: rgba(22, 20, 18, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(197, 168, 128, 0.25);
+}
+
+/* İnce Parfüm Işıltısı Arka Plan Efekti */
+.glow-spot {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  opacity: 0.12;
+  background: radial-gradient(circle, #c5a880 0%, transparent 70%);
+}
+
+/* Özel Akıcı Geçişler */
+.transition-luxury {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* İnce Kaydırma Çubuğu */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a880;
+}
