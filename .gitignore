@@ -30,3 +30,6 @@ next-env.d.ts
 
 # Old repository clone (keep untouched locally)
 _old_repo/
+
+.vercel
+.env*

@@ -1,117 +1,124 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Link from "next/link";
-import { siteConfig } from "@/data/siteConfig";
-import { ShoppingBag, Menu, X, ArrowUpRight } from "lucide-react";
+import * as React from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Menu, X, ShoppingBag } from "lucide-react"
+import { ThemeToggle } from "./theme-toggle"
+import { useCart } from "@/context/CartContext"
 
 export function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isOpen, setIsOpen] = React.useState(false)
+    const { setIsOpen: setCartOpen, totalCount } = useCart()
 
-  const navLinks = [
-    { href: "/collection", label: "Tüm Koleksiyon" },
-    { href: "/collection?series=men", label: "Erkek" },
-    { href: "/collection?series=women", label: "Kadın" },
-    { href: "/collection?series=unisex", label: "Unisex" },
-    { href: "/about", label: "Hikayemiz" },
-    { href: "/contact", label: "İletişim" },
-  ];
+    const handleRequestClick = (e: React.MouseEvent) => {
+        e.preventDefault()
+        setIsOpen(false)
+        const popupBtn = document.querySelector('#request-popup button') as HTMLButtonElement
+        if (popupBtn) popupBtn.click()
+    }
 
-  return (
-    <header className="sticky top-0 z-50 w-full glass-panel border-b border-white/5 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Mobil Menü Butonu */}
-          <div className="flex items-center lg:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-zinc-300 hover:text-white transition-colors"
-              aria-label="Menüyü aç/kapat"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+    return (
+        <nav className="sticky top-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-ink">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+                <div className="flex items-center justify-between h-16">
+                    <Link href="/" className="flex items-center gap-2.5">
+                        <Image
+                            src="/logo.png"
+                            alt="Ashi"
+                            width={72}
+                            height={32}
+                            className="h-8 w-auto object-contain"
+                            priority
+                        />
+                        <span className="font-storefront-mono text-[11px] tracking-[0.18em] text-rust font-semibold hidden sm:inline">
+                            AURA
+                        </span>
+                    </Link>
 
-          {/* Logo */}
-          <div className="flex-1 lg:flex-none text-center lg:text-left">
-            <Link href="/" className="inline-block group">
-              <span className="font-editorial text-2xl sm:text-3xl tracking-[0.3em] uppercase text-zinc-100 group-hover:text-[#c5a880] transition-colors">
-                ASHI
-              </span>
-              <span className="block text-[9px] uppercase tracking-[0.45em] text-zinc-400 font-sans-clean mt-0.5">
-                A U R A
-              </span>
-            </Link>
-          </div>
+                    <div className="hidden md:flex items-center gap-6 font-storefront-mono text-xs tracking-wide">
+                        <Link href="/products" className="text-sand hover:text-ink transition-colors">
+                            ÜRÜNLER
+                        </Link>
+                        <button onClick={handleRequestClick} className="text-sand hover:text-ink transition-colors cursor-pointer">
+                            İSTEKLERİNİZ
+                        </button>
+                        <Link href="/#about" className="text-sand hover:text-ink transition-colors">
+                            HAKKIMIZDA
+                        </Link>
+                        <Link href="/#contact" className="text-sand hover:text-ink transition-colors">
+                            İLETİŞİM
+                        </Link>
+                        <button
+                            onClick={handleRequestClick}
+                            className="text-sand hover:text-ink transition-colors cursor-pointer"
+                        >
+                            TALEP OLUŞTUR →
+                        </button>
 
-          {/* Masaüstü Navigasyon */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium tracking-wide text-zinc-300 hover:text-[#c5a880] transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+                        {/* Cart Button */}
+                        <button
+                            type="button"
+                            onClick={() => setCartOpen(true)}
+                            className="flex items-center gap-2 bg-ink text-paper px-3.5 py-2 hover:bg-rust transition-colors cursor-pointer rounded-sm"
+                            aria-label="Sepetim"
+                        >
+                            <ShoppingBag className="w-4 h-4" />
+                            <span>SEPET ({totalCount})</span>
+                        </button>
 
-          {/* Sağ Eylem: Shopier Mağaza Butonu */}
-          <div className="flex items-center space-x-4">
-            <a
-              href={siteConfig.shopierStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-950 bg-gradient-to-r from-[#dfc8a8] to-[#c5a880] hover:from-[#c5a880] hover:to-[#9e7f56] rounded-none transition-all shadow-sm hover:shadow-[0_0_20px_rgba(197,168,128,0.3)]"
-            >
-              <ShoppingBag className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Shopier Mağaza</span>
-              <span className="sm:hidden">Mağaza</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </div>
-        </div>
-      </div>
+                        <ThemeToggle />
+                    </div>
 
-      {/* Mobil Açılır Menü */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-white/5 bg-[#09090b]/95 backdrop-blur-xl px-6 py-8 space-y-4 animate-in slide-in-from-top duration-300">
-          <div className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium tracking-wider text-zinc-200 hover:text-[#c5a880] py-2 border-b border-white/5 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium tracking-wider text-zinc-200 hover:text-[#c5a880] py-2 border-b border-white/5 transition-colors"
-            >
-              Sıkça Sorulan Sorular
-            </Link>
-          </div>
+                    <div className="md:hidden flex items-center gap-2">
+                        {/* Mobile Cart Button */}
+                        <button
+                            type="button"
+                            onClick={() => setCartOpen(true)}
+                            className="relative flex items-center justify-center p-2 text-ink hover:text-rust transition-colors"
+                            aria-label="Sepetim"
+                        >
+                            <ShoppingBag className="w-5 h-5" />
+                            {totalCount > 0 && (
+                                <span className="absolute -top-0.5 -right-0.5 bg-rust text-paper text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                                    {totalCount}
+                                </span>
+                            )}
+                        </button>
+                        <ThemeToggle />
+                        <button onClick={() => setIsOpen(!isOpen)} className="text-ink p-2" aria-label="Menü">
+                            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-          <div className="pt-4">
-            <a
-              href={siteConfig.shopierStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 text-xs uppercase font-semibold tracking-wider bg-gradient-to-r from-[#dfc8a8] to-[#c5a880] text-zinc-950"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              Shopier Mağazasını Aç (Güvenli Ödeme)
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      )}
-    </header>
-  );
+            {isOpen && (
+                <div className="md:hidden bg-paper border-b border-ink font-storefront-mono text-sm tracking-wide">
+                    <div className="px-4 pt-2 pb-4 space-y-2">
+                        <Link href="/products" className="block px-3 py-2 text-sand hover:text-ink" onClick={() => setIsOpen(false)}>
+                            ÜRÜNLER
+                        </Link>
+                        <button onClick={handleRequestClick} className="block w-full text-left px-3 py-2 text-sand hover:text-ink">
+                            İSTEKLERİNİZ
+                        </button>
+                        <Link href="/#about" className="block px-3 py-2 text-sand hover:text-ink" onClick={() => setIsOpen(false)}>
+                            HAKKIMIZDA
+                        </Link>
+                        <Link href="/#contact" className="block px-3 py-2 text-sand hover:text-ink" onClick={() => setIsOpen(false)}>
+                            İLETİŞİM
+                        </Link>
+                        <button
+                            type="button"
+                            onClick={() => { setIsOpen(false); setCartOpen(true); }}
+                            className="w-full flex items-center justify-center gap-2 bg-ink text-paper px-4 py-2.5 hover:bg-rust transition-colors font-semibold"
+                        >
+                            <ShoppingBag className="w-4 h-4" />
+                            SEPETİMİ GÖRÜNTÜLE ({totalCount})
+                        </button>
+                    </div>
+                </div>
+            )}
+        </nav>
+    )
 }

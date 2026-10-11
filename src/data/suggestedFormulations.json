@@ -1,0 +1,7602 @@
+[
+  {
+    "id": "sug-1",
+    "name": "Abercrombie & Fitch - Fierce E1",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-2",
+    "name": "Acqua Di Parma - Colonia E2",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-3",
+    "name": "Acqua Di Parma - Colonia Leather EDC-C E3",
+    "essence_ratio": 0.04,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.96,
+    "essence_type": "Eau de Cologne",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-4",
+    "name": "Amouage - Beach Hut E5",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-5",
+    "name": "Amouage - Interlude Man E8",
+    "essence_ratio": 0.22,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-6",
+    "name": "Amouage - Journey Man E7",
+    "essence_ratio": 0.21,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-7",
+    "name": "Amouage - Jubilation XXV E6",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-8",
+    "name": "Amouage - Reflection Man E4",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-9",
+    "name": "Aramis - Devin",
+    "essence_ratio": 0.04,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.96,
+    "essence_type": "Eau de Cologne",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-10",
+    "name": "Armani - Acqua Di Gio Pour Homme E9",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-11",
+    "name": "Armani - Acqua Di Gio Profondo E12",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-12",
+    "name": "Armani - Acqua Di Gio Profumo E13",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-13",
+    "name": "Armani - Armani Black Code E16",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-14",
+    "name": "Armani - Armani Mania Pour Homme E18",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-15",
+    "name": "Armani - Attitude",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-16",
+    "name": "Armani - Cedre",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-17",
+    "name": "Armani - Code Profumo E15",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-18",
+    "name": "Armani - Code Sport E14",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-19",
+    "name": "Armani - Code Ultimate",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-20",
+    "name": "Armani - Emporio Armani He E17",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-21",
+    "name": "Armani - Emporio Armani Night For Him E19",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-22",
+    "name": "Armani - Stronger With You E10",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-23",
+    "name": "Armani - Stronger With You Intensely E11",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-24",
+    "name": "Azzaro - Chrome E21",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-25",
+    "name": "Azzaro - Most Wanted E23",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-26",
+    "name": "Azzaro - Now E20",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-27",
+    "name": "Azzaro - Wanted E22",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-28",
+    "name": "Bond No9 - The Scent Of Peace",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-29",
+    "name": "Burberry - Burberry Sport For Men E25",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-30",
+    "name": "Burberry - For Men Classic E24",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-31",
+    "name": "Burberry - Hero E29",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-32",
+    "name": "Burberry - London For Men E27",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-33",
+    "name": "Burberry - Mr.Burberry E28",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-34",
+    "name": "Burberry - Weekend For Men E26",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-35",
+    "name": "Bvlgari - Aqva Pour Homme E37",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-36",
+    "name": "Bvlgari - Aqva Pour Homme Marine E38",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-37",
+    "name": "Bvlgari - Kobraa Le Gemme E33",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-38",
+    "name": "Bvlgari - Le Gemme Ambero E36",
+    "essence_ratio": 0.18,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8200000000000001,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-39",
+    "name": "Bvlgari - Le Gemme Empyr E35",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-40",
+    "name": "Bvlgari - Man E31",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-41",
+    "name": "Bvlgari - Man In Black E32",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-42",
+    "name": "Bvlgari - Pour Homme E30",
+    "essence_ratio": 0.14,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.84,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-43",
+    "name": "Bvlgari - Tygar Le Gemme E34",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-44",
+    "name": "By Kilian - Straight To Heaven (White Crystal) E39",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-45",
+    "name": "C.C. - Woody Leather With Oudh Intense E65",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-46",
+    "name": "Cacharel - Pour Homme",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-47",
+    "name": "Calvin Klein - C.K.One E40",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-48",
+    "name": "Calvin Klein - CK In2U Him E41",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-49",
+    "name": "Calvin Klein - Eternity E42",
+    "essence_ratio": 0.12,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.86,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-50",
+    "name": "Calvin Klein - Euphoria Gold Men E45",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-51",
+    "name": "Calvin Klein - Euphoria Men E43",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-52",
+    "name": "Calvin Klein - Euphoria Men Intense E44",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-53",
+    "name": "Carolina Herrera - 212 Ice E47",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-54",
+    "name": "Carolina Herrera - 212 Men E46",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-55",
+    "name": "Carolina Herrera - 212 On Ice Men E48",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-56",
+    "name": "Carolina Herrera - 212 Sexy Men E49",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-57",
+    "name": "Carolina Herrera - 212 Vip Black E50",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-58",
+    "name": "Carolina Herrera - 212 Vip For Men E51",
+    "essence_ratio": 0.11,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.87,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-59",
+    "name": "Carolina Herrera - Bad Boy E52",
+    "essence_ratio": 0.14,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.84,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-60",
+    "name": "Carolina Herrera - CH Men",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-61",
+    "name": "Carolina Herrera - Chic For Men",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-62",
+    "name": "Celvin Klein - Obsession Night",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-63",
+    "name": "Chanel - Allure Homme E53",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-64",
+    "name": "Chanel - Allure Homme Sport E54",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-65",
+    "name": "Chanel - Antaeus E55",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-66",
+    "name": "Chanel - Bleu De Chanel E56",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-67",
+    "name": "Chanel - Platinum Egoiste E57",
+    "essence_ratio": 0.14,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.84,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-68",
+    "name": "Chanel - Pour Monsieur E58",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-69",
+    "name": "Christian Dior - Dior Homme E59",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-70",
+    "name": "Christian Dior - Dior Homme Intense E60",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-71",
+    "name": "Christian Dior - Dior Homme Sport E61",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-72",
+    "name": "Christian Dior - Fahrenheit E62",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-73",
+    "name": "Christian Dior - Sauvage E63",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-74",
+    "name": "Christian Dior - Sauvage Elixir E64",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-75",
+    "name": "Clive Christian - X For Men E66",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-76",
+    "name": "Comme Des Garcons - 2 Man",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-77",
+    "name": "Creed - Absolu Aventus E73",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-78",
+    "name": "Creed - Aventus E67",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-79",
+    "name": "Creed - Mountain Water E68",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-80",
+    "name": "Creed - Original Santal E71",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-81",
+    "name": "Creed - Original Vetiver E72",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-82",
+    "name": "Creed - Silver Mountain Water E69",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-83",
+    "name": "Creed - Viking E70",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-84",
+    "name": "Davidoff - Adventure E79",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-85",
+    "name": "Davidoff - Champion E78",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-86",
+    "name": "Davidoff - Cool Water Deep E76",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-87",
+    "name": "Davidoff - Cool Water E74",
+    "essence_ratio": 0.1,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.88,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-88",
+    "name": "Davidoff - Cool Water Game E77",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-89",
+    "name": "Davidoff - Cool Water Ice Fresh E75",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-90",
+    "name": "Davidoff - Echo E80",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-91",
+    "name": "Diesel - Bad E82",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-92",
+    "name": "Diesel - Diesel E81",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-93",
+    "name": "Diesel - Fuel For Life For Men E83",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-94",
+    "name": "Diesel - Fuel For Life Spirit E84",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-95",
+    "name": "Diesel - Only The Brave E85",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-96",
+    "name": "Diesel - Only The Brave Tattoo E86",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-97",
+    "name": "Dolce & Gabbana - D&G Pour Homme E87",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-98",
+    "name": "Dolce & Gabbana - K By Dolce & Gabbana E88",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-99",
+    "name": "Dolce & Gabbana - Light Blue Pour Homme E94",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-100",
+    "name": "Dolce & Gabbana - The One For Men E89",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-101",
+    "name": "Dolce & Gabbana - The One Gentleman E93",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-102",
+    "name": "Dolce & Gabbana - The One Grey E90",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-103",
+    "name": "Dolce & Gabbana - The One Royal Night E91",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-104",
+    "name": "Dolce & Gabbana - The One Sport For Men E92",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-105",
+    "name": "Escada - Moon Sparcle For Men E96",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-106",
+    "name": "Escada - Pour Homme E95",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-107",
+    "name": "Estee Lauder - Intuition For Men E97",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-108",
+    "name": "Givenchy - Blue Label E98",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-109",
+    "name": "Givenchy - Gentlemen E99",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-110",
+    "name": "Givenchy - Gentlemen Only Absolute E102",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-111",
+    "name": "Givenchy - Gentlemen Only E100",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-112",
+    "name": "Givenchy - Gentlemen Only Intense E101",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-113",
+    "name": "Givenchy - Insense Ultramarine",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-114",
+    "name": "Givenchy - Pi E103",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-115",
+    "name": "Givenchy - Play E104",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-116",
+    "name": "Givenchy - Very Irresistible For Men E105",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-117",
+    "name": "Givenchy - Xeryus Rouge",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-118",
+    "name": "Gucci - By Gucci Pour Homme E107",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-119",
+    "name": "Gucci - By Gucci Sport Pour Homme E108",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-120",
+    "name": "Gucci - Envy For Men E114",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-121",
+    "name": "Gucci - Gucci Pour Homme E106",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-122",
+    "name": "Gucci - Guilty Absolute Pour Homme E112",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-123",
+    "name": "Gucci - Guilty Black Pour Homme E110",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-124",
+    "name": "Gucci - Guilty Elixir Him E113",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-125",
+    "name": "Gucci - Guilty Intense Pour Homme E111",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-126",
+    "name": "Gucci - Guilty Pour Homme E109",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-127",
+    "name": "Guerlain - Guerlain Homme E115",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-128",
+    "name": "Guerlain - Habit Rouge E118",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-129",
+    "name": "Guerlain - L'Homme Ideal E116",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-130",
+    "name": "Guerlain - L'Homme Ideal Intense E117",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-131",
+    "name": "Hermes - H24 E121",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-132",
+    "name": "Hermes - Hermes For Men E119",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-133",
+    "name": "Hermes - Terre D'Hermes E120",
+    "essence_ratio": 0.21,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.77,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-134",
+    "name": "Hugo Boss - Bottled Infinite E124",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-135",
+    "name": "Hugo Boss - Bottled Night E123",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-136",
+    "name": "Hugo Boss - Bottled Oud E125",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-137",
+    "name": "Hugo Boss - Elements Aqua E127",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-138",
+    "name": "Hugo Boss - Elements E126",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-139",
+    "name": "Hugo Boss - Energise For Men E128",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-140",
+    "name": "Hugo Boss - Hugo Man E122",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-141",
+    "name": "I.M. - L'Eau D'Issey Pour Homme E129",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-142",
+    "name": "I.M. - L'Eau D'Issey Pour Homme Sport E130",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-143",
+    "name": "Initio Parfums Prives - Oud For Greatness",
+    "essence_ratio": 0.1,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.88,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-144",
+    "name": "Issey Miyake - L'Eau Bleue Pour Homme E131",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-145",
+    "name": "Issey Miyake - L'Eau D'Iseey Intense E132",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-146",
+    "name": "Issey Miyake - L'Eau Majeur D'Issey E133",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-147",
+    "name": "Jean Paul Gaultier - Fleur Du Male E139",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-148",
+    "name": "Jean Paul Gaultier - Le Male E137",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-149",
+    "name": "Jean Paul Gaultier - Le Male Elixir E138",
+    "essence_ratio": 0.21,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.77,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-150",
+    "name": "Jean Paul Gaultier - Scandal Pour Homme E134",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-151",
+    "name": "Jean Paul Gaultier - Ultra Male E135",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-152",
+    "name": "Jean Paul Gaultier - Ultra Male Intense E136",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-153",
+    "name": "Jil Sander - Sun Men",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-154",
+    "name": "Jo Malone - Amber & Lavander E140",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-155",
+    "name": "Jo Malone - Assam & Grapefruit E141",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-156",
+    "name": "Kenzo - Kenzo Homme Marine E144",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-157",
+    "name": "Kenzo - Kenzo Homme Woody E143",
+    "essence_ratio": 0.14,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.84,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-158",
+    "name": "Kenzo - Kenzo Pour Homme E142",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-159",
+    "name": "Kenzo - L'Eau Par Kenzo Men E145",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-160",
+    "name": "Kenzo - Pour Homme Once Upon A Time E147",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-161",
+    "name": "Kenzo - Tokyo By Kenzo E146",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-162",
+    "name": "Lacoste - Booster E148",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-163",
+    "name": "Lacoste - Elegance E149",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-164",
+    "name": "Lacoste - Essential E150",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-165",
+    "name": "Lacoste - L.12.12 Blanc E151",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-166",
+    "name": "Lacoste - L12.12 Noir E152",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-167",
+    "name": "Lacoste - L'Homme Lacoste E153",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-168",
+    "name": "Lancome - Hypnose Homme E154",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-169",
+    "name": "Louis Vuitton - Imagination E155",
+    "essence_ratio": 0.21,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.77,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-170",
+    "name": "Louis Vuitton - Meteore E156",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-171",
+    "name": "Maison Francis Kurkdjian - Amyris Homme E157",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-172",
+    "name": "Maison Francis Kurkdjian - Amyris Homme Extrait E158",
+    "essence_ratio": 0.27,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.71,
+    "essence_type": "Extrait de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-173",
+    "name": "Maison Francis Kurkdjian - Lumiere Noire Pour Homme E159",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-174",
+    "name": "Mancera - Aqua Wood E161",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-175",
+    "name": "Mancera - Black Gold E160",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-176",
+    "name": "Marbert Man",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-177",
+    "name": "Michael Kors - Michael For Men E162",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-178",
+    "name": "Montale - Black Aoud E163",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-179",
+    "name": "Narciso Rodriguez - For Him Musc Collection E165",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-180",
+    "name": "Narciso Rodriguez - Narciso Rodriguez For Him E164",
+    "essence_ratio": 0.11,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.87,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-181",
+    "name": "Nasomatto - Black Afgano E166",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-182",
+    "name": "Nasomatto - Pardon E167",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-183",
+    "name": "Ormonde Jayne - Man",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-184",
+    "name": "Paco Rabanne - Invictus Aqua E173",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-185",
+    "name": "Paco Rabanne - Invictus E168",
+    "essence_ratio": 0.11,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.87,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-186",
+    "name": "Paco Rabanne - Invictus Intense E169",
+    "essence_ratio": 0.12,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.86,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-187",
+    "name": "Paco Rabanne - Invictus Legend E172",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-188",
+    "name": "Paco Rabanne - Invictus Platinum E174",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-189",
+    "name": "Paco Rabanne - Invictus Victory E170",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-190",
+    "name": "Paco Rabanne - Invictus Victory Elixir E171",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-191",
+    "name": "Paco Rabanne - One Million E176",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-192",
+    "name": "Paco Rabanne - One Million Elixir E177",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-193",
+    "name": "Paco Rabanne - One Million Lucky E178",
+    "essence_ratio": 0.16,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.82,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-194",
+    "name": "Paco Rabanne - One Million Prive E179",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-195",
+    "name": "Paco Rabanne - Pour Homme E175",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-196",
+    "name": "Parfums De Marly - Altair E180",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-197",
+    "name": "Parfums De Marly - Pegasus E181",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.01,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-198",
+    "name": "Penhaligon's - Opus 1870 E182",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-199",
+    "name": "Penhaligon's - Roaring Radcliff E184",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-200",
+    "name": "Penhaligon's - The Uncompromising Sohan E183",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-201",
+    "name": "Pino - Silvestre",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-202",
+    "name": "Prada - Luna Rossa Carbon E187",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-203",
+    "name": "Prada - Luna Rossa E186",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-204",
+    "name": "Prada - Luna Rossa Ocean E189",
+    "essence_ratio": 0.16,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.82,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-205",
+    "name": "Prada - Luna Rossa Sport E188",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-206",
+    "name": "Prada - Prada L'Homme E185",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-207",
+    "name": "Ralph Lauren - Polo Blue",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-208",
+    "name": "Remy Latour - Cigar E190",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-209",
+    "name": "Roberto Cavalli - Just Cavalli Gold For Him E191",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-210",
+    "name": "Rochas - Rochas Man E192",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-211",
+    "name": "Roja Parfums - Elysium Pour Homme PC",
+    "essence_ratio": 0.21,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.77,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-212",
+    "name": "Roja Parfums - Enigma Pour Homme PC",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-213",
+    "name": "Shaik - No:77 E193",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-214",
+    "name": "Shisedo - Zen For Men E194",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-215",
+    "name": "Thierry Mugler - A Man E195",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-216",
+    "name": "Thierry Mugler - Alien Man E196",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-217",
+    "name": "Tommy Hilfiger - Freedom For Him E197",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-218",
+    "name": "Valentino - Uomo Born In Roma Coral Fantasy",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-219",
+    "name": "Valentino - Uomo Born In Roma Men",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-220",
+    "name": "Valentino - Velentino Uomo E198",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-221",
+    "name": "Valentino - Very Valentino E199",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-222",
+    "name": "Versace - Blue Jeans",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-223",
+    "name": "Versace - Dreamer",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-224",
+    "name": "Versace - Eros",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-225",
+    "name": "Versace - Eros Flame",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-226",
+    "name": "Versace - Green Jeans",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-227",
+    "name": "Versace - Pour Homme",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-228",
+    "name": "Versace - Pour Homme Oud Noir",
+    "essence_ratio": 0.19,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.81,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-229",
+    "name": "Versace - Versace L'Homme",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-230",
+    "name": "Versace - Versace Man",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-231",
+    "name": "Victor & Rolf - Antidote",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-232",
+    "name": "Victor & Rolf - Spicebomb",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-233",
+    "name": "Victor & Rolf - Spicebomb Extreme",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-234",
+    "name": "Victor & Rolf - Spicebomb Night Vision",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-235",
+    "name": "Victoria's Secret - Very Sexy Platinum",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-236",
+    "name": "Xerjoff - Casamorati Mefisto 1888",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-237",
+    "name": "Yohji Yamamoto - Yohji Homme",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-238",
+    "name": "YSL-La Nuit De L'Homme Bleu Electrique",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-239",
+    "name": "Yves Saint Laurent - Kouros",
+    "essence_ratio": 0.1,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.9,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-240",
+    "name": "Yves Saint Laurent - La Nuit De L'Homme",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-241",
+    "name": "Yves Saint Laurent - L'Homme",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-242",
+    "name": "Yves Saint Laurent - L'Homme Parfum Intense",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-243",
+    "name": "Yves Saint Laurent - L'Homme Ultime",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-244",
+    "name": "Yves Saint Laurent - M7",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-245",
+    "name": "Yves Saint Laurent - M7 Oud Absolu",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-246",
+    "name": "Yves Saint Laurent - Myself",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-247",
+    "name": "Yves Saint Laurent - Y For Men",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-248",
+    "name": "Yves Saint Laurent - Y Le Parfum",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "men",
+    "gender_label": "Erkek"
+  },
+  {
+    "id": "sug-249",
+    "name": "Abercrombie & Fitch - Perfume NO:1 UNDONE K1",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-250",
+    "name": "Acqua Di Parma - Magnolia Nobile K2",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-251",
+    "name": "Acqua Di Parma - Rosa Nobile K3",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-252",
+    "name": "Amouage - Dia Pour Femme K6",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-253",
+    "name": "Amouage - Honour K5",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-254",
+    "name": "Amouage - Memoir K4",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-255",
+    "name": "Armani - Acqua Di Gioia K7",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-256",
+    "name": "Armani - Because It's You K9",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-257",
+    "name": "Armani - Code Cashmere K10",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-258",
+    "name": "Armani - Emporiflameo Giorgio Armani Diamonds K8",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-259",
+    "name": "Armani - Emporio Armani White K12",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-260",
+    "name": "Armani - Giorgio Armani Code K13",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-261",
+    "name": "Armani - Idole D'Armani K17",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-262",
+    "name": "Armani - In Love With You K14",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-263",
+    "name": "Armani - Mania K15",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-264",
+    "name": "Armani - My Way K16",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-265",
+    "name": "Armani - Prive Jasmin Kusamono K21",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-266",
+    "name": "Armani - Prive Oud Royal K18",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-267",
+    "name": "Armani - Prive Rose Alexandrie K19",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-268",
+    "name": "Armani - Prive Rose D'Arabie K20",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-269",
+    "name": "Armani - She K11",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-270",
+    "name": "Armani - Si Intense K23",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-271",
+    "name": "Armani - Si K22",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-272",
+    "name": "Armani - Si Passione K24",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-273",
+    "name": "Armani - Si Rose Signature K25",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-274",
+    "name": "Azzaro - Wanted Girl K26",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-275",
+    "name": "Bond No9 - The Scent Of Peace K268",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-276",
+    "name": "Britney Spears - Midnight Fantasy K279",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-277",
+    "name": "Burberry - Burberry For Her K27",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-278",
+    "name": "Burberry - Burberry Sport For Woman K29",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-279",
+    "name": "Burberry - Goddess K33",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-280",
+    "name": "Burberry - Her Eau De Parfum K28",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-281",
+    "name": "Burberry - Her Elixir De Parfum K34",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-282",
+    "name": "Burberry - London For Woman K31",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-283",
+    "name": "Burberry - My.Burberry K32",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-284",
+    "name": "Burberry - Weekend For Woman K30",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-285",
+    "name": "Bvlgari - BLV K35",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-286",
+    "name": "Bvlgari - Jasmin Noir K36",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-287",
+    "name": "Bvlgari - Omnia Amethyste K37",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-288",
+    "name": "Bvlgari - Omnia Crystalline K38",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-289",
+    "name": "Bvlgari - Omnia Green Jade K39",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-290",
+    "name": "By Kilian - Forbiden Games K43",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-291",
+    "name": "By Kilian - Good Girl Gone Bad K40",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-292",
+    "name": "By Kilian - Love Don't Be Shy K41",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-293",
+    "name": "By Kilian - Playing With The Devil K42",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-294",
+    "name": "Cacharel - Eau De'Eden K269",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-295",
+    "name": "Cacharel - Noa Feminen K270",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-296",
+    "name": "Calvin Klein - Beauty K44",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-297",
+    "name": "Calvin Klein - Euphoria Gold Woman K47",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-298",
+    "name": "Calvin Klein - Euphoria Woman K46",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-299",
+    "name": "Calvin Klein - In2U Her K45",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-300",
+    "name": "Caroliina Herrera - 212 Sexy Woman K50",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-301",
+    "name": "Carolina Herrera - 212 On Ice For Woman K49",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-302",
+    "name": "Carolina Herrera - 212 Vip For Woman K51",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-303",
+    "name": "Carolina Herrera - 212 Woman K48",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-304",
+    "name": "Carolina Herrera - Chic K272",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-305",
+    "name": "Carolina Herrera - Good Girl K52",
+    "essence_ratio": 0.19,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-306",
+    "name": "Carolina Herrera - Very Good Girl K53",
+    "essence_ratio": 0.19,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-307",
+    "name": "Celvin Klein - Obsession Femme K271",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-308",
+    "name": "Chanel - Allure For Woman K54",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-309",
+    "name": "Chanel - Chance Eau Fraiche K57",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-310",
+    "name": "Chanel - Chance Eau Tendre K56",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-311",
+    "name": "Chanel - Chance K55",
+    "essence_ratio": 0.19,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-312",
+    "name": "Chanel - Coco Chanel K60",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-313",
+    "name": "Chanel - Coco Mademoiselle K61",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-314",
+    "name": "Chanel - Coco Noir K62",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-315",
+    "name": "Chanel - No:5 Eau Premiere K59",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-316",
+    "name": "Chanel - No:5 K58",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-317",
+    "name": "Chloe - Love Chloe K63",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-318",
+    "name": "Chloe - Love Story K64",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-319",
+    "name": "Christian Dior - Dior Addict K74",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-320",
+    "name": "Christian Dior - Dune K73",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-321",
+    "name": "Christian Dior - Hypnotic Poison K68",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-322",
+    "name": "Christian Dior - I Love Dior K67",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-323",
+    "name": "Christian Dior - J'Adore K66",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-324",
+    "name": "Christian Dior - Joy By Dior K65",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-325",
+    "name": "Christian Dior - Midnight Poison K71",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-326",
+    "name": "Christian Dior - Miss Dior K72",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-327",
+    "name": "Christian Dior - Poison K69",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-328",
+    "name": "Christian Dior - Pure Poison K70",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-329",
+    "name": "Creed - Aventus For Her K75",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-330",
+    "name": "Creed - Wind Flowers K76",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-331",
+    "name": "Davidoff - Cool Water Woman K77",
+    "essence_ratio": 0.08,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.9,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-332",
+    "name": "Diesel - Fuel For Life For Woman K78",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-333",
+    "name": "Dolce & Gabbana - D&G Femme K79",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-334",
+    "name": "Dolce & Gabbana - Devotion K83",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-335",
+    "name": "Dolce & Gabbana - Dolce K80",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-336",
+    "name": "Dolce & Gabbana - Light Blue For Woman K82",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-337",
+    "name": "Dolce & Gabbana - The One For Woman K81",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-338",
+    "name": "Elie Saab - Elie Saab Le Parfum K84",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-339",
+    "name": "Escada - Escada Collection K85",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-340",
+    "name": "Escada - Margaretha Ley K280",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-341",
+    "name": "Escada - Moon Sparcle For Woman K86",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-342",
+    "name": "Escada - Ocean Lounge K87",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-343",
+    "name": "Estee Lauder - Modern Muse K88",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-344",
+    "name": "Estee Lauder - Modern Muse Le Rouge K89",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-345",
+    "name": "Estee Lauder - Modern Muse Nuit K90",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-346",
+    "name": "Estee Lauder - Sensuous K91",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-347",
+    "name": "Estee Lauder - Sensuous Noir K92",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-348",
+    "name": "Estee Lauder - Sensuous Nude K93",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-349",
+    "name": "Ex Nihilo - Devil Tender K96",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-350",
+    "name": "Ex Nihilo - Lust In Paradise K95",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-351",
+    "name": "Ex Nihilo - Sweet Morphine K94",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-352",
+    "name": "Givenchy - Absolutely Irresistible K97",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-353",
+    "name": "Givenchy - Ange & Demon K98",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-354",
+    "name": "Givenchy - Ange & Demon Le Secret K99",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-355",
+    "name": "Givenchy - L'Interdit K100",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-356",
+    "name": "Givenchy - Very Irresistible For Woman K101",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-357",
+    "name": "Gucci - Bamboo K117",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-358",
+    "name": "Gucci - Bloom Ambrosia Di Fiori K116",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-359",
+    "name": "Gucci - Bloom K115",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-360",
+    "name": "Gucci - By Gucci Pour Femme K103",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-361",
+    "name": "Gucci - Envy For Woman K113",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-362",
+    "name": "Gucci - Envy Me K114",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-363",
+    "name": "Gucci - Flora By Gucci Georgeous Gardenia K111",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-364",
+    "name": "Gucci - Flora By Gucci K110",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-365",
+    "name": "Gucci - Flora Gorgeus Jasmine K112",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-366",
+    "name": "Gucci - Gucci Pour Femme K102",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-367",
+    "name": "Gucci - Guilty Absolute Pour Femme K107",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-368",
+    "name": "Gucci - Guilty Black Pour Femme K105",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-369",
+    "name": "Gucci - Guilty Elixir For Her K109",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-370",
+    "name": "Gucci - Guilty Intense Pour Femme K106",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-371",
+    "name": "Gucci - Guilty Love Edition Pour Femme K108",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-372",
+    "name": "Gucci - Guilty Pour Femme K104",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-373",
+    "name": "Gucci - Premiere K119",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-374",
+    "name": "Gucci - Rush K118",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-375",
+    "name": "Guerlain - Mon Guerlain K122",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-376",
+    "name": "Guerlain - Mon Guerlain K274",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-377",
+    "name": "Guerlain - Shalimar K120",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-378",
+    "name": "Guerlain - Shalimar Parfum Initial K121",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-379",
+    "name": "Hermer - Elixir Des Merveilles K124",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-380",
+    "name": "Hermes - Eau Des Merveilles K123",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-381",
+    "name": "Hermes - Twilly D'Hermes K125",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-382",
+    "name": "Hugo Boss - Boss Alive K129",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-383",
+    "name": "Hugo Boss - Boss Femme K127",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-384",
+    "name": "Hugo Boss - Boss Intense K128",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-385",
+    "name": "Hugo Boss - Boss The Scent For Her K130",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-386",
+    "name": "Hugo Boss - Hugo Boss Woman K126",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-387",
+    "name": "Hugo Boss - Nuit Pour Femme",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-388",
+    "name": "Issey Miyake - L'Eau D'Issey For Woman",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-389",
+    "name": "Issey Miyake - Pleats Please",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-390",
+    "name": "Jean Paul Gaultier - Classique Intense",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-391",
+    "name": "Jean Paul Gaultier - Ma Dame",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-392",
+    "name": "Jean Paul Gaultier - Scandal By Night Intense",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-393",
+    "name": "Jean Paul Gaultier - Scandal Le Parfum",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-394",
+    "name": "Jean Paul Gaultier - Scandal Pour Femme",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-395",
+    "name": "Jean Paul Gaultier - So Scandal",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-396",
+    "name": "Jimmy Choo - Illicit K275",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-397",
+    "name": "Jo Malone - Basil & Mandarin",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-398",
+    "name": "Jo Malone - Blackberry & Bay",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-399",
+    "name": "Jo Malone - Dark Amber & Ginger Lily",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-400",
+    "name": "Jo Malone - Jasmine Sambac & Marigold",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-401",
+    "name": "Jo Malone - Nectarine Blossom & Honey",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-402",
+    "name": "Jo Malone - Nutmeg & Ginger",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-403",
+    "name": "Jo Malone - Orange Blossom",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-404",
+    "name": "Jo Malone - Peony & Blush Suede",
+    "essence_ratio": 0.04,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.96,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-405",
+    "name": "Jo Malone - Red Roses",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-406",
+    "name": "Jo Malone - Wild Bluebell",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-407",
+    "name": "Juliette Has A Gun - Not A Perfume (Ambroxan) K273",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-408",
+    "name": "Kenzo - Flower By Kenzo",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-409",
+    "name": "Kenzo - Flower By Kenzo L'Elixir",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-410",
+    "name": "Kenzo - Kenzo Femme",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-411",
+    "name": "Kenzo - L'Eau Par Kenzo Woman",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-412",
+    "name": "Kenzo - Pour Femme Once Upon A Time",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-413",
+    "name": "Lacoste - Femme De Lacoste",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-414",
+    "name": "Lacoste - Pour Femme",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-415",
+    "name": "Lancome - Hypnose",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-416",
+    "name": "Lancome - Hypnose Senses",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-417",
+    "name": "Lancome - Idole Le Parfum",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-418",
+    "name": "Lancome - La Nuit Tresor",
+    "essence_ratio": 0.12,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.86,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-419",
+    "name": "Lancome - La Vie Est Belle",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-420",
+    "name": "Lancome - La Vie Est Belle En Rose",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-421",
+    "name": "Lancome - La Vie Est Belle Florale",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-422",
+    "name": "Lancome - La Vie Est Belle Intensement",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-423",
+    "name": "Lancome - La Vie Est Belle L'Eclat",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-424",
+    "name": "Lancome - La Vie Est Belle Soleil Cristal",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-425",
+    "name": "Lancome - Miracle",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-426",
+    "name": "Lancome - Oui La Vie Est Belle",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-427",
+    "name": "Lancome - Poeme",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-428",
+    "name": "Lancome - Tresor",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-429",
+    "name": "Louis Vuitton - Apogee",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-430",
+    "name": "Louis Vuitton - Attrape-reves",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-431",
+    "name": "Louis Vuitton - Spell On You",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-432",
+    "name": "Maison Francis Kurkdjian - Amyris Femme",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-433",
+    "name": "Maison Francis Kurkdjian - Amyris Femme Extrait",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-434",
+    "name": "Mancera - Coco Vanille",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-435",
+    "name": "Mancera - Red Tobacco",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-436",
+    "name": "Mancera - Roses Vanille",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-437",
+    "name": "Mancera - Wild Candy",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-438",
+    "name": "Memo - Lalibela",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-439",
+    "name": "Michael Kors - Gorgeous",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-440",
+    "name": "Michael Kors - Michael For Woman",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-441",
+    "name": "Michael Kors - Sexy Amber",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-442",
+    "name": "Michael Kors - Sexy Ruby",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-443",
+    "name": "Michael Kors - Wonderlust",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-444",
+    "name": "Montale - Candy Rose",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-445",
+    "name": "Montale - Powder Flowers",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-446",
+    "name": "Montale - Pure Gold",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-447",
+    "name": "Montale - Vanilla Extasy",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-448",
+    "name": "Montale - Vanille Absolu",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-449",
+    "name": "Narciso Rodriguez - For Her Musc Collection",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-450",
+    "name": "Narciso Rodriguez - Narciso Rodriguez For Her",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-451",
+    "name": "Narciso Rodriguez - Poudree",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-452",
+    "name": "Narciso Rodriguez - Pure Musc For Her",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-453",
+    "name": "Nasomatto - Narcotic Venus",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-454",
+    "name": "Paco Rabanne - Lady Million",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-455",
+    "name": "Paco Rabanne - Olympea",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-456",
+    "name": "Paco Rabanne - Olympea Aqua",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-457",
+    "name": "Paco Rabanne - Pour Elle",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-458",
+    "name": "Paco Rabanne - Ultraviolet K277",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-459",
+    "name": "Parfums De Marly - Delina",
+    "essence_ratio": 0.21,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.77,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-460",
+    "name": "Parfums De Marly - Delina Exclusif",
+    "essence_ratio": 0.24,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.74,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-461",
+    "name": "Penhaligon's - Changing Constance",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-462",
+    "name": "Penhaligon's - Halfeti",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-463",
+    "name": "Penhaligon's - The Revenge Of Lady Blanche",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-464",
+    "name": "Prada - Candy K208",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-465",
+    "name": "Prada - La Femme K207",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-466",
+    "name": "Prada - Paradoxe Intense K210",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-467",
+    "name": "Prada - Paradoxe K209",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-468",
+    "name": "Prada - Prada Woman K206",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-469",
+    "name": "Ralph Lauren - Glamourous K276",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-470",
+    "name": "Roberto Cavalli - Paradiso K267",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-471",
+    "name": "Rochas - Aqua Woman K211",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-472",
+    "name": "Rochas - Madame K213",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-473",
+    "name": "Rochas - Rochas Femme K212",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-474",
+    "name": "Roja Parfums - Elixir Pour Femme Essence K278",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-475",
+    "name": "Shisedo - Zen For Woman K214",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-476",
+    "name": "Thierry Mugler - Alien Goddess K217",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-477",
+    "name": "Thierry Mugler - Alien Woman K215",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-478",
+    "name": "Thierry Mugler - Angel K216",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-479",
+    "name": "Tom Ford - Jasmin Rouge K218",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-480",
+    "name": "Tom Ford - Jasmine Musc K219",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-481",
+    "name": "Tom Ford - Metallique K220",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-482",
+    "name": "Tom Ford - Orchid Soleil K221",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-483",
+    "name": "Tom Ford - Purple Patchouli K222",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-484",
+    "name": "Tom Ford - Sahara Noir K223",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-485",
+    "name": "Tom Ford - Urban Musc K224",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-486",
+    "name": "Tom Ford - Velvet Orchid K225",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-487",
+    "name": "Tom Ford - White Patchouli K226",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-488",
+    "name": "Tommy Hilfiger - Freedom For Her K227",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-489",
+    "name": "Valentino - Born In Roma Women K230",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-490",
+    "name": "Valentino - Rock'N Rose Couture K229",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-491",
+    "name": "Valentino - Rock'N Rose K228",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-492",
+    "name": "Versace - Bright Crystal K231",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-493",
+    "name": "Versace - Crystal Noir K234",
+    "essence_ratio": 0.19,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-494",
+    "name": "Versace - Dylan Blue Pour Femme K232",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-495",
+    "name": "Versace - Eros Pour Femme K235",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-496",
+    "name": "Versace - Versense K233",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-497",
+    "name": "Versace - Yellow Diamond K236",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-498",
+    "name": "Victor & Rolf - Bonbon K237",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-499",
+    "name": "Victor & Rolf - Flowerbomb Bloom K239",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-500",
+    "name": "Victor & Rolf - Flowerbomb K238",
+    "essence_ratio": 0.19,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-501",
+    "name": "Victoria's Secret - Angel Gold K248",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-502",
+    "name": "Victoria's Secret - Angel K247",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-503",
+    "name": "Victoria's Secret - Angels Only K240",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-504",
+    "name": "Victoria's Secret - Bombshell K241",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-505",
+    "name": "Victoria's Secret - Bombshells In Bloom K242",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-506",
+    "name": "Victoria's Secret - Dream Angels Heavenly K243",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-507",
+    "name": "Victoria's Secret - Fearless K244",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-508",
+    "name": "Victoria's Secret - Scandalus K245",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-509",
+    "name": "Victoria's Secret - Sexy Little Things Noir K246",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-510",
+    "name": "Xerjoff - Casamorati Lira 1888 K249",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-511",
+    "name": "Xerjoff - Elle Anniversary K250",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-512",
+    "name": "Xerjoff - Gran Ballo K251",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-513",
+    "name": "Yohji Yamamoto - Yohji Pour Femme K265",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-514",
+    "name": "Yves Saint Laurent - Belle D'Opium K257",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-515",
+    "name": "Yves Saint Laurent - Black Opium K258",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-516",
+    "name": "Yves Saint Laurent - Cinema K259",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-517",
+    "name": "Yves Saint Laurent - Elle K260",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-518",
+    "name": "Yves Saint Laurent - Libre Intense K256",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-519",
+    "name": "Yves Saint Laurent - Libre Le Parfum K254",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-520",
+    "name": "Yves Saint Laurent - Libre Woman K255",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-521",
+    "name": "Yves Saint Laurent - Manifesto K252",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-522",
+    "name": "Yves Saint Laurent - Mon Paris K261",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-523",
+    "name": "Yves Saint Laurent - Opium K262",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-524",
+    "name": "Yves Saint Laurent - Paris K253",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-525",
+    "name": "Yves Saint Laurent - Parisienne K263",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-526",
+    "name": "Yves Saint Laurent - Supreme Bouquet K264",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "women",
+    "gender_label": "Kadın"
+  },
+  {
+    "id": "sug-527",
+    "name": "ATATÜRK'ÜN KOKUSU BOURJOIS - SOIR DE PARIS A∞",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-528",
+    "name": "Amouage - Opus II U2",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-529",
+    "name": "Amouage - Opus IV U3",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-530",
+    "name": "Amouage - Opus V U1",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-531",
+    "name": "Armani - Prive Encens Satin U7",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-532",
+    "name": "Armani - Prive Musc Shamal U8",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-533",
+    "name": "Armani - Prive Rouge Malachite U6",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-534",
+    "name": "Armani - Prive Vert Malachite U5",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-535",
+    "name": "Armani - Stronger With You Oud U4",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-536",
+    "name": "Attar Collection - Khaltat Night U234",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-537",
+    "name": "BDK Parfums - Gris Chanel Extrait U219",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-538",
+    "name": "BDK Parfums - Rouge Smoking U220",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-539",
+    "name": "Bond No9 - Dubai Amber U226",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-540",
+    "name": "Bond No9 - Green Which Village U225",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-541",
+    "name": "Bond No9 - New York Amber U221",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-542",
+    "name": "Bond No9 - New York Nights U222",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-543",
+    "name": "Bond No9 - New York Oud U223",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-544",
+    "name": "Bond No9 - Signature Parfume U227",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-545",
+    "name": "Bond No9 - Wall Street U224",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-546",
+    "name": "Burberry - Touch Unisex U9",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-547",
+    "name": "Bvlgari - Black Unisex U10",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-548",
+    "name": "By Kilian - Angel's Share U11",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-549",
+    "name": "By Kilian - Back To Black U12",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-550",
+    "name": "By Kilian - Black Phantom U13",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-551",
+    "name": "Clive Christian - Amberwood U14",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-552",
+    "name": "Creed - Asian Green Tea U19",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-553",
+    "name": "Creed - Imperial Millesime U18",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-554",
+    "name": "Creed - Jardin D'Amalfi U20",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-555",
+    "name": "Creed - Pure White Cologne U16",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-556",
+    "name": "Creed - Royal Oud U15",
+    "essence_ratio": 0.16,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.82,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-557",
+    "name": "Creed - Virgin Island Water U17",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-558",
+    "name": "Dolce & Gabbana - Velvet Desert Oud U21",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-559",
+    "name": "Dolce & Gabbana - Velvet Patchouli U22",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-560",
+    "name": "Dolce & Gabbana - Velvet Tender Oud U23",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-561",
+    "name": "Escentic Molecules - Escentric 02 U26",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-562",
+    "name": "Escentic Molecules - Molecules 01 U24",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-563",
+    "name": "Escentic Molecules - Molecules 02 U25",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-564",
+    "name": "Essential Parfums - Bois Imperial U233",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-565",
+    "name": "Estee Lauder - Woody Mystique U27",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-566",
+    "name": "Ex Nihilo - Amber Sky U31",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-567",
+    "name": "Ex Nihilo - Fleur Narcotique U28",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-568",
+    "name": "Ex Nihilo - Love Shot U32",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-569",
+    "name": "Ex Nihilo - Midnight Special U29",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-570",
+    "name": "Ex Nihilo - Musc Infini U33",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-571",
+    "name": "Ex Nihilo - Venenum Kiss U30",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-572",
+    "name": "Franck Boclet - Cocaine U34",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-573",
+    "name": "Gucci - Gucci Oud U35",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-574",
+    "name": "Gucci - Guilty Oud U37",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-575",
+    "name": "Gucci - Intense Oud U36",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-576",
+    "name": "Guerlain - Angelique Noire U38",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-577",
+    "name": "Hermes - Agar Ebene U39",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-578",
+    "name": "Hermes - Cedre Sambac U41",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-579",
+    "name": "Hermes - Eau D'Orange Verte U46",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-580",
+    "name": "Hermes - Hermessence Ambre Narguile U40",
+    "essence_ratio": 0.12,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.86,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-581",
+    "name": "Hermes - Hermessence Osmanthe Yunnan U42",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-582",
+    "name": "Hermes - Hermessence Santal Massoia U44",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-583",
+    "name": "Hermes - Le Jardin De Monsieur Li U47",
+    "essence_ratio": 0.12,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.86,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-584",
+    "name": "Hermes - L'Ombre Des Merveilles U45",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-585",
+    "name": "Hermes - Poivre Samarcande U43",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-586",
+    "name": "Hermes - Un Jardin Sur Le Toit U48",
+    "essence_ratio": 0.12,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.86,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-587",
+    "name": "Initio Parfums Prives - Side Effect U232",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-588",
+    "name": "J.H.A.Gun - Not A Perfume Superdose (Ambroxan) U228",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-589",
+    "name": "J.M. - Bronze Wood&Leather Col. Int. U53",
+    "essence_ratio": 0.04,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.96,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-590",
+    "name": "J.M. - Cologne Int. Oud & Bergamot U49",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-591",
+    "name": "J.M. - Vetiver&Golden Vanilla Col. Int. U51",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-592",
+    "name": "Jo Malone - Grapefruit Cologne U54",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-593",
+    "name": "Jo Malone - Sea Daffodil U52",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-594",
+    "name": "Jo Malone - Velvet Rose & Oud U50",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-595",
+    "name": "Jo Malone - Wild Fig & Cassis U55",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-596",
+    "name": "Jo Malone - Wood Sage & Sea Salt U56",
+    "essence_ratio": 0.04,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.94,
+    "essence_type": "Eau de Cologne",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-597",
+    "name": "Juliette Has A Gun - Vanilla Vibes U229",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-598",
+    "name": "Le Labo - Another 13 U58",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-599",
+    "name": "Le Labo - Santal 33 U57",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-600",
+    "name": "Le Labo - The Matcha 26 U60",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-601",
+    "name": "Le Labo - The Noir 29 U59",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-602",
+    "name": "Louis Vuitton - Afternoon Swim U231",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-603",
+    "name": "Louis Vuitton - California Dream U63",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-604",
+    "name": "Louis Vuitton - L'Immensite U61",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-605",
+    "name": "Louis Vuitton - Ombre Nomade U62",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-606",
+    "name": "Louis Vuitton - On The Beach U64",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-607",
+    "name": "Louis Vuitton - Pacific Chill U230",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-608",
+    "name": "M.F.K - Baccarat Rouge 540 ExDP U70",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-609",
+    "name": "M.F.K - Oud Satin Mood ExDP U76",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-610",
+    "name": "Maison Francis Kurkdjian - Absolue Pour Le Matin U68",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-611",
+    "name": "Maison Francis Kurkdjian - Aqua Celestia U65",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-612",
+    "name": "Maison Francis Kurkdjian - Aqua Universalis Forte U67",
+    "essence_ratio": 0.21,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.77,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-613",
+    "name": "Maison Francis Kurkdjian - Aqua Universalis U66",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-614",
+    "name": "Maison Francis Kurkdjian - Baccarat Rouge 540 U69",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-615",
+    "name": "Maison Francis Kurkdjian - Gentle Fluidity Gold U72",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-616",
+    "name": "Maison Francis Kurkdjian - Gentle Fluidity Silver U71",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-617",
+    "name": "Maison Francis Kurkdjian - Grand Soir U73",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-618",
+    "name": "Maison Francis Kurkdjian - Oud Satin Mood U75",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-619",
+    "name": "Maison Francis Kurkdjian - Oud U74",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-620",
+    "name": "Mancera - Aoud Lemon Mint U80",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-621",
+    "name": "Mancera - Aoud Orchid U79",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-622",
+    "name": "Mancera - Black Vanilla U83",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-623",
+    "name": "Mancera - Cedrat Boise U77",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-624",
+    "name": "Mancera - Hindu Kush U82",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-625",
+    "name": "Mancera - Lemon Lime U78",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-626",
+    "name": "Mancera - Midnight Gold U81",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-627",
+    "name": "Marc Antoine Barrois - Ganymede U84",
+    "essence_ratio": 0.16,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.84,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-628",
+    "name": "Memo - African Leather U87",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-629",
+    "name": "Memo - Argentina U89",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-630",
+    "name": "Memo - Eau De Memo U85",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-631",
+    "name": "Memo - Flam U88",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-632",
+    "name": "Memo - French Leather U91",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-633",
+    "name": "Memo - Iberian Leather U96",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-634",
+    "name": "Memo - Irish Leather U92",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-635",
+    "name": "Memo - Italian Leather U93",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-636",
+    "name": "Memo - Kedu Sesame U90",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-637",
+    "name": "Memo - Lalibela Oud Eau De Parfum U98",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-638",
+    "name": "Memo - Marfa Spices U97",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-639",
+    "name": "Memo - Marfa U86",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-640",
+    "name": "Memo - Morrocan Leather U94",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-641",
+    "name": "Memo - Ocean Leather U99",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-642",
+    "name": "Memo - Russian Leather U95",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-643",
+    "name": "Memo - Sicilian Leather U102",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-644",
+    "name": "Memo - Sintra U101",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-645",
+    "name": "Memo - Winter Palace U100",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-646",
+    "name": "Montale - Amber & Spices U124",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-647",
+    "name": "Montale - Aoud Lagoon U122",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-648",
+    "name": "Montale - Aoud Lime U103",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-649",
+    "name": "Montale - Aoud Night U104",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-650",
+    "name": "Montale - Aoud Sense U105",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-651",
+    "name": "Montale - Arabian Tonka U108",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-652",
+    "name": "Montale - Black Musk U110",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-653",
+    "name": "Montale - Blue Amber U113",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-654",
+    "name": "Montale - Chocolate Greedy U112",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-655",
+    "name": "Montale - Crystal Flowers U114",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-656",
+    "name": "Montale - Fruits Of The Musk U119",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-657",
+    "name": "Montale - Greyland U115",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-658",
+    "name": "Montale - Intense Cafe U111",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-659",
+    "name": "Montale - Jasmine Full U117",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-660",
+    "name": "Montale - Mukhallat U120",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-661",
+    "name": "Montale - Musk To Musk U118",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-662",
+    "name": "Montale - Orchid Powder U121",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-663",
+    "name": "Montale - Pretty Fruity U126",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-664",
+    "name": "Montale - Sensual Instinct U109",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-665",
+    "name": "Montale - Soleil De Capri U116",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-666",
+    "name": "Montale - Starry Night U106",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-667",
+    "name": "Montale - Vanilla Cake U125",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-668",
+    "name": "Montale - Vetiver Patchouli U107",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-669",
+    "name": "Montale - Wild Pears U123",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-670",
+    "name": "Nasomatto - Absinth U127",
+    "essence_ratio": 0.11,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.87,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-671",
+    "name": "Nasomatto - Blamage U129",
+    "essence_ratio": 0.25,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-672",
+    "name": "Nasomatto - Silver Musc U128",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-673",
+    "name": "Nishane - Anı U131",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-674",
+    "name": "Nishane - Hacıvat U130",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-675",
+    "name": "Orto Parisi - Megamare U132",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-676",
+    "name": "Parfums De Marly - Layton U133",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-677",
+    "name": "Penhaligon's - Constantinople U134",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-678",
+    "name": "Penhaligon's - Halfeti Leather U135",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-679",
+    "name": "Sospiro - Erba Pura U136",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-680",
+    "name": "Tiziana Terenzi - Andromeda U137",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-681",
+    "name": "Tiziana Terenzi - Atlantide U148",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-682",
+    "name": "Tiziana Terenzi - Bianco Puro U138",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-683",
+    "name": "Tiziana Terenzi - Casanova U155",
+    "essence_ratio": 0.25,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-684",
+    "name": "Tiziana Terenzi - Cassiopea U150",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-685",
+    "name": "Tiziana Terenzi - Delox U139",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-686",
+    "name": "Tiziana Terenzi - Draco U140",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-687",
+    "name": "Tiziana Terenzi - Gold Rose Oudh U141",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-688",
+    "name": "Tiziana Terenzi - Gumin U142",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-689",
+    "name": "Tiziana Terenzi - Kirke U143",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-690",
+    "name": "Tiziana Terenzi - Libra U153",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-691",
+    "name": "Tiziana Terenzi - Orion U147",
+    "essence_ratio": 0.25,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-692",
+    "name": "Tiziana Terenzi - Orza U151",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-693",
+    "name": "Tiziana Terenzi - Porpora U152",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-694",
+    "name": "Tiziana Terenzi - Rosso Pompei U156",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-695",
+    "name": "Tiziana Terenzi - Sirrah Extrait De Parfum U149",
+    "essence_ratio": 0.25,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-696",
+    "name": "Tiziana Terenzi - Telea U144",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-697",
+    "name": "Tiziana Terenzi - TYL Assoluto U145",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-698",
+    "name": "Tiziana Terenzi - Tyrenum U154",
+    "essence_ratio": 0.25,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.73,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-699",
+    "name": "Tiziana Terenzi - Ursa U146",
+    "essence_ratio": 0.25,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Extrait de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-700",
+    "name": "Tom Ford - Amber Absolute U196",
+    "essence_ratio": 0.15,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-701",
+    "name": "Tom Ford - Arabian Wood U197",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-702",
+    "name": "Tom Ford - Azure Lime U162",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-703",
+    "name": "Tom Ford - Beau De Jour U186",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-704",
+    "name": "Tom Ford - Bitter Peach U198",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.01,
+    "alcohol_ratio": 0.77,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-705",
+    "name": "Tom Ford - Black Orchid U168",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-706",
+    "name": "Tom Ford - Black Violet U166",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-707",
+    "name": "Tom Ford - Cafe Rose U167",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-708",
+    "name": "Tom Ford - Cherry Smoke U184",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-709",
+    "name": "Tom Ford - Costa Azzurra U180",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-710",
+    "name": "Tom Ford - Ebene Fume U181",
+    "essence_ratio": 0.15,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-711",
+    "name": "Tom Ford - Electric Cherry U159",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-712",
+    "name": "Tom Ford - Fucking Fabulous U169",
+    "essence_ratio": 0.25,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-713",
+    "name": "Tom Ford - Italian Cypress U170",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-714",
+    "name": "Tom Ford - Japon Noir U188",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-715",
+    "name": "Tom Ford - Jonquille De Nuit (Reserve Collection) U163",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-716",
+    "name": "Tom Ford - Lavander Palm U171",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-717",
+    "name": "Tom Ford - London U172",
+    "essence_ratio": 0.18,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8200000000000001,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-718",
+    "name": "Tom Ford - Lost Cherry U194",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-719",
+    "name": "Tom Ford - Mandarino Di Amalfi U161",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-720",
+    "name": "Tom Ford - Moss Breches U189",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-721",
+    "name": "Tom Ford - Neroli Portofino Acqua U160",
+    "essence_ratio": 0.13,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.85,
+    "essence_type": "Eau de Toilette",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-722",
+    "name": "Tom Ford - Noir De Noir U195",
+    "essence_ratio": 0.23,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.75,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-723",
+    "name": "Tom Ford - Noir Extreme U182",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-724",
+    "name": "Tom Ford - Ombre De Hyacinth U164",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-725",
+    "name": "Tom Ford - Ombre Leather U173",
+    "essence_ratio": 0.17,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-726",
+    "name": "Tom Ford - Oud Fleur U174",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-727",
+    "name": "Tom Ford - Oud Minerale U175",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-728",
+    "name": "Tom Ford - Oud Wood U190",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-729",
+    "name": "Tom Ford - Patchouli Absolu U176",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-730",
+    "name": "Tom Ford - Rose Prick U177",
+    "essence_ratio": 0.22,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.76,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-731",
+    "name": "Tom Ford - Soleil Blanc U178",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-732",
+    "name": "Tom Ford - Soleil Brulant U183",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-733",
+    "name": "Tom Ford - Soleil Neige U185",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-734",
+    "name": "Tom Ford - Tobacco Oud U179",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-735",
+    "name": "Tom Ford - Tobacco Vanille U157",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-736",
+    "name": "Tom Ford - Tom Ford For Men U191",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-737",
+    "name": "Tom Ford - Tuscan Leather U192",
+    "essence_ratio": 0.21,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.79,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-738",
+    "name": "Tom Ford - Vanilla Sex U158",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-739",
+    "name": "Tom Ford - Vert Des Bois U165",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-740",
+    "name": "Tom Ford - White Suede U193",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-741",
+    "name": "Xerjoff - 1861 Naxos U204",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-742",
+    "name": "Xerjoff - 1861 Renaissance U202",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-743",
+    "name": "Xerjoff - 40 Knots U217",
+    "essence_ratio": 0.17,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.83,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-744",
+    "name": "Xerjoff - Accento U213",
+    "essence_ratio": 0.18,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-745",
+    "name": "Xerjoff - Alexandria II U207",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-746",
+    "name": "Xerjoff - Alexandria III U208",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-747",
+    "name": "Xerjoff - Apollonia U211",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-748",
+    "name": "Xerjoff - Casamorati Bouquet Ideale U199",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-749",
+    "name": "Xerjoff - Casamorati Futura 1888 U216",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-750",
+    "name": "Xerjoff - Comandante U205",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-751",
+    "name": "Xerjoff - Don U200",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-752",
+    "name": "Xerjoff - Fatal Charme U214",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-753",
+    "name": "Xerjoff - Fiore D'Ulivo U201",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-754",
+    "name": "Xerjoff - Italica U203",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-755",
+    "name": "Xerjoff - Kind Of Blue U206",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-756",
+    "name": "Xerjoff - La Capitale U209",
+    "essence_ratio": 0.18,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8200000000000001,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-757",
+    "name": "Xerjoff - More Than Words U210",
+    "essence_ratio": 0.17,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.8099999999999999,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-758",
+    "name": "Xerjoff - Opera U215",
+    "essence_ratio": 0.2,
+    "water_ratio": 0,
+    "alcohol_ratio": 0.8,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-759",
+    "name": "Xerjoff - Starlight U212",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  },
+  {
+    "id": "sug-760",
+    "name": "Xerjoff - Torino 21 U218",
+    "essence_ratio": 0.2,
+    "water_ratio": 0.02,
+    "alcohol_ratio": 0.78,
+    "essence_type": "Eau de Parfum",
+    "gender": "unisex",
+    "gender_label": "Unisex"
+  }
+]
