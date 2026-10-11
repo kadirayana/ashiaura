@@ -77,7 +77,7 @@ export default async function HomePage() {
             {/* Hero */}
             <section className="grid grid-cols-1 md:grid-cols-[1fr_360px] border-b border-ink">
                 <div className="p-8 md:p-14 border-b md:border-b-0 md:border-r border-ink">
-                    <p className="font-storefront-mono text-xs text-sand mb-5">İZMİRDE, 2024'TE KURULDU</p>
+                    <p className="font-storefront-mono text-xs text-sand mb-5">İZMİRDE, 2024&apos;TE KURULDU</p>
                     <h1 className="font-bold text-4xl md:text-6xl leading-[0.98] tracking-tight text-ink">
                         Koku, ölçülebilir bir <span className="text-rust">sanattır.</span>
                     </h1>

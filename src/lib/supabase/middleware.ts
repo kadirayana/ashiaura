@@ -1,17 +1,13 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+const FALLBACK_SUPABASE_URL = 'https://example.supabase.co'
+const FALLBACK_SUPABASE_ANON_KEY = 'placeholder-anon-key'
+
 export async function updateSession(request: NextRequest) {
     const ALLOWED_EMAIL = process.env.ALLOWED_EMAIL
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-    if (!supabaseUrl || !supabaseAnonKey) {
-        throw new Error(
-            'Supabase environment variables are missing. ' +
-            'Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in your .env.local file.'
-        )
-    }
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || FALLBACK_SUPABASE_URL
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || FALLBACK_SUPABASE_ANON_KEY
 
     let supabaseResponse = NextResponse.next({
         request,

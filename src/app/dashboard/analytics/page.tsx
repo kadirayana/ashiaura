@@ -9,12 +9,12 @@ import {
     Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table'
 import {
-    Eye, MousePointerClick, Users, Globe, RefreshCw,
+    Users, Globe, RefreshCw,
     TrendingUp, ArrowUpRight, ArrowDownRight, Package,
     ShoppingCart, DollarSign, Award, Calendar, Download,
-    Sparkles, Filter, ChevronRight
+    Sparkles
 } from 'lucide-react'
-import { formatCurrency, formatDate } from '@/lib/utils'
+import { formatCurrency } from '@/lib/utils'
 import { exportToExcel } from '@/lib/excelExport'
 import { toast } from 'sonner'
 import type { Sale, Customer, Product } from '@/types/database'
@@ -90,8 +90,6 @@ interface MonthlyStat {
 // ─── COMPONENT ───────────────────────────────────────────────
 export default function AnalyticsPage() {
     const [sales, setSales] = useState<SaleWithRelations[]>([])
-    const [customers, setCustomers] = useState<Customer[]>([])
-    const [products, setProducts] = useState<Product[]>([])
     const [pageViews, setPageViews] = useState<PageView[]>([])
     const [clickEvents, setClickEvents] = useState<ClickEvent[]>([])
     const [loading, setLoading] = useState(true)
@@ -103,17 +101,13 @@ export default function AnalyticsPage() {
     const fetchData = useCallback(async () => {
         setLoading(true)
         try {
-            const [salesRes, customersRes, productsRes, viewsRes, clicksRes] = await Promise.all([
+            const [salesRes, viewsRes, clicksRes] = await Promise.all([
                 supabase.from('sales').select('*, customer:customers(*), product:products(*)').order('sale_date', { ascending: true }),
-                supabase.from('customers').select('*').order('name'),
-                supabase.from('products').select('*').order('name'),
                 supabase.from('page_views').select('*').order('created_at', { ascending: false }).limit(1000),
                 supabase.from('click_events').select('*').order('created_at', { ascending: false }).limit(1000),
             ])
 
             if (salesRes.data) setSales(salesRes.data as SaleWithRelations[])
-            if (customersRes.data) setCustomers(customersRes.data)
-            if (productsRes.data) setProducts(productsRes.data)
             if (viewsRes.data) setPageViews(viewsRes.data)
             if (clicksRes.data) setClickEvents(clicksRes.data)
         } catch (err) {
