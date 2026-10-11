@@ -3,7 +3,6 @@ export const dynamic = 'force-dynamic'
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import Image from 'next/image'
-import { SupplyList } from '@/components/supply-list'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { RequestForm } from '@/components/request-form'
@@ -164,13 +163,6 @@ export default async function HomePage() {
                             ))}
                         </div>
                     )}
-                </div>
-            </section>
-
-            {/* Getirtebileceklerimiz */}
-            <section className="px-4 md:px-14 py-10 md:py-14 border-b border-ink bg-black/[0.02]">
-                <div className="max-w-5xl mx-auto">
-                    <SupplyList />
                 </div>
             </section>
 
