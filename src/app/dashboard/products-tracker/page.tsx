@@ -45,8 +45,26 @@ type InventoryBatch = {
     supplier_id: string | null
 }
 
+type IngredientDeduction = {
+    material_id?: string
+    material_name: string
+    quantity_deducted: number
+    unit: string
+    unit_cost?: number | null
+    total_cost?: number | null
+    lot_no?: string | null
+    supplier?: string | null
+}
+
+type ProductionBatch = {
+    product_id: string | null
+    batch_number: string | null
+    production_date: string
+    ingredient_deductions: IngredientDeduction[] | null
+}
+
 type BatchStatus = 'all' | 'available' | 'low' | 'empty'
-type BatchSort = 'arrival' | 'lot' | 'product' | 'quantity' | 'cost'
+type BatchSort = 'arrival' | 'lot' | 'product' | 'supplier' | 'quantity' | 'cost'
 
 function formatDate(value: string) {
     return new Intl.DateTimeFormat('tr-TR', {
@@ -65,6 +83,7 @@ function getBatchStatus(quantity: number): Exclude<BatchStatus, 'all'> {
 export default function ProductsTrackerPage() {
     const [products, setProducts] = useState<ProductOption[]>([])
     const [batches, setBatches] = useState<InventoryBatch[]>([])
+    const [productionBatches, setProductionBatches] = useState<ProductionBatch[]>([])
     const [search, setSearch] = useState('')
     const [status, setStatus] = useState<BatchStatus>('all')
     const [productFilter, setProductFilter] = useState('all')
@@ -79,20 +98,25 @@ export default function ProductsTrackerPage() {
         else setLoading(true)
 
         const supabase = createClient()
-        const [productsResult, batchesResult] = await Promise.all([
+        const [productsResult, batchesResult, productionResult] = await Promise.all([
             supabase.from('products').select('id, name, gender').order('name'),
             supabase
                 .from('inventory_batches')
                 .select('id, lot_no, product_id, quantity, unit_cost, arrival_date, supplier_id')
                 .order('arrival_date', { ascending: true }),
+            supabase
+                .from('production_batches')
+                .select('product_id, batch_number, production_date, ingredient_deductions')
+                .order('production_date', { ascending: false }),
         ])
 
-        if (productsResult.error || batchesResult.error) {
-            console.error('Batch data loading error:', productsResult.error || batchesResult.error)
+        if (productsResult.error || batchesResult.error || productionResult.error) {
+            console.error('Batch data loading error:', productsResult.error || batchesResult.error || productionResult.error)
             toast.error('Batch verileri yüklenemedi. Supabase tablo izinlerini kontrol edin.')
         } else {
             setProducts(productsResult.data || [])
             setBatches(batchesResult.data || [])
+            setProductionBatches((productionResult.data || []) as ProductionBatch[])
         }
 
         setLoading(false)
@@ -108,14 +132,39 @@ export default function ProductsTrackerPage() {
         [products]
     )
 
+    const productionMap = useMemo(
+        () => new Map(
+            productionBatches.map((productionBatch) => [
+                `${productionBatch.product_id}:${productionBatch.batch_number}`,
+                productionBatch,
+            ])
+        ),
+        [productionBatches]
+    )
+
+    function getProductionBatch(batch: InventoryBatch) {
+        return productionMap.get(`${batch.product_id}:${batch.lot_no}`) || null
+    }
+
+    function getSuppliers(batch: InventoryBatch) {
+        const production = getProductionBatch(batch)
+        const suppliers = production?.ingredient_deductions
+            ?.map((deduction) => deduction.supplier?.trim())
+            .filter((supplier): supplier is string => Boolean(supplier)) || []
+
+        return Array.from(new Set(suppliers))
+    }
+
     const filteredBatches = useMemo(() => {
         const normalizedSearch = search.trim().toLocaleLowerCase('tr-TR')
 
         const filtered = batches.filter((batch) => {
             const product = productMap.get(batch.product_id)
+            const suppliers = getSuppliers(batch).join(' ')
             const matchesSearch = !normalizedSearch ||
                 batch.lot_no.toLocaleLowerCase('tr-TR').includes(normalizedSearch) ||
-                product?.name.toLocaleLowerCase('tr-TR').includes(normalizedSearch)
+                product?.name.toLocaleLowerCase('tr-TR').includes(normalizedSearch) ||
+                suppliers.toLocaleLowerCase('tr-TR').includes(normalizedSearch)
             const matchesStatus = status === 'all' || getBatchStatus(batch.quantity) === status
             const matchesProduct = productFilter === 'all' || batch.product_id === productFilter
 
@@ -133,6 +182,8 @@ export default function ProductsTrackerPage() {
                 comparison = a.lot_no.localeCompare(b.lot_no, 'tr-TR')
             } else if (sortBy === 'product') {
                 comparison = productA.localeCompare(productB, 'tr-TR')
+            } else if (sortBy === 'supplier') {
+                comparison = getSuppliers(a).join(', ').localeCompare(getSuppliers(b).join(', '), 'tr-TR')
             } else if (sortBy === 'quantity') {
                 comparison = a.quantity - b.quantity
             } else {
@@ -141,7 +192,7 @@ export default function ProductsTrackerPage() {
 
             return sortDescending ? -comparison : comparison
         })
-    }, [batches, productFilter, productMap, search, sortBy, sortDescending, status])
+    }, [batches, productFilter, productMap, productionMap, search, sortBy, sortDescending, status])
 
     const stats = useMemo(() => ({
         total: batches.length,
@@ -154,6 +205,7 @@ export default function ProductsTrackerPage() {
         ? batches.find((batch) => batch.id === selectedBatchId) || null
         : null
     const selectedProduct = selectedBatch ? productMap.get(selectedBatch.product_id) : null
+    const selectedProduction = selectedBatch ? getProductionBatch(selectedBatch) : null
 
     function changeSort(nextSort: BatchSort) {
         if (sortBy === nextSort) {
@@ -262,6 +314,7 @@ export default function ProductsTrackerPage() {
                                         <SortableHead label="Batch / Lot" sort="lot" current={sortBy} descending={sortDescending} onSort={changeSort} />
                                         <SortableHead label="Ürün" sort="product" current={sortBy} descending={sortDescending} onSort={changeSort} />
                                         <SortableHead label="Giriş tarihi" sort="arrival" current={sortBy} descending={sortDescending} onSort={changeSort} />
+                                        <SortableHead label="Tedarikçi" sort="supplier" current={sortBy} descending={sortDescending} onSort={changeSort} />
                                         <SortableHead label="Stok" sort="quantity" current={sortBy} descending={sortDescending} onSort={changeSort} className="text-right" />
                                         <SortableHead label="Maliyet" sort="cost" current={sortBy} descending={sortDescending} onSort={changeSort} className="text-right" />
                                         <TableHead className="text-right text-xs uppercase tracking-wide text-sand">Durum</TableHead>
@@ -287,6 +340,11 @@ export default function ProductsTrackerPage() {
                                                     {product?.gender && <p className="mt-0.5 text-xs capitalize text-sand">{product.gender}</p>}
                                                 </TableCell>
                                                 <TableCell className="text-sm text-sand">{formatDate(batch.arrival_date)}</TableCell>
+                                                <TableCell className="max-w-[190px] text-sm text-sand">
+                                                    <span className="block truncate">
+                                                        {getSuppliers(batch).join(', ') || 'Kayıt yok'}
+                                                    </span>
+                                                </TableCell>
                                                 <TableCell className={`text-right font-storefront-mono text-base font-bold ${batch.quantity <= 2 ? 'text-rust' : 'text-moss'}`}>
                                                     {batch.quantity}
                                                 </TableCell>
@@ -325,7 +383,40 @@ export default function ProductsTrackerPage() {
                                 <DetailRow label="Depo girişi" value={formatDate(selectedBatch.arrival_date)} />
                                 <DetailRow label="Kalan stok" value={`${selectedBatch.quantity} adet`} />
                                 <DetailRow label="Birim maliyet" value={selectedBatch.unit_cost != null ? `₺${selectedBatch.unit_cost.toFixed(2)}` : '—'} />
-                                <DetailRow label="Tedarikçi ID" value={selectedBatch.supplier_id || 'İç üretim / kayıt yok'} />
+                                <DetailRow label="Üretim tarihi" value={selectedProduction ? formatDate(selectedProduction.production_date) : '—'} />
+                                <DetailRow label="Tedarikçi" value={getSuppliers(selectedBatch).join(', ') || 'Kayıt yok'} />
+                                {selectedProduction?.ingredient_deductions && selectedProduction.ingredient_deductions.length > 0 && (
+                                    <div className="space-y-2 pt-2">
+                                        <p className="text-xs uppercase tracking-wide text-sand">Kullanılan hammaddeler</p>
+                                        <div className="overflow-x-auto rounded-md border border-hairline">
+                                            <Table>
+                                                <TableHeader>
+                                                    <TableRow className="border-hairline hover:bg-transparent">
+                                                        <TableHead className="text-xs text-sand">Hammadde</TableHead>
+                                                        <TableHead className="text-xs text-sand">Tedarikçi / lot</TableHead>
+                                                        <TableHead className="text-right text-xs text-sand">Miktar</TableHead>
+                                                        <TableHead className="text-right text-xs text-sand">Maliyet</TableHead>
+                                                    </TableRow>
+                                                </TableHeader>
+                                                <TableBody>
+                                                    {selectedProduction.ingredient_deductions.map((deduction, index) => (
+                                                        <TableRow key={`${deduction.material_id || deduction.material_name}-${index}`} className="border-hairline">
+                                                            <TableCell className="max-w-[150px] truncate text-xs text-ink">{deduction.material_name}</TableCell>
+                                                            <TableCell className="max-w-[130px] text-xs text-sand">
+                                                                <span className="block truncate">{deduction.supplier || 'Kayıt yok'}</span>
+                                                                {deduction.lot_no && <span className="block font-storefront-mono text-[10px] text-rust">{deduction.lot_no}</span>}
+                                                            </TableCell>
+                                                            <TableCell className="text-right text-xs text-ink">{deduction.quantity_deducted} {deduction.unit}</TableCell>
+                                                            <TableCell className="text-right text-xs text-ink">
+                                                                {deduction.total_cost != null ? `₺${Number(deduction.total_cost).toFixed(2)}` : '—'}
+                                                            </TableCell>
+                                                        </TableRow>
+                                                    ))}
+                                                </TableBody>
+                                            </Table>
+                                        </div>
+                                    </div>
+                                )}
                             </>
                         )}
                     </CardContent>

@@ -265,8 +265,7 @@ export default function InventoryPage() {
             if (error) throw error
 
             // Record purchase log in raw_material_purchases table
-            try {
-                await supabase.from('raw_material_purchases').insert({
+            const { error: purchaseLogError } = await supabase.from('raw_material_purchases').insert({
                     material_id: newRow.id,
                     quantity: addQty,
                     unit_cost: addQty > 0 ? Number((addedCost / addQty).toFixed(4)) : 0,
@@ -275,11 +274,13 @@ export default function InventoryPage() {
                     notes: stockFormData.notes || null,
                     purchase_date: stockFormData.purchase_date || new Date().toISOString().split('T')[0]
                 })
-            } catch (logErr) {
-                console.log('Purchase log insert info:', logErr)
+            if (purchaseLogError) {
+                console.error('Purchase log insert failed:', purchaseLogError)
+                toast.error('Lot eklendi ancak alım geçmişi kaydedilemedi. Lütfen bu lotu tekrar kontrol edin.')
+            } else {
+                toast.success(`Yeni alım lotu eklendi: ${addQty} ${selectedStockMaterial.unit} (${supplierVal || 'Tedarikçi yok'})`)
             }
 
-            toast.success(`Yeni alım lotu eklendi: ${addQty} ${selectedStockMaterial.unit} (${supplierVal || 'Tedarikçi yok'})`)
             setStockDialogOpen(false)
             fetchMaterials(true)
         } catch (err: any) {
@@ -315,8 +316,7 @@ export default function InventoryPage() {
                 toast.error('Failed to add material')
             } else if (data) {
                 // Record purchase log in raw_material_purchases table
-                try {
-                    await supabase.from('raw_material_purchases').insert({
+                const { error: purchaseLogError } = await supabase.from('raw_material_purchases').insert({
                         material_id: data.id,
                         quantity: initialStock,
                         unit_cost: (initialStock > 0 && totalCostVal) ? Number((totalCostVal / initialStock).toFixed(4)) : 0,
@@ -325,11 +325,13 @@ export default function InventoryPage() {
                         notes: formData.notes || 'Alım Kaydı',
                         purchase_date: new Date().toISOString().split('T')[0]
                     })
-                } catch (logErr) {
-                    console.log('Initial purchase log info:', logErr)
+                if (purchaseLogError) {
+                    console.error('Initial purchase log failed:', purchaseLogError)
+                    toast.error('Hammadde lotu eklendi ancak alım geçmişi kaydedilemedi.')
+                } else {
+                    toast.success(`Yeni Alım Kaydı Eklendi: "${cleanName}" (${formData.supplier || 'Tedarikçi belirtilmedi'})`)
                 }
 
-                toast.success(`Yeni Alım Kaydı Eklendi: "${cleanName}" (${formData.supplier || 'Tedarikçi belirtilmedi'})`)
                 setMaterials(prev => [data as RawMaterial, ...prev])
                 setDialogOpen(false)
                 resetForm()

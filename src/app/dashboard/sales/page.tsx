@@ -285,79 +285,27 @@ export default function SalesPage() {
                     }
                 }
 
-                // A. Revert old stock
-                const { data: oldProd } = await supabase.from('products').select('stock').eq('id', editingSale.product_id).single()
-                if (oldProd) {
-                    await supabase.from('products').update({ stock: oldProd.stock + editingSale.quantity }).eq('id', editingSale.product_id)
+                const replacementUnitPrice = item.unit_price !== '' ? Number(item.unit_price) : (item.quantity > 0 ? Number(item.total_price) / item.quantity : 0)
+                const { data: replacementSaleId, error: replacementError } = await supabase.rpc('update_sale_fifo', {
+                    p_sale_id: editingSale.id,
+                    p_product_id: finalProductId,
+                    p_quantity: item.quantity,
+                    p_customer_id: formData.customer_id || null,
+                    p_unit_price: replacementUnitPrice,
+                    p_payment_amount: paymentAmount,
+                    p_notes: formData.notes || '',
+                    p_sale_date: formData.sale_date,
+                })
+                if (replacementError || !replacementSaleId) {
+                    throw replacementError || new Error('Satış batch stoklarıyla birlikte güncellenemedi.')
                 }
-                // B. Deduct new stock
-                const { data: newProd } = await supabase.from('products').select('stock').eq('id', finalProductId).single()
-                const currentStock = newProd?.stock ?? 0
-                await supabase.from('products').update({ stock: currentStock - item.quantity }).eq('id', finalProductId)
 
-                // C. Revert old customer balance impact
-                const oldBalanceChange = (editingSale.total_price || 0) - (editingSale.payment_amount || 0)
+                toast.success('Satış ve batch stokları güncellendi.')
+                await fetchData()
+                setDialogOpen(false)
+                resetForm()
+                return
 
-                const hasUnitCost = item.unit_cost !== '' && Number(item.unit_cost) > 0
-                const currentProductCost = hasUnitCost ? Number(item.unit_cost) : 0
-                const calculatedUnitPrice = item.unit_price !== '' ? Number(item.unit_price) : (item.quantity > 0 ? Number(item.total_price) / item.quantity : 0)
-                const profitValue = hasUnitCost ? Number(item.total_price) - (item.quantity * currentProductCost) : null
-
-                // E. Update sale record
-                const { error: updateError } = await supabase.from('sales').update({
-                    customer_id: formData.customer_id || null,
-                    product_id: finalProductId,
-                    quantity: item.quantity,
-                    unit_price: calculatedUnitPrice,
-                    unit_cost: currentProductCost,
-                    total_price: Number(item.total_price),
-                    profit: profitValue,
-                    payment_amount: paymentAmount,
-                    notes: formData.notes || null,
-                    sale_date: formData.sale_date,
-                }).eq('id', editingSale.id)
-                if (updateError) throw updateError
-                toast.success('Sale updated successfully!')
-
-                // Optimistic update: replace sale in local state
-                restoreScroll()
-                setSales((prev: SaleWithRelations[]) => prev.map((s: SaleWithRelations) => {
-                    if (s.id !== editingSale.id) return s
-                    return {
-                        ...s,
-                        customer_id: formData.customer_id || null,
-                        customer: formData.customer_id
-                            ? customers.find((c: Customer) => c.id === formData.customer_id) ?? undefined
-                            : undefined,
-                        product_id: finalProductId,
-                        product: products.find((p: Product) => p.id === finalProductId) || s.product,
-                        quantity: item.quantity,
-                        unit_price: calculatedUnitPrice,
-                        unit_cost: currentProductCost,
-                        total_price: Number(item.total_price),
-                        profit: profitValue,
-                        payment_amount: paymentAmount,
-                        notes: formData.notes || null,
-                        sale_date: formData.sale_date,
-                    } as SaleWithRelations
-                }))
-                // Update local customers state
-                setCustomers((prev: Customer[]) => prev.map((c: Customer) => {
-                    let bal = c.balance || 0
-                    if (c.id === editingSale.customer_id) {
-                        bal -= oldBalanceChange
-                    }
-                    if (c.id === formData.customer_id) {
-                        bal += balanceChange
-                    }
-                    return { ...c, balance: bal }
-                }))
-                // Update product stock locally
-                setProducts((prev: Product[]) => prev.map((p: Product) => {
-                    if (p.id === editingSale.product_id) return { ...p, stock: (oldProd?.stock ?? p.stock) + editingSale.quantity }
-                    if (p.id === finalProductId) return { ...p, stock: currentStock - item.quantity }
-                    return p
-                }))
             } else {
                 // â”€â”€ INSERT MODE â”€â”€
                 const updatedItems = []
@@ -499,34 +447,13 @@ export default function SalesPage() {
     async function handleDelete(sale: SaleWithRelations) {
         if (!confirm('Are you sure you want to delete this sale? Stock will be restored.')) return
         try {
-            // Fetch fresh stock from DB to avoid race condition
-            const { data: freshProduct } = await supabase.from('products').select('stock').eq('id', sale.product_id).single()
-            if (freshProduct) {
-                await supabase.from('products').update({ stock: freshProduct.stock + sale.quantity }).eq('id', sale.product_id)
-            }
-
-            // Revert customer balance impact
-            const balanceChangeToRevert = (sale.total_price || 0) - (sale.payment_amount || 0)
-            if (sale.customer_id && balanceChangeToRevert !== 0) {
-                // Update local customers state
-                setCustomers((prev: Customer[]) => prev.map((c: Customer) =>
-                    c.id === sale.customer_id ? { ...c, balance: (c.balance || 0) - balanceChangeToRevert } : c
-                ))
-            }
-
-            const { error } = await supabase.from('sales').delete().eq('id', sale.id)
+            const { error } = await supabase.rpc('delete_sale_fifo', { p_sale_id: sale.id })
             if (error) throw error
             toast.success('Sale deleted and stock restored')
-            // Optimistic update: remove from local state and restore product stock
-            restoreScroll()
-            setSales((prev: SaleWithRelations[]) => prev.filter((s: SaleWithRelations) => s.id !== sale.id))
-            if (freshProduct) {
-                setProducts((prev: Product[]) => prev.map((p: Product) =>
-                    p.id === sale.product_id ? { ...p, stock: freshProduct.stock + sale.quantity } : p
-                ))
-            }
+            await fetchData()
         } catch (error) {
-            toast.error('Failed to delete sale')
+            console.error('Sale deletion failed:', error)
+            toast.error(error instanceof Error ? error.message : 'Failed to delete sale')
         }
     }
 

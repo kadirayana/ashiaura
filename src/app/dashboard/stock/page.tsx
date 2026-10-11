@@ -360,9 +360,17 @@ export default function StockPage() {
     async function adjustStock(id: string, currentStock: number, adjustment: number) {
         const newStock = currentStock + adjustment
         if (newStock < 0) { toast.error('Stock cannot be negative'); return }
+        const { error } = await supabase.rpc('adjust_product_stock', {
+            p_product_id: id,
+            p_adjustment: adjustment,
+            p_unit_cost: 0,
+            p_lot_no: `MANUAL-${new Date().toISOString().replace(/\D/g, '').slice(0, 14)}`,
+        })
+        if (error) {
+            toast.error(error.message || 'Failed to adjust stock')
+            return
+        }
         setProducts(prev => prev.map(p => p.id === id ? { ...p, stock: newStock } : p))
-        const { error } = await supabase.from('products').update({ stock: newStock }).eq('id', id)
-        if (error) { toast.error('Failed to adjust stock'); fetchData(true) }
     }
 
     // ─── Inline Editing ────────────────────────────────────────
