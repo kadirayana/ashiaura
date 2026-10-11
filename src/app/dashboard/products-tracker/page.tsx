@@ -1,310 +1,337 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import type { ReactNode } from 'react'
 import { createClient } from '@/lib/supabase/client'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Search, Hash, Calendar, Box, Package, ArrowDown, MapPin, Database } from 'lucide-react'
+import {
+    AlertTriangle,
+    Calendar,
+    CheckCircle2,
+    Database,
+    Package,
+    RefreshCw,
+    Search,
+    Warehouse,
+} from 'lucide-react'
 import { toast } from 'sonner'
-import { Badge } from '@/components/ui/badge'
 
-type Ingredient = {
-  consumed_qty: number
-  lot_no: string
-  arrival_date: string
-  unit_cost: number
-  total_cost: number
-  product_name: string
-  product_type: string
-  supplier_name: string
+type ProductOption = {
+    id: string
+    name: string
+    gender: string | null
 }
 
-type TraceResult = {
-  error?: string
-  target_batch: {
+type InventoryBatch = {
+    id: string
     lot_no: string
-    product_name: string
-    product_type: string
-    current_stock: number
-    arrival_date: string
+    product_id: string
+    quantity: number
     unit_cost: number | null
-    supplier_name: string | null
-  }
-  production: {
-    order_date: string
-    formula_name: string
-    yield_quantity: number
-    ingredients: Ingredient[]
-  } | null
+    arrival_date: string
+    supplier_id: string | null
+}
+
+type BatchStatus = 'all' | 'available' | 'low' | 'empty'
+
+function formatDate(value: string) {
+    return new Intl.DateTimeFormat('tr-TR', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+    }).format(new Date(value))
+}
+
+function getBatchStatus(quantity: number): Exclude<BatchStatus, 'all'> {
+    if (quantity <= 0) return 'empty'
+    if (quantity <= 2) return 'low'
+    return 'available'
 }
 
 export default function ProductsTrackerPage() {
-  const [lotNo, setLotNo] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [result, setResult] = useState<TraceResult | null>(null)
-  const [availableLots, setAvailableLots] = useState<{ lot_no: string; product_name: string; is_legacy: boolean }[]>([])
+    const [products, setProducts] = useState<ProductOption[]>([])
+    const [batches, setBatches] = useState<InventoryBatch[]>([])
+    const [search, setSearch] = useState('')
+    const [status, setStatus] = useState<BatchStatus>('all')
+    const [productFilter, setProductFilter] = useState('all')
+    const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [refreshing, setRefreshing] = useState(false)
 
-  const supabase = createClient()
+    async function loadData(isRefresh = false) {
+        if (isRefresh) setRefreshing(true)
+        else setLoading(true)
 
-  useEffect(() => {
-    async function loadLots() {
-      // 1. Active batches
-      const { data: batches } = await supabase
-        .from('inventory_batches')
-        .select('lot_no, products(name)')
-        .order('arrival_date', { ascending: false })
-        .limit(100)
+        const supabase = createClient()
+        const [productsResult, batchesResult] = await Promise.all([
+            supabase.from('products').select('id, name, gender').order('name'),
+            supabase
+                .from('inventory_batches')
+                .select('id, lot_no, product_id, quantity, unit_cost, arrival_date, supplier_id')
+                .order('arrival_date', { ascending: true }),
+        ])
 
-      // 2. Legacy items
-      const { data: legacy } = await supabase
-        .from('products')
-        .select('batch_number, name')
-        .not('batch_number', 'is', null)
-        .limit(100)
+        if (productsResult.error || batchesResult.error) {
+            console.error('Batch data loading error:', productsResult.error || batchesResult.error)
+            toast.error('Batch verileri yüklenemedi. Supabase tablo izinlerini kontrol edin.')
+        } else {
+            setProducts(productsResult.data || [])
+            setBatches(batchesResult.data || [])
+        }
 
-      const combined: any[] = []
-
-      if (batches) {
-        batches.forEach((b: any) => {
-          combined.push({
-            lot_no: b.lot_no,
-            product_name: b.products?.name || 'Bilinmeyen Ürün',
-            is_legacy: false
-          })
-        })
-      }
-
-      if (legacy) {
-        legacy.forEach((l: any) => {
-          if (!combined.some(c => c.lot_no === l.batch_number || c.lot_no.startsWith(l.batch_number + '-'))) {
-            combined.push({
-              lot_no: l.batch_number,
-              product_name: l.name,
-              is_legacy: true
-            })
-          }
-        })
-      }
-
-      setAvailableLots(combined)
+        setLoading(false)
+        setRefreshing(false)
     }
-    loadLots()
-  }, [])
 
-  async function handleSearch(e: React.FormEvent) {
-    e.preventDefault()
-    if (!lotNo.trim()) return
+    useEffect(() => {
+        loadData()
+    }, [])
 
-    setLoading(true)
-    setResult(null)
+    const productMap = useMemo(
+        () => new Map(products.map((product) => [product.id, product])),
+        [products]
+    )
 
-    try {
-      const { data, error } = await supabase.rpc('trace_lot_history', { p_lot_no: lotNo.trim() })
+    const filteredBatches = useMemo(() => {
+        const normalizedSearch = search.trim().toLocaleLowerCase('tr-TR')
 
-      if (error) throw error
+        return batches.filter((batch) => {
+            const product = productMap.get(batch.product_id)
+            const matchesSearch = !normalizedSearch ||
+                batch.lot_no.toLocaleLowerCase('tr-TR').includes(normalizedSearch) ||
+                product?.name.toLocaleLowerCase('tr-TR').includes(normalizedSearch)
+            const matchesStatus = status === 'all' || getBatchStatus(batch.quantity) === status
+            const matchesProduct = productFilter === 'all' || batch.product_id === productFilter
 
-      if (data && data.error) {
-        toast.error(data.error)
-      } else if (data) {
-        setResult(data as TraceResult)
-        toast.success('Lot izlenebilirlik raporu bulundu.')
-      }
-    } catch (err: any) {
-      console.error("Supabase RPC Error Details:", err.message, err.details, err.hint, err)
-      toast.error(`Sorgu hatası: ${err?.message || 'Lütfen Supabase RPC fonksiyonunu SQL editörde çalıştırdığınızdan emin olun.'}`)
-    } finally {
-      setLoading(false)
-    }
-  }
+            return matchesSearch && matchesStatus && matchesProduct
+        })
+    }, [batches, productFilter, productMap, search, status])
 
-  return (
-    <div className="max-w-5xl space-y-6 text-ink">
-      <div className="flex flex-col space-y-1">
-        <h1 className="text-2xl sm:text-3xl font-bold text-ink flex items-center gap-2.5 sm:gap-3">
-          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-rust shrink-0" /> Lot (Batch) İzlenebilirliği
-        </h1>
-        <p className="text-sand text-xs sm:text-sm">Ürün veya Hammadde Lot Numarasını yazarak tüm üretim köklerini ve maliyetlerini şeffafça inceleyin.</p>
-      </div>
+    const stats = useMemo(() => ({
+        total: batches.length,
+        available: batches.filter((batch) => batch.quantity > 0).length,
+        low: batches.filter((batch) => batch.quantity > 0 && batch.quantity <= 2).length,
+        units: batches.reduce((total, batch) => total + (batch.quantity || 0), 0),
+    }), [batches])
 
-      <Card className="bg-paper border-hairline">
-        <CardContent className="p-4 sm:p-6">
-          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <div className="relative flex-1">
-              <Hash className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-sand" />
-              <Input
-                placeholder="Lot numarası girin (Örn: PRF-2026...)"
-                value={lotNo}
-                onChange={(e) => setLotNo(e.target.value)}
-                className="pl-9 sm:pl-10 h-10 sm:h-12 bg-paper border-hairline text-sm sm:text-base w-full text-ink placeholder:text-sand"
-              />
+    const selectedBatch = selectedBatchId
+        ? batches.find((batch) => batch.id === selectedBatchId) || null
+        : null
+    const selectedProduct = selectedBatch ? productMap.get(selectedBatch.product_id) : null
+
+    return (
+        <div className="max-w-7xl space-y-6 text-ink">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                    <h1 className="flex items-center gap-2.5 text-2xl font-bold sm:text-3xl">
+                        <Warehouse className="h-7 w-7 text-rust" />
+                        Batch Takibi
+                    </h1>
+                    <p className="mt-1 text-sm text-sand">
+                        Depodaki lotları, stok durumunu ve FIFO sırasını tek ekrandan yönetin.
+                    </p>
+                </div>
+                <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => loadData(true)}
+                    disabled={loading || refreshing}
+                    className="border-hairline text-ink"
+                >
+                    <RefreshCw className={`mr-2 h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+                    Yenile
+                </Button>
             </div>
-            <Button
-                type="submit"
-                disabled={loading}
-                className="h-10 sm:h-12 px-6 bg-ink hover:bg-rust text-paper font-semibold text-sm sm:text-base"
-            >
-              {loading ? 'Aranıyor...' : <><Search className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 sm:mr-2" /> Sorgula</>}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
 
-      {/* --- SONUC GOSTERIMI --- */}
-      {result && (
-        <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <StatCard label="Toplam Batch" value={stats.total} icon={<Database className="h-4 w-4" />} />
+                <StatCard label="Aktif Batch" value={stats.available} icon={<CheckCircle2 className="h-4 w-4" />} />
+                <StatCard label="Son 2 Adet" value={stats.low} icon={<AlertTriangle className="h-4 w-4" />} tone="rust" />
+                <StatCard label="Toplam Stok" value={stats.units} icon={<Package className="h-4 w-4" />} />
+            </div>
 
-          {/* 1. HEDEF LOT BILGISI */}
-          <Card className="bg-paper border-l-4 border-l-rust border-hairline">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-xl flex justify-between items-center text-ink">
-                <div className="flex items-center gap-2">
-                  <Package className="w-5 h-5 text-rust" />
-                  Aranan Lot: <span className="font-storefront-mono text-rust tracking-wider bg-ink/10 px-2 py-1 rounded">{result.target_batch.lot_no}</span>
-                </div>
-                <Badge variant="outline" className="border-hairline text-sand capitalize text-sm">
-                  {result.target_batch.product_type}
-                </Badge>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-4">
-                <div className="space-y-1">
-                  <p className="text-xs text-sand font-medium uppercase">Ürün Adı</p>
-                  <p className="text-lg font-semibold text-ink">{result.target_batch.product_name}</p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xs text-sand font-medium uppercase">Tarih (Depo Giriş)</p>
-                  <p className="text-lg text-sand flex items-center gap-1">
-                    <Calendar className="w-4 h-4 text-sand" /> {result.target_batch.arrival_date}
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xs text-sand font-medium uppercase">Kalan Stok / Tutar</p>
-                  <p className="text-lg font-storefront-mono text-moss">
-                    {result.target_batch.current_stock} <span className="text-sm text-sand">adet/ml</span>
-                    {result.target_batch.unit_cost && <span className="ml-2 text-yellow-500 text-sm">(₺{result.target_batch.unit_cost})</span>}
-                  </p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-xs text-sand font-medium uppercase">Tedarikçi</p>
-                  <p className="text-lg text-sand">
-                    {result.target_batch.supplier_name || <span className="text-sand/60">İç Üretim</span>}
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* 2. URETIM (PRODUCTION) AGACI */}
-          {result.production ? (
-            <div className="flex flex-col items-center">
-              <div className="w-1 h-12 bg-hairline flex items-center justify-center">
-                <ArrowDown className="w-5 h-5 text-sand bg-paper rounded-full" />
-              </div>
-
-              <Card className="w-full bg-paper border-hairline relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-rust" />
-                <CardHeader className="bg-ink/5 border-b border-hairline">
-                  <CardTitle className="flex justify-between items-center text-lg text-ink">
-                     <span>Üretim Raporu 🔬</span>
-                     <span className="text-sm font-normal text-sand">
-                       Formül: <strong className="text-rust">{result.production.formula_name}</strong> |
-                       Tarih: <strong className="text-ink">{new Date(result.production.order_date).toLocaleDateString('tr-TR')}</strong>
-                     </span>
-                  </CardTitle>
-                </CardHeader>
-
-                <CardContent className="pt-6">
-                  <h3 className="text-sm font-semibold text-sand uppercase mb-4 tracking-wider">Harcırah (Kullanılan Hammaddeler)</h3>
-
-                  <div className="space-y-3">
-                    {result.production.ingredients.length === 0 ? (
-                      <p className="text-sand italic">Hammadde tüketim kaydı bulunamadı.</p>
-                    ) : (
-                      result.production.ingredients.map((ing, idx) => (
-                        <div key={idx} className="flex flex-col md:flex-row md:items-center justify-between p-4 rounded-xl bg-ink/5 border border-hairline hover:border-ink/30 transition-colors gap-4">
-
-                          <div className="flex items-center gap-4 w-full md:w-1/3">
-                            <div className="bg-ink/10 p-2 rounded-lg">
-                              <Box className="w-5 h-5 text-rust" />
-                            </div>
-                            <div>
-                               <p className="text-ink font-medium">{ing.product_name}</p>
-                               <p className="text-xs text-sand font-storefront-mono tracking-wide">{ing.lot_no}</p>
-                            </div>
-                          </div>
-
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full md:w-2/3 text-sm">
-                            <div className="space-y-1">
-                              <p className="text-sand text-xs">Tedarikçi</p>
-                              <p className="text-sand truncate">{ing.supplier_name}</p>
-                            </div>
-                            <div className="space-y-1">
-                              <p className="text-sand text-xs">Dolum Tarihi</p>
-                              <p className="text-sand">{ing.arrival_date}</p>
-                            </div>
-                            <div className="space-y-1 text-right">
-                              <p className="text-sand text-xs">Tüketim</p>
-                              <p className="text-moss font-medium">-{ing.consumed_qty}</p>
-                            </div>
-                            <div className="space-y-1 text-right">
-                               <p className="text-sand text-xs">Maliyet Etkisi</p>
-                               <p className="text-yellow-500 font-medium">₺{ing.total_cost?.toFixed(2) || '0.00'}</p>
-                            </div>
-                          </div>
-
-                        </div>
-                      ))
-                    )}
-                  </div>
-
-                  <div className="mt-8 flex justify-end">
-                     <div className="text-right p-4 rounded-xl bg-ink/5 inline-block border border-hairline">
-                        <p className="text-sm text-sand mb-1 uppercase tracking-wider">Toplam Üretim Maliyeti (COGS)</p>
-                        <p className="text-2xl font-bold text-yellow-500">
-                          ₺{result.production.ingredients.reduce((acc, curr) => acc + (curr.total_cost || 0), 0).toFixed(2)}
-                        </p>
-                     </div>
-                  </div>
-
+            <Card className="border-hairline bg-paper">
+                <CardContent className="flex flex-col gap-3 p-4 md:flex-row">
+                    <div className="relative flex-1">
+                        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-sand" />
+                        <Input
+                            value={search}
+                            onChange={(event) => setSearch(event.target.value)}
+                            placeholder="Lot numarası veya ürün ara..."
+                            className="h-10 border-hairline bg-paper pl-9 text-ink"
+                        />
+                    </div>
+                    <select
+                        value={productFilter}
+                        onChange={(event) => setProductFilter(event.target.value)}
+                        className="h-10 rounded-md border border-hairline bg-paper px-3 text-sm text-ink"
+                        aria-label="Ürün filtresi"
+                    >
+                        <option value="all">Tüm ürünler</option>
+                        {products.map((product) => (
+                            <option key={product.id} value={product.id}>{product.name}</option>
+                        ))}
+                    </select>
+                    <div className="flex gap-1 overflow-x-auto">
+                        {([
+                            ['all', 'Tümü'],
+                            ['available', 'Aktif'],
+                            ['low', 'Son 2'],
+                            ['empty', 'Boş'],
+                        ] as const).map(([value, label]) => (
+                            <button
+                                key={value}
+                                type="button"
+                                onClick={() => setStatus(value)}
+                                className={`whitespace-nowrap rounded-md border px-3 py-2 text-xs font-semibold transition-colors ${
+                                    status === value
+                                        ? 'border-ink bg-ink text-paper'
+                                        : 'border-hairline text-sand hover:border-ink hover:text-ink'
+                                }`}
+                            >
+                                {label}
+                            </button>
+                        ))}
+                    </div>
                 </CardContent>
-              </Card>
+            </Card>
+
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+                <Card className="border-hairline bg-paper">
+                    <CardHeader className="border-b border-hairline pb-3">
+                        <CardTitle className="text-base text-ink">
+                            Lot Listesi <span className="font-normal text-sand">({filteredBatches.length})</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                        {loading ? (
+                            <div className="p-8 text-center text-sm text-sand">Batch kayıtları yükleniyor...</div>
+                        ) : filteredBatches.length === 0 ? (
+                            <div className="p-8 text-center text-sm text-sand">
+                                Aramanıza uyan batch bulunamadı.
+                            </div>
+                        ) : (
+                            <div className="divide-y divide-hairline">
+                                {filteredBatches.map((batch) => {
+                                    const product = productMap.get(batch.product_id)
+                                    const batchStatus = getBatchStatus(batch.quantity)
+                                    const isSelected = selectedBatchId === batch.id
+
+                                    return (
+                                        <button
+                                            key={batch.id}
+                                            type="button"
+                                            onClick={() => setSelectedBatchId(batch.id)}
+                                            className={`grid w-full grid-cols-[1fr_auto] gap-3 p-4 text-left transition-colors hover:bg-ink/5 ${
+                                                isSelected ? 'bg-rust/5' : ''
+                                            }`}
+                                        >
+                                            <div className="min-w-0">
+                                                <div className="flex flex-wrap items-center gap-2">
+                                                    <span className="font-storefront-mono text-sm font-bold text-rust">{batch.lot_no}</span>
+                                                    <StatusBadge status={batchStatus} />
+                                                </div>
+                                                <p className="mt-1 truncate font-semibold text-ink">
+                                                    {product?.name || 'Ürün bulunamadı'}
+                                                </p>
+                                                <p className="mt-1 flex items-center gap-1 text-xs text-sand">
+                                                    <Calendar className="h-3.5 w-3.5" />
+                                                    {formatDate(batch.arrival_date)}
+                                                </p>
+                                            </div>
+                                            <div className="text-right">
+                                                <p className={`font-storefront-mono text-lg font-bold ${batch.quantity <= 2 ? 'text-rust' : 'text-moss'}`}>
+                                                    {batch.quantity}
+                                                </p>
+                                                <p className="text-xs text-sand">adet</p>
+                                            </div>
+                                        </button>
+                                    )
+                                })}
+                            </div>
+                        )}
+                    </CardContent>
+                </Card>
+
+                <Card className="h-fit border-hairline bg-paper">
+                    <CardHeader className="border-b border-hairline pb-3">
+                        <CardTitle className="text-base text-ink">Batch Detayı</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4 p-4">
+                        {!selectedBatch ? (
+                            <p className="text-sm leading-relaxed text-sand">
+                                Detaylarını görmek için listeden bir batch seçin.
+                            </p>
+                        ) : (
+                            <>
+                                <div>
+                                    <p className="text-xs uppercase tracking-wide text-sand">Lot numarası</p>
+                                    <p className="mt-1 font-storefront-mono text-xl font-bold text-rust">{selectedBatch.lot_no}</p>
+                                </div>
+                                <DetailRow label="Ürün" value={selectedProduct?.name || 'Ürün bulunamadı'} />
+                                <DetailRow label="Profil" value={selectedProduct?.gender || '—'} />
+                                <DetailRow label="Depo girişi" value={formatDate(selectedBatch.arrival_date)} />
+                                <DetailRow label="Kalan stok" value={`${selectedBatch.quantity} adet`} />
+                                <DetailRow label="Birim maliyet" value={selectedBatch.unit_cost != null ? `₺${selectedBatch.unit_cost.toFixed(2)}` : '—'} />
+                                <DetailRow label="Tedarikçi ID" value={selectedBatch.supplier_id || 'İç üretim / kayıt yok'} />
+                            </>
+                        )}
+                    </CardContent>
+                </Card>
             </div>
-          ) : (
-             <div className="p-4 bg-paper border border-hairline rounded-lg text-center text-sand italic">
-                Bu Lot bir mamul (üretim) değil, veya sisteme direkt girilmiş bir hammadde kaydıdır. Alt kırılımı bulunmuyor.
-             </div>
-          )}
-
         </div>
-      )}
+    )
+}
 
-      {/* --- MEVCUT LOTLAR LISTESI --- */}
-      <div className="pt-10">
-        <h2 className="text-xl font-semibold text-ink mb-4 flex items-center gap-2">
-          <Database className="w-5 h-5 text-rust" /> Sistemde Kayıtlı Olan Lotlar
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {availableLots.length === 0 ? (
-            <p className="text-sm text-sand">Henüz kayıtlı lot bulunmuyor.</p>
-          ) : (
-            availableLots.map((lot, idx) => (
-              <Badge
-                key={idx}
-                variant="outline"
-                className={`cursor-pointer hover:bg-ink/5 transition-colors py-1.5 px-3 border ${lot.is_legacy ? 'border-hairline text-sand' : 'border-rust/30 text-rust'}`}
-                onClick={() => {
-                  setLotNo(lot.lot_no)
-                  window.scrollTo({ top: 0, behavior: 'smooth' })
-                }}
-              >
-                {lot.lot_no} <span className="text-xs opacity-60 ml-2 font-normal">({lot.product_name})</span>
-              </Badge>
-            ))
-          )}
+function StatCard({
+    label,
+    value,
+    icon,
+    tone = 'default',
+}: {
+    label: string
+    value: number
+    icon: ReactNode
+    tone?: 'default' | 'rust'
+}) {
+    return (
+        <Card className="border-hairline bg-paper">
+            <CardContent className="p-4">
+                <div className={`mb-1 flex items-center justify-between text-xs uppercase tracking-wide ${tone === 'rust' ? 'text-rust' : 'text-sand'}`}>
+                    {label}
+                    {icon}
+                </div>
+                <p className="text-2xl font-bold text-ink">{value}</p>
+            </CardContent>
+        </Card>
+    )
+}
+
+function StatusBadge({ status }: { status: Exclude<BatchStatus, 'all'> }) {
+    const labels = {
+        available: 'Aktif',
+        low: 'Son 2',
+        empty: 'Boş',
+    }
+
+    return (
+        <Badge
+            variant="outline"
+            className={status === 'low' ? 'border-rust text-rust' : status === 'empty' ? 'border-hairline text-sand' : 'border-moss text-moss'}
+        >
+            {labels[status]}
+        </Badge>
+    )
+}
+
+function DetailRow({ label, value }: { label: string; value: string }) {
+    return (
+        <div className="flex items-start justify-between gap-3 border-b border-dashed border-hairline pb-2 text-sm">
+            <span className="text-sand">{label}</span>
+            <span className="max-w-[190px] text-right font-medium text-ink">{value}</span>
         </div>
-      </div>
-    </div>
-  )
+    )
 }
