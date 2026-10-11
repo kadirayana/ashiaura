@@ -110,6 +110,4 @@ export const RATE_LIMITS = {
     login: { maxRequests: 5, windowSizeSeconds: 900 } as RateLimitConfig,
     /** API general: 60 requests per minute */
     api: { maxRequests: 60, windowSizeSeconds: 60 } as RateLimitConfig,
-    /** Analytics: 120 requests per minute (higher for pageview/click tracking) */
-    analytics: { maxRequests: 120, windowSizeSeconds: 60 } as RateLimitConfig,
 } as const

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { slugify, genderLabel } from '@/lib/utils'
+import { slugify, genderLabel, inspiredByLabel } from '@/lib/utils'
 import type { Product, Recipe } from '@/types/database'
 import { ShoppingBag } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
@@ -33,6 +33,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
     const hasHandmadeImage = !!product.hover_image_url
 
     const displayName = getBaseName(product.name) || product.name
+    const inspiredByText = inspiredByLabel(displayName)
     const totalStock = variants && variants.length > 1
         ? variants.reduce((sum, v) => sum + v.stock, 0)
         : product.stock
@@ -53,7 +54,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                 {product.hover_image_url && (
                     <Image
                         src={product.hover_image_url}
-                        alt={`${displayName} label`}
+                        alt={inspiredByText}
                         fill
                         unoptimized={product.hover_image_url.startsWith('data:')}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -64,7 +65,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                 {product.image_url ? (
                     <Image
                         src={product.image_url}
-                        alt={displayName}
+                        alt={inspiredByText}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className={`object-contain p-4 transition-all duration-500 ${showHandmade && hasHandmadeImage ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
@@ -100,7 +101,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
             </div>
 
             <div className="p-5 flex flex-col flex-1">
-                <h3 className="font-semibold text-lg text-ink mb-1 truncate">{displayName}</h3>
+                <h3 className="font-semibold text-lg text-ink mb-1">{inspiredByText}</h3>
 
                 {allSizes && allSizes.length > 1 ? (
                     <div className="flex flex-wrap gap-1.5 mb-3">
@@ -160,7 +161,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                         onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
-                            window.open(`https://wa.me/905369433943?text=Merhaba, ${displayName} hakkında bilgi almak istiyorum.`, '_blank')
+                            window.open(`https://wa.me/905369433943?text=Merhaba, ${inspiredByText} hakkında bilgi almak istiyorum.`, '_blank')
                         }}
                         title="WhatsApp ile Sor"
                         className="w-8 h-8 flex items-center justify-center border border-ink hover:bg-ink hover:text-paper transition-colors cursor-pointer shrink-0"

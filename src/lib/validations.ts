@@ -22,29 +22,6 @@ export const productRequestSchema = z.object({
     requestDetails: z.string().min(10, 'İstek detayı en az 10 karakter olmalı.').max(5000, 'İstek detayı çok uzun.'),
 })
 
-// Analytics click schema
-export const clickEventSchema = z.object({
-    session_id: z.string().min(1).max(200),
-    page_path: z.string().min(1).max(500),
-    element_tag: z.string().min(1).max(50),
-    element_text: z.string().max(200).nullable().optional(),
-    element_id: z.string().max(200).nullable().optional(),
-    x_position: z.number().min(0).max(100000),
-    y_position: z.number().min(0).max(100000),
-    page_width: z.number().min(0).max(100000).optional().default(0),
-    page_height: z.number().min(0).max(100000).optional().default(0),
-})
-
-// Analytics pageview schema
-export const pageviewSchema = z.object({
-    session_id: z.string().min(1).max(200),
-    page_path: z.string().min(1).max(500),
-    referrer: z.string().max(2000).nullable().optional(),
-    user_agent: z.string().max(1000).nullable().optional(),
-    screen_width: z.number().min(0).max(100000).nullable().optional(),
-    screen_height: z.number().min(0).max(100000).nullable().optional(),
-})
-
 // Batch hover upload schema
 export const batchHoverUploadSchema = z.object({
     imagePaths: z.record(
@@ -58,5 +35,3 @@ export const batchHoverUploadSchema = z.object({
 
 export type SalesInput = z.infer<typeof salesSchema>
 export type ProductRequestInput = z.infer<typeof productRequestSchema>
-export type ClickEventInput = z.infer<typeof clickEventSchema>
-export type PageviewInput = z.infer<typeof pageviewSchema>

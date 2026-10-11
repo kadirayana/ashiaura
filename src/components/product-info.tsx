@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { MessageCircle, ShoppingBag } from "lucide-react"
-import { slugify, genderLabel } from "@/lib/utils"
+import { slugify, genderLabel, inspiredByLabel } from "@/lib/utils"
 import type { Product } from "@/types/database"
 import { useCart } from "@/context/CartContext"
 
@@ -43,6 +43,7 @@ export function ProductInfo({
     similar,
 }: ProductInfoProps) {
     const { addToCart } = useCart()
+    const inspiredByText = inspiredByLabel(name)
 
     const currentVariant = variants?.find(v => v.name === name) || {
         id: name,
@@ -63,7 +64,7 @@ export function ProductInfo({
     return (
         <div className="flex flex-col gap-8">
             <div>
-                <h1 className="font-bold text-3xl md:text-4xl text-ink leading-tight">{name}</h1>
+                <h1 className="font-bold text-3xl md:text-4xl text-ink leading-tight">{inspiredByText}</h1>
 
                 <div className="grid grid-cols-3 border border-ink mt-6">
                     <div className="p-3 border-r border-ink">
@@ -164,7 +165,7 @@ export function ProductInfo({
                 </button>
 
                 <a
-                    href={`https://wa.me/905369433943?text=${encodeURIComponent(`Merhaba, ${name} hakkında bilgi almak istiyorum.`)}`}
+                    href={`https://wa.me/905369433943?text=${encodeURIComponent(`Merhaba, ${inspiredByText} hakkında bilgi almak istiyorum.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 border border-ink bg-paper text-ink font-storefront-mono font-semibold px-6 py-4 hover:bg-ink hover:text-paper transition-colors"

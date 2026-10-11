@@ -32,7 +32,6 @@ import {
     MessageSquare,
     List,
     TestTubeDiagonal,
-    BarChart3,
     MapPin,
 } from 'lucide-react'
 
@@ -41,7 +40,6 @@ const navigation = [
         title: 'Overview',
         items: [
             { name: 'Dashboard', href: '/dashboard', icon: Home },
-            { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
         ],
     },
     {
@@ -168,5 +166,4 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
         </SidebarProvider>
     )
 }
-
 

@@ -24,9 +24,6 @@ export function Navbar() {
                 <div className="flex items-center justify-between h-16">
                     <Link href="/" className="flex items-center gap-2.5">
                         <ThemeLogo className="h-8 w-auto object-contain" priority />
-                        <span className="font-storefront-mono text-[11px] tracking-[0.18em] text-rust font-semibold hidden sm:inline">
-                            AURA
-                        </span>
                     </Link>
 
                     <div className="hidden md:flex items-center gap-6 font-storefront-mono text-xs tracking-wide">

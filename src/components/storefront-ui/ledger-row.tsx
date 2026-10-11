@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { genderLabel } from "@/lib/utils"
+import { genderLabel, inspiredByLabel } from "@/lib/utils"
 
 interface LedgerRowProps {
     no: string | number
@@ -35,7 +35,7 @@ export function LedgerRow({
 
             <span className="min-w-0">
                 <span className="block font-semibold text-[15px] md:text-base tracking-tight text-ink truncate">
-                    {name}
+                    {inspiredByLabel(name)}
                 </span>
                 {house && (
                     <span className="block font-storefront-mono text-xs text-sand truncate">{house}</span>

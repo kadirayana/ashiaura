@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Sparkles, Camera } from "lucide-react"
 import { LotStamp } from "@/components/storefront-ui/lot-stamp"
+import { inspiredByLabel } from "@/lib/utils"
 
 interface ProductHeroProps {
     image: string
@@ -37,7 +38,7 @@ export function ProductHero({ image, hoverImage, name, stockLabel }: ProductHero
                 {image ? (
                     <Image
                         src={image}
-                        alt={name}
+                        alt={inspiredByLabel(name)}
                         fill
                         className={`object-contain transition-all duration-700 ease-in-out ${showHandmade && hasHandmadeImage ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}
                         priority
@@ -53,7 +54,7 @@ export function ProductHero({ image, hoverImage, name, stockLabel }: ProductHero
                 {hoverImage && (
                     <Image
                         src={hoverImage}
-                        alt={`${name} Handmade`}
+                        alt={`${inspiredByLabel(name)} el yapımı`}
                         fill
                         className={`object-contain transition-all duration-700 ease-in-out absolute inset-0 p-6 md:p-12 ${showHandmade ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
                         priority

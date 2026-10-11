@@ -96,7 +96,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <ProductHero
                     image={displayImage}
                     hoverImage={displayHoverImage}
-                    name={product.name}
+                    name={getBaseName(product.name)}
                     stockLabel={totalStock > 0 && totalStock <= 3 ? `SON ${totalStock} ADET` : undefined}
                 />
 

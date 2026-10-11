@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { ProductCard } from '@/components/product-card'
 import type { Product, Recipe } from '@/types/database'
 import { Search, X } from 'lucide-react'
@@ -32,9 +33,34 @@ function totalGroupStock(group: ProductGroup): number {
 }
 
 export function ProductList({ initialProducts }: ProductListProps) {
-    const [searchQuery, setSearchQuery] = useState('')
-    const [genderFilter, setGenderFilter] = useState<GenderFilter>('all')
-    const [view, setView] = useState<'list' | 'card'>('list')
+    const searchParams = useSearchParams()
+    const pathname = usePathname()
+    const router = useRouter()
+    const initialGender = searchParams.get('gender')
+    const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') || '')
+    const [genderFilter, setGenderFilter] = useState<GenderFilter>(
+        initialGender === 'men' || initialGender === 'women' || initialGender === 'unisex' ||
+            initialGender === 'kolonya' || initialGender === 'lowstock'
+            ? initialGender
+            : 'all'
+    )
+    const [view, setView] = useState<'list' | 'card'>(() => searchParams.get('view') === 'card' ? 'card' : 'list')
+
+    useEffect(() => {
+        const params = new URLSearchParams(searchParams.toString())
+        if (searchQuery.trim()) params.set('q', searchQuery.trim())
+        else params.delete('q')
+        if (genderFilter !== 'all') params.set('gender', genderFilter)
+        else params.delete('gender')
+        if (view === 'card') params.set('view', view)
+        else params.delete('view')
+
+        const nextQuery = params.toString()
+        const currentQuery = searchParams.toString()
+        if (nextQuery !== currentQuery) {
+            router.replace(`${pathname}${nextQuery ? `?${nextQuery}` : ''}`, { scroll: false })
+        }
+    }, [genderFilter, pathname, router, searchParams, searchQuery, view])
 
     // Group products into families by recipe_id or base name
     const groupedProducts = useMemo(() => {

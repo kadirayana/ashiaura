@@ -65,3 +65,7 @@ export function genderLabel(gender: string | null | undefined): string {
     default: return 'Unisex'
   }
 }
+
+export function inspiredByLabel(name: string): string {
+  return `${name.replace(/\s*\d+\s*ml\s*/gi, '').trim()} parfümden esinlenilmiştir`
+}
