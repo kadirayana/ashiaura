@@ -383,11 +383,6 @@ export default function SalesPage() {
                         }
                     }
 
-                    // Deduct stock in DB
-                    const { data: freshProduct } = await supabase.from('products').select('stock').eq('id', finalProductId).single()
-                    const currentStock = freshProduct?.stock ?? 0
-                    await supabase.from('products').update({ stock: currentStock - item.quantity }).eq('id', finalProductId)
-
                     if (isNewProductCreated && newProductRecord) {
                         setProducts((prev: Product[]) => [...prev, newProductRecord])
                     }
@@ -423,7 +418,7 @@ export default function SalesPage() {
                     }
                 }
 
-                // D. Prepare payloads for batch insert
+                // D. Prepare payloads for the transactional FIFO sales endpoint.
                 const salePayloads = updatedItems.map((item, index) => {
                     const hasUnitCost = item.unit_cost !== '' && Number(item.unit_cost) > 0
                     const currentProductCost = hasUnitCost ? Number(item.unit_cost) : 0
@@ -445,20 +440,34 @@ export default function SalesPage() {
                     }
                 })
 
-                // E. Batch insert records
-                const { data: newSales, error: salesError } = await supabase
-                    .from('sales')
-                    .insert(salePayloads)
-                    .select('*, customer:customers(*), product:products(*)')
+                const newSales: SaleWithRelations[] = []
+                for (const payload of salePayloads) {
+                    const response = await fetch('/api/sales', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                    })
+                    const result = await response.json() as { error?: string; sale_id?: string }
+                    if (!response.ok || !result.sale_id) {
+                        throw new Error(result.error || 'Satış kaydedilemedi.')
+                    }
 
-                if (salesError) throw salesError
+                    const { data: savedSale, error: savedSaleError } = await supabase
+                        .from('sales')
+                        .select('*, customer:customers(*), product:products(*)')
+                        .eq('id', result.sale_id)
+                        .single()
+                    if (savedSaleError || !savedSale) {
+                        throw savedSaleError || new Error('Satış kaydı okunamadı.')
+                    }
+                    newSales.push(savedSale as SaleWithRelations)
+                }
+
                 toast.success('Sales logged successfully!')
 
                 // Optimistic update: prepend all inserted sales to local state
                 restoreScroll()
-                if (newSales) {
-                    setSales((prev: SaleWithRelations[]) => [...(newSales as SaleWithRelations[]), ...prev])
-                }
+                setSales((prev: SaleWithRelations[]) => [...newSales, ...prev])
 
                 // Update local customers state
                 if (formData.customer_id && balanceChange !== 0) {

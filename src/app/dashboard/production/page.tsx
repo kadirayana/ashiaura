@@ -209,6 +209,32 @@ export default function ProductionPage() {
         return calc
     }, [selectedRecipe, quantity, bottleSizeMl, selectedBottle, allMaterials])
 
+    const supplierMixWarnings = useMemo(() => {
+        if (!calculation) return []
+
+        return calculation.ingredients.flatMap((ingredient) => {
+            const materialName = (ingredient.raw_material?.name ?? ingredient.material_name).trim().toLowerCase()
+            const lots = allMaterials.filter((material) =>
+                material.name.trim().toLowerCase() === materialName && material.stock > 0
+            )
+            const suppliers = new Map<string, RawMaterial[]>()
+            lots.forEach((lot) => {
+                const supplier = (lot.supplier || 'Tedarikçi belirtilmedi').trim()
+                suppliers.set(supplier, [...(suppliers.get(supplier) || []), lot])
+            })
+
+            const hasSingleSupplierCapacity = Array.from(suppliers.values()).some((supplierLots) =>
+                supplierLots.reduce((total, lot) => total + lot.stock, 0) >= ingredient.required_quantity
+            )
+
+            if (suppliers.size > 1 && !hasSingleSupplierCapacity) {
+                return [`${ingredient.material_name}: ${ingredient.required_quantity} ${ingredient.unit} için birden fazla tedarikçinin lotu karışacak.`]
+            }
+
+            return []
+        })
+    }, [allMaterials, calculation])
+
     const estimatedCost = useMemo(() => {
         if (!selectedRecipe || quantity <= 0 || bottleSizeMl <= 0) return 0
         let totalCost = 0
@@ -300,6 +326,14 @@ export default function ProductionPage() {
             return
         }
 
+        if (supplierMixWarnings.length > 0) {
+            const confirmed = window.confirm(
+                `Bu üretimde tedarikçi lotları karışacak:\n\n${supplierMixWarnings.join('\n')}\n\n` +
+                'Tedarikçi değişimi koku/kalıcılık farkı oluşturabilir. Devam etmek istiyor musunuz?'
+            )
+            if (!confirmed) return
+        }
+
         setSubmitting(true)
 
         try {
@@ -327,17 +361,30 @@ export default function ProductionPage() {
                     .order('created_at', { ascending: true })
 
                 // Fallback to exact ID if name query didn't return lots
-                const matchedLots = (lots && lots.length > 0)
-                    ? lots
-                    : (await supabase.from('raw_materials').select('id, stock, initial_stock, total_cost, supplier, name, unit, created_at').eq('id', ingredient.material_id)).data || []
+                const availableLots = lots || []
+                const lotsBySupplier = new Map<string, typeof availableLots>()
+                availableLots.forEach((lot) => {
+                    const supplier = (lot.supplier || 'Tedarikçi belirtilmedi').trim()
+                    lotsBySupplier.set(supplier, [...(lotsBySupplier.get(supplier) || []), lot])
+                })
+                const singleSupplierLots = Array.from(lotsBySupplier.values()).find((supplierLots) =>
+                    supplierLots.reduce((total, lot) => total + lot.stock, 0) >= ingredient.required_quantity
+                )
+                const fallbackLots = (await supabase
+                    .from('raw_materials')
+                    .select('id, stock, initial_stock, total_cost, supplier, name, unit, created_at')
+                    .eq('id', ingredient.material_id)
+                    .gt('stock', 0)).data || []
+                const matchedLots = availableLots.length > 0 ? availableLots : fallbackLots
+                const lotsToConsume = singleSupplierLots || matchedLots
 
-                if (matchedLots.length === 0) {
+                if (lotsToConsume.length === 0) {
                     throw new Error(`Hammadde lotu bulunamadı: ${ingredientName}`)
                 }
 
                 // FIFO: deduct from oldest lots first
                 let remaining = ingredient.required_quantity
-                for (const lot of matchedLots) {
+                for (const lot of lotsToConsume) {
                     if (remaining <= 0) break
                     const deduct = Math.min(lot.stock, remaining)
                     if (deduct <= 0) continue
@@ -367,6 +414,10 @@ export default function ProductionPage() {
                     })
 
                     remaining -= deduct
+                }
+
+                if (remaining > 0.0001) {
+                    throw new Error(`${ingredientName} için yeterli stok üretim sırasında kalmadı.`)
                 }
             }
 
@@ -465,8 +516,7 @@ export default function ProductionPage() {
             }
 
             // 4. Create inventory_batches record for this product batch
-            try {
-                await supabase.from('inventory_batches').insert({
+            const { error: batchError } = await supabase.from('inventory_batches').insert({
                     product_id: productId,
                     lot_no: batchNumber,
                     quantity: quantity,
@@ -474,12 +524,10 @@ export default function ProductionPage() {
                     arrival_date: new Date().toISOString().split('T')[0],
                     supplier_id: null,
                 })
-            } catch (batchErr) {
-                console.log('inventory_batches insert notice:', batchErr)
-            }
+            if (batchError) throw new Error(`Üretim batch'i kaydedilemedi: ${batchError.message}`)
 
             // 5. Create production batch record for audit with exact FIFO deductions
-            await supabase.from('production_batches').insert({
+            const { error: productionBatchError } = await supabase.from('production_batches').insert({
                 recipe_id: selectedRecipe.id,
                 product_id: productId,
                 quantity_produced: quantity,
@@ -487,6 +535,7 @@ export default function ProductionPage() {
                 notes: notes || null,
                 ingredient_deductions: detailedDeductions,
             })
+            if (productionBatchError) throw new Error(`Üretim geçmişi kaydedilemedi: ${productionBatchError.message}`)
 
             toast.success(`${quantity} adet ${bottleSizeMl}ml ${selectedRecipe.name} üretildi!`)
 

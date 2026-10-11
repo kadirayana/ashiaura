@@ -9,7 +9,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import {
     AlertTriangle,
-    Calendar,
+    ArrowDown,
+    ArrowUp,
+    ArrowUpDown,
     CheckCircle2,
     Database,
     Package,
@@ -17,6 +19,14 @@ import {
     Search,
     Warehouse,
 } from 'lucide-react'
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from '@/components/ui/table'
 import { toast } from 'sonner'
 
 type ProductOption = {
@@ -36,6 +46,7 @@ type InventoryBatch = {
 }
 
 type BatchStatus = 'all' | 'available' | 'low' | 'empty'
+type BatchSort = 'arrival' | 'lot' | 'product' | 'quantity' | 'cost'
 
 function formatDate(value: string) {
     return new Intl.DateTimeFormat('tr-TR', {
@@ -57,6 +68,8 @@ export default function ProductsTrackerPage() {
     const [search, setSearch] = useState('')
     const [status, setStatus] = useState<BatchStatus>('all')
     const [productFilter, setProductFilter] = useState('all')
+    const [sortBy, setSortBy] = useState<BatchSort>('arrival')
+    const [sortDescending, setSortDescending] = useState(false)
     const [selectedBatchId, setSelectedBatchId] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)
     const [refreshing, setRefreshing] = useState(false)
@@ -98,7 +111,7 @@ export default function ProductsTrackerPage() {
     const filteredBatches = useMemo(() => {
         const normalizedSearch = search.trim().toLocaleLowerCase('tr-TR')
 
-        return batches.filter((batch) => {
+        const filtered = batches.filter((batch) => {
             const product = productMap.get(batch.product_id)
             const matchesSearch = !normalizedSearch ||
                 batch.lot_no.toLocaleLowerCase('tr-TR').includes(normalizedSearch) ||
@@ -108,7 +121,27 @@ export default function ProductsTrackerPage() {
 
             return matchesSearch && matchesStatus && matchesProduct
         })
-    }, [batches, productFilter, productMap, search, status])
+
+        return filtered.sort((a, b) => {
+            const productA = productMap.get(a.product_id)?.name || ''
+            const productB = productMap.get(b.product_id)?.name || ''
+            let comparison = 0
+
+            if (sortBy === 'arrival') {
+                comparison = new Date(a.arrival_date).getTime() - new Date(b.arrival_date).getTime()
+            } else if (sortBy === 'lot') {
+                comparison = a.lot_no.localeCompare(b.lot_no, 'tr-TR')
+            } else if (sortBy === 'product') {
+                comparison = productA.localeCompare(productB, 'tr-TR')
+            } else if (sortBy === 'quantity') {
+                comparison = a.quantity - b.quantity
+            } else {
+                comparison = (a.unit_cost || 0) - (b.unit_cost || 0)
+            }
+
+            return sortDescending ? -comparison : comparison
+        })
+    }, [batches, productFilter, productMap, search, sortBy, sortDescending, status])
 
     const stats = useMemo(() => ({
         total: batches.length,
@@ -121,6 +154,15 @@ export default function ProductsTrackerPage() {
         ? batches.find((batch) => batch.id === selectedBatchId) || null
         : null
     const selectedProduct = selectedBatch ? productMap.get(selectedBatch.product_id) : null
+
+    function changeSort(nextSort: BatchSort) {
+        if (sortBy === nextSort) {
+            setSortDescending((current) => !current)
+        } else {
+            setSortBy(nextSort)
+            setSortDescending(false)
+        }
+    }
 
     return (
         <div className="max-w-7xl space-y-6 text-ink">
@@ -214,44 +256,51 @@ export default function ProductsTrackerPage() {
                                 Aramanıza uyan batch bulunamadı.
                             </div>
                         ) : (
-                            <div className="divide-y divide-hairline">
-                                {filteredBatches.map((batch) => {
-                                    const product = productMap.get(batch.product_id)
-                                    const batchStatus = getBatchStatus(batch.quantity)
-                                    const isSelected = selectedBatchId === batch.id
+                            <Table>
+                                <TableHeader className="bg-ink/[0.03]">
+                                    <TableRow className="border-hairline hover:bg-transparent">
+                                        <SortableHead label="Batch / Lot" sort="lot" current={sortBy} descending={sortDescending} onSort={changeSort} />
+                                        <SortableHead label="Ürün" sort="product" current={sortBy} descending={sortDescending} onSort={changeSort} />
+                                        <SortableHead label="Giriş tarihi" sort="arrival" current={sortBy} descending={sortDescending} onSort={changeSort} />
+                                        <SortableHead label="Stok" sort="quantity" current={sortBy} descending={sortDescending} onSort={changeSort} className="text-right" />
+                                        <SortableHead label="Maliyet" sort="cost" current={sortBy} descending={sortDescending} onSort={changeSort} className="text-right" />
+                                        <TableHead className="text-right text-xs uppercase tracking-wide text-sand">Durum</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    {filteredBatches.map((batch) => {
+                                        const product = productMap.get(batch.product_id)
+                                        const batchStatus = getBatchStatus(batch.quantity)
+                                        const isSelected = selectedBatchId === batch.id
 
-                                    return (
-                                        <button
-                                            key={batch.id}
-                                            type="button"
-                                            onClick={() => setSelectedBatchId(batch.id)}
-                                            className={`grid w-full grid-cols-[1fr_auto] gap-3 p-4 text-left transition-colors hover:bg-ink/5 ${
-                                                isSelected ? 'bg-rust/5' : ''
-                                            }`}
-                                        >
-                                            <div className="min-w-0">
-                                                <div className="flex flex-wrap items-center gap-2">
-                                                    <span className="font-storefront-mono text-sm font-bold text-rust">{batch.lot_no}</span>
-                                                    <StatusBadge status={batchStatus} />
-                                                </div>
-                                                <p className="mt-1 truncate font-semibold text-ink">
-                                                    {product?.name || 'Ürün bulunamadı'}
-                                                </p>
-                                                <p className="mt-1 flex items-center gap-1 text-xs text-sand">
-                                                    <Calendar className="h-3.5 w-3.5" />
-                                                    {formatDate(batch.arrival_date)}
-                                                </p>
-                                            </div>
-                                            <div className="text-right">
-                                                <p className={`font-storefront-mono text-lg font-bold ${batch.quantity <= 2 ? 'text-rust' : 'text-moss'}`}>
+                                        return (
+                                            <TableRow
+                                                key={batch.id}
+                                                onClick={() => setSelectedBatchId(batch.id)}
+                                                className={`cursor-pointer border-hairline ${isSelected ? 'bg-rust/10 hover:bg-rust/10' : 'hover:bg-ink/5'}`}
+                                            >
+                                                <TableCell className="min-w-[150px]">
+                                                    <span className="font-storefront-mono font-bold text-rust">{batch.lot_no}</span>
+                                                </TableCell>
+                                                <TableCell className="min-w-[210px] max-w-[280px]">
+                                                    <p className="truncate font-semibold text-ink">{product?.name || 'Ürün bulunamadı'}</p>
+                                                    {product?.gender && <p className="mt-0.5 text-xs capitalize text-sand">{product.gender}</p>}
+                                                </TableCell>
+                                                <TableCell className="text-sm text-sand">{formatDate(batch.arrival_date)}</TableCell>
+                                                <TableCell className={`text-right font-storefront-mono text-base font-bold ${batch.quantity <= 2 ? 'text-rust' : 'text-moss'}`}>
                                                     {batch.quantity}
-                                                </p>
-                                                <p className="text-xs text-sand">adet</p>
-                                            </div>
-                                        </button>
-                                    )
-                                })}
-                            </div>
+                                                </TableCell>
+                                                <TableCell className="text-right text-sm text-ink">
+                                                    {batch.unit_cost != null ? `₺${batch.unit_cost.toFixed(2)}` : '—'}
+                                                </TableCell>
+                                                <TableCell className="text-right">
+                                                    <StatusBadge status={batchStatus} />
+                                                </TableCell>
+                                            </TableRow>
+                                        )
+                                    })}
+                                </TableBody>
+                            </Table>
                         )}
                     </CardContent>
                 </Card>
@@ -324,6 +373,37 @@ function StatusBadge({ status }: { status: Exclude<BatchStatus, 'all'> }) {
         >
             {labels[status]}
         </Badge>
+    )
+}
+
+function SortableHead({
+    label,
+    sort,
+    current,
+    descending,
+    onSort,
+    className = '',
+}: {
+    label: string
+    sort: BatchSort
+    current: BatchSort
+    descending: boolean
+    onSort: (sort: BatchSort) => void
+    className?: string
+}) {
+    const Icon = current !== sort ? ArrowUpDown : descending ? ArrowDown : ArrowUp
+
+    return (
+        <TableHead className={className}>
+            <button
+                type="button"
+                onClick={() => onSort(sort)}
+                className="inline-flex items-center gap-1 text-xs uppercase tracking-wide text-sand transition-colors hover:text-ink"
+            >
+                {label}
+                <Icon className="h-3.5 w-3.5" />
+            </button>
+        </TableHead>
     )
 }
 
