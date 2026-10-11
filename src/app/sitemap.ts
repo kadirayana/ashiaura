@@ -1,19 +1,33 @@
 import { MetadataRoute } from "next";
-import { getAllProducts } from "@/data/products";
 import { siteConfig } from "@/data/siteConfig";
+import { createClient } from "@/lib/supabase/server";
+import { slugify } from "@/lib/utils";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = siteConfig.url;
-  const products = getAllProducts();
 
-  const productRoutes = products.map((product) => ({
-    url: `${baseUrl}/products/${product.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
-  }));
+  // Ürünleri Supabase'den çek
+  let productRoutes: MetadataRoute.Sitemap = [];
+  try {
+    const supabase = await createClient();
+    const { data: products } = await supabase
+      .from("products")
+      .select("name, updated_at")
+      .gt("stock", 0);
 
-  const staticRoutes = [
+    if (products) {
+      productRoutes = products.map((product) => ({
+        url: `${baseUrl}/products/${slugify(product.name)}`,
+        lastModified: product.updated_at ? new Date(product.updated_at) : new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.9,
+      }));
+    }
+  } catch {
+    // Supabase erişilemezse sadece statik rotalar döndür
+  }
+
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -21,28 +35,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/collection`,
+      url: `${baseUrl}/products`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
     },
   ];
 
