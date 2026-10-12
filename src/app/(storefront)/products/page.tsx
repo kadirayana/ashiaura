@@ -5,6 +5,11 @@ import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ProductList } from '@/components/product-list'
+import type { Product, Recipe } from '@/types/database'
+
+type ProductWithRecipe = Product & {
+    recipe: Recipe | null
+}
 
 export const revalidate = 60
 
@@ -13,19 +18,17 @@ export default async function ProductsPage() {
 
     const { data: products, error } = await supabase
         .from('products')
-        .select(`
-            id, recipe_id, name, stock, image_url, hover_image_url, gender,
-            fragrantica_score, fragrantica_url, bottle_size_ml, notes,
-            description, top_notes, middle_notes, base_notes,
-            recipe:recipes(id, name, description, bottle_size_ml, gender)
-        `)
+        .select('*, recipe:recipes(*)')
         .order('fragrantica_score', { ascending: false })
 
     if (error) {
         console.error("Error fetching products:", error)
     }
 
-    const allProducts = products || []
+    const allProducts: ProductWithRecipe[] = (products || []).map(product => ({
+        ...product,
+        recipe: Array.isArray(product.recipe) ? product.recipe[0] || null : product.recipe,
+    }))
 
     return (
         <div className="min-h-screen flex flex-col">

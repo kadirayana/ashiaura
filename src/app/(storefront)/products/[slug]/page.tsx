@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer'
 import { ProductHero } from '@/components/product-hero'
 import { ProductInfo, type NoteData, type SimilarProduct } from '@/components/product-info'
 import { slugify } from '@/lib/utils'
-import type { Product } from '@/types/database'
+import type { Product, Recipe } from '@/types/database'
 
 interface ProductPageProps {
     params: Promise<{
@@ -15,7 +15,7 @@ interface ProductPageProps {
     }>
 }
 
-type ProductWithRecipe = Product & { recipe?: { description?: string | null } }
+type ProductWithRecipe = Product & { recipe: Recipe | null }
 
 function parseNotes(product: ProductWithRecipe): NoteData | undefined {
     const top = product.top_notes?.split(',').map(s => s.trim()).filter(Boolean) || []
@@ -39,31 +39,30 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
     const { data: products, error } = await supabase
         .from('products')
-        .select(`
-            id, recipe_id, name, stock, unit_cost, image_url, hover_image_url,
-            gender, fragrantica_score, fragrantica_url, batch_number,
-            production_date, notes, bottle_size_ml, description,
-            top_notes, middle_notes, base_notes, created_at, updated_at,
-            recipe:recipes(id, name, description, bottle_size_ml, gender)
-        `)
+        .select('*, recipe:recipes(*)')
 
     if (error || !products) {
         notFound()
     }
 
-    let product = products.find(p => slugify(p.name) === slug)
+    const normalizedProducts: ProductWithRecipe[] = products.map(product => ({
+        ...product,
+        recipe: Array.isArray(product.recipe) ? product.recipe[0] || null : product.recipe,
+    }))
+
+    let product = normalizedProducts.find(p => slugify(p.name) === slug)
     if (!product) {
-        product = products.find(p => p.id.toString() === slug)
+        product = normalizedProducts.find(p => p.id.toString() === slug)
     }
     if (!product) {
-        product = products.find(p => p.name === slug)
+        product = normalizedProducts.find(p => p.name === slug)
     }
     if (!product) {
         notFound()
     }
 
     const baseName = getBaseName(product.name)
-    const variants: ProductWithRecipe[] = products.filter(p => getBaseName(p.name) === baseName)
+    const variants = normalizedProducts.filter(p => getBaseName(p.name) === baseName)
 
     const primaryVariant = variants.length > 1
         ? variants.reduce((best, v) => {
@@ -87,7 +86,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     const totalStock = variants.reduce((sum, v) => sum + v.stock, 0)
 
     const similar: SimilarProduct[] = [...new Map(
-        products
+        normalizedProducts
             .filter(p => getBaseName(p.name) !== baseName && product.gender !== null && p.gender === product.gender && p.stock > 0)
             .map(p => [getBaseName(p.name), p] as const)
     ).values()]

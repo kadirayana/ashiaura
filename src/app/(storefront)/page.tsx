@@ -22,11 +22,7 @@ async function getFeaturedProducts(): Promise<ProductWithRecipe[]> {
 
     const { data, error } = await supabase
         .from('products')
-        .select(`
-            id, name, stock, image_url, hover_image_url, gender,
-            fragrantica_score, fragrantica_url, bottle_size_ml,
-            recipe:recipes(id, name, bottle_size_ml)
-        `)
+        .select('*, recipe:recipes(*)')
         .gt('stock', 0)
         .order('fragrantica_score', { ascending: false })
         .limit(5)
@@ -36,7 +32,10 @@ async function getFeaturedProducts(): Promise<ProductWithRecipe[]> {
         return []
     }
 
-    return data || []
+    return (data || []).map(product => ({
+        ...product,
+        recipe: Array.isArray(product.recipe) ? product.recipe[0] || null : product.recipe,
+    }))
 }
 
 async function getStorefrontStats() {
