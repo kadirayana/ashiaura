@@ -18,6 +18,13 @@ interface ProductListProps {
 
 type GenderFilter = 'all' | 'men' | 'women' | 'unisex' | 'kolonya' | 'lowstock'
 
+function getGenderFilter(value: string | null): GenderFilter {
+    return value === 'men' || value === 'women' || value === 'unisex' ||
+        value === 'kolonya' || value === 'lowstock'
+        ? value
+        : 'all'
+}
+
 function getBaseName(name: string) {
     return name.replace(/\s*\d+\s*ml\s*/gi, '').trim()
 }
@@ -32,19 +39,19 @@ function totalGroupStock(group: ProductGroup): number {
     return group.variants.reduce((sum, v) => sum + v.stock, 0)
 }
 
-export function ProductList({ initialProducts }: ProductListProps) {
+export function ProductList(props: ProductListProps) {
+    const searchParams = useSearchParams()
+
+    return <ProductListContent key={searchParams.toString()} {...props} />
+}
+
+function ProductListContent({ initialProducts }: ProductListProps) {
     const searchParams = useSearchParams()
     const pathname = usePathname()
     const router = useRouter()
-    const initialGender = searchParams.get('gender')
     const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') || '')
-    const [genderFilter, setGenderFilter] = useState<GenderFilter>(
-        initialGender === 'men' || initialGender === 'women' || initialGender === 'unisex' ||
-            initialGender === 'kolonya' || initialGender === 'lowstock'
-            ? initialGender
-            : 'all'
-    )
-    const [view, setView] = useState<'list' | 'card'>(() => searchParams.get('view') === 'card' ? 'card' : 'list')
+    const [genderFilter, setGenderFilter] = useState<GenderFilter>(() => getGenderFilter(searchParams.get('gender')))
+    const [view, setView] = useState<'list' | 'card'>(() => searchParams.get('view') === 'list' ? 'list' : 'card')
 
     useEffect(() => {
         const params = new URLSearchParams(searchParams.toString())

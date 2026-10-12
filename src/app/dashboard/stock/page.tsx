@@ -33,6 +33,27 @@ type ProductWithRecipe = Product & { recipe: RecipeWithIngredients | null }
 // Type for tracking inline edits
 type EditedProduct = Partial<Pick<Product, 'name' | 'stock' | 'unit_cost' | 'gender'>>
 
+async function optimizeImage(file: File): Promise<{ blob: Blob; extension: string }> {
+    const bitmap = await createImageBitmap(file)
+    const maxDimension = 1600
+    const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height))
+    const canvas = document.createElement('canvas')
+    canvas.width = Math.max(1, Math.round(bitmap.width * scale))
+    canvas.height = Math.max(1, Math.round(bitmap.height * scale))
+    canvas.getContext('2d')?.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+    bitmap.close()
+
+    const blob = await new Promise<Blob | null>((resolve) =>
+        canvas.toBlob(resolve, 'image/webp', 0.86)
+    )
+
+    if (!blob) {
+        return { blob: file, extension: file.name.split('.').pop()?.toLowerCase() || 'jpg' }
+    }
+
+    return { blob, extension: 'webp' }
+}
+
 // ─── Component ────────────────────────────────────────────────
 export default function StockPage() {
     // ─── State ────────────────────────────────────────────────
@@ -234,11 +255,14 @@ export default function StockPage() {
         type === 'main' ? setUploading(true) : setUploadingHover(true)
 
         try {
-            const fileExt = file.name.split('.').pop()
-            const fileName = `${Date.now()}-${type === 'hover' ? 'hover-' : ''}${Math.random().toString(36).substring(7)}.${fileExt}`
+            const optimized = await optimizeImage(file)
+            const fileName = `${Date.now()}-${type === 'hover' ? 'hover-' : ''}${Math.random().toString(36).substring(7)}.${optimized.extension}`
             const filePath = `products/${fileName}`
 
-            const { error: uploadError } = await supabase.storage.from('product-images').upload(filePath, file)
+            const { error: uploadError } = await supabase.storage.from('product-images').upload(filePath, optimized.blob, {
+                contentType: optimized.blob.type || file.type,
+                upsert: false,
+            })
             if (uploadError) throw uploadError
 
             const { data: { publicUrl } } = supabase.storage.from('product-images').getPublicUrl(filePath)

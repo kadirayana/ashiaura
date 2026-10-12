@@ -46,6 +46,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                                     src={src}
                                     alt={`${productName} - Image ${index + 1}`}
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-contain"
                                     priority={index === 0}
                                 />

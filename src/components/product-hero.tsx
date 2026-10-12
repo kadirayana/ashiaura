@@ -40,6 +40,7 @@ export function ProductHero({ image, hoverImage, name, stockLabel }: ProductHero
                         src={image}
                         alt={inspiredByLabel(name)}
                         fill
+                        sizes="100vw"
                         className={`object-contain transition-all duration-700 ease-in-out ${showHandmade && hasHandmadeImage ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}
                         priority
                     />
@@ -56,8 +57,9 @@ export function ProductHero({ image, hoverImage, name, stockLabel }: ProductHero
                         src={hoverImage}
                         alt={`${inspiredByLabel(name)} el yapımı`}
                         fill
+                        sizes="100vw"
                         className={`object-contain transition-all duration-700 ease-in-out absolute inset-0 p-6 md:p-12 ${showHandmade ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-                        priority
+                        loading="lazy"
                     />
                 )}
             </div>

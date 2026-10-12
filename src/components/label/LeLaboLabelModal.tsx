@@ -364,10 +364,24 @@ export function LeLaboLabelModal({
 
             const supabase = createClient()
 
-            // Update product's hover_image_url with clean dataUrl
+            const imageBlob = await fetch(dataUrl).then(response => response.blob())
+            const imagePath = `products/labels/${data.productId}-${Date.now()}.png`
+            const { error: uploadError } = await supabase.storage
+                .from('product-images')
+                .upload(imagePath, imageBlob, {
+                    contentType: 'image/png',
+                    upsert: false,
+                })
+
+            if (uploadError) throw uploadError
+
+            const { data: publicUrl } = supabase.storage
+                .from('product-images')
+                .getPublicUrl(imagePath)
+
             const { error } = await supabase
                 .from('products')
-                .update({ hover_image_url: dataUrl, updated_at: new Date().toISOString() })
+                .update({ hover_image_url: publicUrl.publicUrl, updated_at: new Date().toISOString() })
                 .eq('id', data.productId)
 
             if (error) throw error

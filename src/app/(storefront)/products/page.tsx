@@ -13,7 +13,12 @@ export default async function ProductsPage() {
 
     const { data: products, error } = await supabase
         .from('products')
-        .select('*, recipe:recipes(*)')
+        .select(`
+            id, recipe_id, name, stock, image_url, hover_image_url, gender,
+            fragrantica_score, fragrantica_url, bottle_size_ml, notes,
+            description, top_notes, middle_notes, base_notes,
+            recipe:recipes(id, name, description, bottle_size_ml, gender)
+        `)
         .order('fragrantica_score', { ascending: false })
 
     if (error) {

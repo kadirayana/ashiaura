@@ -39,7 +39,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
     const { data: products, error } = await supabase
         .from('products')
-        .select('*, recipe:recipes(*)')
+        .select(`
+            id, recipe_id, name, stock, unit_cost, image_url, hover_image_url,
+            gender, fragrantica_score, fragrantica_url, batch_number,
+            production_date, notes, bottle_size_ml, description,
+            top_notes, middle_notes, base_notes, created_at, updated_at,
+            recipe:recipes(id, name, description, bottle_size_ml, gender)
+        `)
 
     if (error || !products) {
         notFound()
