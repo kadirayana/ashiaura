@@ -10,12 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ashi AI",
-  description: "Ashi AI — modern yapay zeka odaklı deneyim ve marka görünümü.",
-  applicationName: "Ashi AI",
+  title: "Ashi Aura — El Yapımı Parfüm Koleksiyonu",
+  description: "İzmir'den el yapımı lüks parfümler. Her esans özenle formüle edilir ve şişelenir. Shopier üzerinden sipariş verin.",
+  applicationName: "Ashi Aura",
   icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 };
 
