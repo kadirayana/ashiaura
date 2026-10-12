@@ -52,6 +52,7 @@ function ProductListContent({ initialProducts }: ProductListProps) {
     const [searchQuery, setSearchQuery] = useState(() => searchParams.get('q') || '')
     const [genderFilter, setGenderFilter] = useState<GenderFilter>(() => getGenderFilter(searchParams.get('gender')))
     const [view, setView] = useState<'list' | 'card'>(() => searchParams.get('view') === 'list' ? 'list' : 'card')
+    const catalogQuery = searchParams.toString()
 
     useEffect(() => {
         const params = new URLSearchParams(searchParams.toString())
@@ -234,7 +235,7 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                                     gender={p.gender}
                                     volumeLabel={size ? `${size} ml` : undefined}
                                     rating={p.fragrantica_score}
-                                    href={`/products/${slugify(p.name)}`}
+                                    href={`/products/${slugify(p.name)}${catalogQuery ? `?${catalogQuery}` : ''}`}
                                     stockLabel={stock > 5 ? 'STOKTA' : `SON ${stock}`}
                                     stockTone={stock > 5 ? 'moss' : 'rust'}
                                 />

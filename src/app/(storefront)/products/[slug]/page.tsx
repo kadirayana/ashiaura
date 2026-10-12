@@ -13,6 +13,7 @@ interface ProductPageProps {
     params: Promise<{
         slug: string
     }>
+    searchParams: Promise<Record<string, string | string[] | undefined>>
 }
 
 type ProductWithRecipe = Product & { recipe: Recipe | null }
@@ -33,8 +34,9 @@ function getBaseName(name: string) {
     return name.replace(/\s*\d+\s*ml\s*/gi, '').trim();
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params, searchParams }: ProductPageProps) {
     const { slug } = await params
+    const catalogParams = await searchParams
     const supabase = await createClient()
 
     const { data: products, error } = await supabase
@@ -60,6 +62,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
     if (!product) {
         notFound()
     }
+    const backParams = new URLSearchParams()
+    for (const [key, value] of Object.entries(catalogParams)) {
+        if (typeof value === 'string') backParams.set(key, value)
+        else if (Array.isArray(value)) value.forEach(item => backParams.append(key, item))
+    }
+    const backQuery = backParams.toString()
 
     const baseName = getBaseName(product.name)
     const variants = normalizedProducts.filter(p => getBaseName(p.name) === baseName)
@@ -103,6 +111,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     hoverImage={displayHoverImage}
                     name={getBaseName(product.name)}
                     stockLabel={totalStock > 0 && totalStock <= 3 ? `SON ${totalStock} ADET` : undefined}
+                    backHref={`/products${backQuery ? `?${backQuery}` : ''}`}
                 />
 
                 <div className="px-4 md:px-14 max-w-4xl mx-auto py-10 md:py-14">

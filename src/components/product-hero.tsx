@@ -12,9 +12,10 @@ interface ProductHeroProps {
     hoverImage?: string
     name: string
     stockLabel?: string
+    backHref?: string
 }
 
-export function ProductHero({ image, hoverImage, name, stockLabel }: ProductHeroProps) {
+export function ProductHero({ image, hoverImage, name, stockLabel, backHref = "/products" }: ProductHeroProps) {
     const [showHandmade, setShowHandmade] = useState(false)
     const hasHandmadeImage = !!hoverImage
 
@@ -25,7 +26,7 @@ export function ProductHero({ image, hoverImage, name, stockLabel }: ProductHero
     return (
         <div className="relative w-full h-[50vh] md:h-[520px] bg-[repeating-linear-gradient(45deg,#eceadf_0_9px,#e3e0d2_9px_18px)] border-b border-ink overflow-hidden">
             <Link
-                href="/products"
+                href={backHref}
                 className="absolute top-4 left-4 z-20 flex items-center justify-center w-10 h-10 bg-paper border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
             >
                 <ArrowLeft className="w-5 h-5" />

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { slugify, genderLabel, inspiredByLabel } from '@/lib/utils'
 import type { Product, Recipe } from '@/types/database'
 import { ShoppingBag } from 'lucide-react'
@@ -29,6 +30,7 @@ function getSizeMl(p: ProductWithRecipe): number {
 
 export function ProductCard({ product, variants }: ProductCardProps) {
     const [showHandmade, setShowHandmade] = useState(false)
+    const searchParams = useSearchParams()
     const { addToCart } = useCart()
     const hasHandmadeImage = !!product.hover_image_url
 
@@ -40,10 +42,12 @@ export function ProductCard({ product, variants }: ProductCardProps) {
     const allSizes = variants && variants.length > 1
         ? [...variants].sort((a, b) => getSizeMl(a) - getSizeMl(b))
         : null
+    const catalogQuery = searchParams.toString()
+    const productHref = `/products/${slugify(product.name)}${catalogQuery ? `?${catalogQuery}` : ''}`
 
     return (
         <Link
-            href={`/products/${slugify(product.name)}`}
+            href={productHref}
             className="group h-full flex flex-col bg-paper border border-ink hover:border-rust transition-colors duration-300"
         >
             <div

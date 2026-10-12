@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { MessageCircle, ShoppingBag } from "lucide-react"
 import { slugify, genderLabel, inspiredByLabel } from "@/lib/utils"
 import type { Product } from "@/types/database"
@@ -43,6 +44,9 @@ export function ProductInfo({
     similar,
 }: ProductInfoProps) {
     const { addToCart } = useCart()
+    const searchParams = useSearchParams()
+    const catalogQuery = searchParams.toString()
+    const withCatalogQuery = (href: string) => `${href}${catalogQuery ? `?${catalogQuery}` : ''}`
     const inspiredByText = inspiredByLabel(name)
 
     const currentVariant = variants?.find(v => v.name === name) || {
@@ -103,7 +107,7 @@ export function ProductInfo({
                                 return (
                                     <Link
                                         key={variant.id}
-                                        href={`/products/${slugify(variant.name)}`}
+                                        href={withCatalogQuery(`/products/${slugify(variant.name)}`)}
                                         className={`font-storefront-mono text-xs font-semibold px-3 py-1.5 border ${isSelected
                                             ? 'bg-ink text-paper border-ink'
                                             : inStock
@@ -182,7 +186,7 @@ export function ProductInfo({
                         {similar.map((s) => (
                             <Link
                                 key={s.id}
-                                href={`/products/${slugify(s.name)}`}
+                                href={withCatalogQuery(`/products/${slugify(s.name)}`)}
                                 className="border border-ink px-4 py-3 flex justify-between items-center hover:bg-black/[0.03] transition-colors"
                             >
                                 <div>
