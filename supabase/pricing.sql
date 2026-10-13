@@ -17,12 +17,7 @@ CREATE POLICY "size_prices_public_read"
     TO anon, authenticated
     USING (true);
 
-DROP POLICY IF EXISTS "size_prices_admin_write" ON public.size_prices;
-CREATE POLICY "size_prices_admin_write"
-    ON public.size_prices FOR ALL
-    TO authenticated
-    USING (true)
-    WITH CHECK (true);
+-- Yazma yetkisi (sadece yöneticiler) security-hardening.sql içinde tanımlanır.
 
 -- 3ml tester: 120 TL
 INSERT INTO public.size_prices (size_ml, price)
