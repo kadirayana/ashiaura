@@ -50,8 +50,14 @@
   --color-moss: var(--moss);
   --color-sand: var(--sand);
   --color-hairline: var(--hairline);
-  --font-storefront: var(--font-space-grotesk), system-ui, sans-serif;
-  --font-storefront-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-storefront: var(--font-cormorant, var(--font-space-grotesk)), system-ui, serif;
+  --font-storefront-mono: var(--font-courier-prime, var(--font-plex-mono)), ui-monospace, monospace;
+  --color-linen: var(--linen);
+  --color-label: var(--label);
+  --color-label-line: var(--label-line);
+  --color-tan: var(--tan);
+  --color-tan-ink: var(--tan-ink);
+  --color-umber: var(--umber);
 }
 
 :root {
@@ -146,6 +152,26 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
+}
+
+/* ─── Storefront palette (Ashi Aura brand: logo package + campaign) ───
+   Scoped so the dashboard keeps its own tokens. The storefront is always
+   light, so .dark is overridden too. */
+.storefront,
+.dark .storefront {
+  --paper: #f3ece1;
+  --ink: #2a2420;
+  --rust: #8a1f0e;
+  --moss: #4c6b2f;
+  --sand: #6b5f53;
+  --hairline: #d9ccba;
+  --linen: #ede3d5;
+  --label: #fbf7f0;
+  --label-line: #cdbfab;
+  --tan: #a9825a;
+  --tan-ink: #7a5c3c;
+  --umber: #3b322b;
+  color-scheme: light;
 }
 
 /* ─── Responsive & Mobile Enhancements ─── */

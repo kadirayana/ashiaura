@@ -6,7 +6,8 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ProductHero } from '@/components/product-hero'
 import { ProductInfo, type NoteData, type SimilarProduct } from '@/components/product-info'
-import { slugify } from '@/lib/utils'
+import Link from 'next/link'
+import { slugify, inspiredByLabel } from '@/lib/utils'
 import type { Product, Recipe } from '@/types/database'
 
 interface ProductPageProps {
@@ -101,32 +102,83 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
         .slice(0, 3)
         .map(p => ({ id: p.id, name: p.name, house: p.recipe?.name, rating: p.fragrantica_score }))
 
+    const backHref = `/products${backQuery ? `?${backQuery}` : ''}`
+    const sizeMl = product.bottle_size_ml || primaryVariant.bottle_size_ml
+    const description = displayProduct.description || displayProduct.recipe?.description
+
     return (
         <div className="min-h-screen">
             <Navbar />
 
-            <main>
-                <ProductHero
-                    image={displayImage}
-                    hoverImage={displayHoverImage}
-                    name={getBaseName(product.name)}
-                    stockLabel={totalStock > 0 && totalStock <= 3 ? `SON ${totalStock} ADET` : undefined}
-                    backHref={`/products${backQuery ? `?${backQuery}` : ''}`}
-                />
+            <main className="max-w-[1320px] mx-auto px-6 lg:px-12 pt-7 pb-24 flex flex-col gap-24">
+                <div className="flex flex-col gap-7">
+                    <nav aria-label="Sayfa yolu" className="font-storefront-mono text-xs tracking-[0.14em] text-sand flex flex-wrap gap-2.5">
+                        <Link href="/" className="hover:text-ink">ANA SAYFA</Link>
+                        <span aria-hidden="true">/</span>
+                        <Link href={backHref} className="hover:text-ink">KOLEKSİYON</Link>
+                        <span aria-hidden="true">/</span>
+                        <span lang="en" className="text-ink uppercase">{getBaseName(product.name)}</span>
+                    </nav>
 
-                <div className="px-4 md:px-14 max-w-4xl mx-auto py-10 md:py-14">
-                    <ProductInfo
-                        name={getBaseName(product.name)}
-                        description={displayProduct.description || displayProduct.recipe?.description || "Özel üretim el yapımı ve yüksek kalıcılıkta parfüm. Orijinaline en yakın formülasyon."}
-                        stock={product.stock}
-                        gender={product.gender}
-                        bottleSizeMl={product.bottle_size_ml || primaryVariant.bottle_size_ml}
-                        notes={notes}
-                        dbNotes={displayProduct.notes || primaryVariant.notes}
-                        variants={variants}
-                        similar={similar}
-                    />
+                    <div className="flex flex-wrap items-start gap-12 lg:gap-16">
+                        <div className="flex-[1_1_520px] min-w-0">
+                            <ProductHero
+                                image={displayImage}
+                                hoverImage={displayHoverImage}
+                                name={getBaseName(product.name)}
+                                caption={sizeMl ? `${sizeMl} ML · EDP` : 'EAU DE PARFUM'}
+                                stockLabel={totalStock > 0 && totalStock <= 3 ? `SON ${totalStock} ADET` : undefined}
+                            />
+                        </div>
+                        <div className="flex-[1_1_420px] min-w-0">
+                            <ProductInfo
+                                productId={product.id}
+                                name={getBaseName(product.name)}
+                                stock={product.stock}
+                                gender={product.gender}
+                                bottleSizeMl={sizeMl}
+                                notes={notes}
+                                dbNotes={displayProduct.notes || primaryVariant.notes}
+                                variants={variants}
+                                batchNumber={product.batch_number}
+                                rating={product.fragrantica_score}
+                            />
+                        </div>
+                    </div>
                 </div>
+
+                <section className="flex flex-wrap gap-x-16 gap-y-6 border-t border-hairline pt-16">
+                    <p className="flex-[1_1_240px] font-storefront-mono text-xs tracking-[0.3em] text-tan-ink">KOKUNUN HİKAYESİ</p>
+                    <p className="flex-[2_1_520px] min-w-0 italic text-[28px] md:text-[34px] leading-snug whitespace-pre-line">
+                        {description || 'El yapımı, küçük partilerle hazırlanan bir koku. Her şişe tek tek tartılır, formüle edilir ve deftere işlenir.'}
+                    </p>
+                </section>
+
+                {similar.length > 0 && (
+                    <section className="flex flex-col gap-8">
+                        <div className="flex flex-wrap justify-between items-baseline gap-3">
+                            <h2 className="italic font-normal text-5xl">Benzer kokular</h2>
+                            <Link href={backHref} className="font-storefront-mono text-xs tracking-[0.2em] border-b border-ink pb-1 hover:text-tan-ink hover:border-tan-ink">
+                                TÜMÜNÜ GÖR →
+                            </Link>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-ink">
+                            {similar.map(s => (
+                                <Link
+                                    key={s.id}
+                                    href={`/products/${slugify(s.name)}${backQuery ? `?${backQuery}` : ''}`}
+                                    className="py-6 sm:px-6 sm:first:pl-0 border-b sm:border-b-0 sm:border-l sm:first:border-l-0 border-hairline flex justify-between items-baseline gap-4 hover:text-tan-ink"
+                                >
+                                    <span className="flex flex-col gap-1">
+                                        <span lang="en" className="font-storefront-mono text-[15px] font-bold tracking-[0.08em] uppercase">{getBaseName(s.name)}</span>
+                                        <span className="italic text-lg text-umber">{inspiredByLabel(getBaseName(s.name))}</span>
+                                    </span>
+                                    <span className="font-storefront-mono text-xs">→</span>
+                                </Link>
+                            ))}
+                        </div>
+                    </section>
+                )}
             </main>
             <Footer />
         </div>

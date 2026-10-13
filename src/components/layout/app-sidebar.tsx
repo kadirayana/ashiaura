@@ -33,6 +33,7 @@ import {
     List,
     TestTubeDiagonal,
     MapPin,
+    Tag,
 } from 'lucide-react'
 
 const navigation = [
@@ -63,6 +64,7 @@ const navigation = [
             { name: 'Customers', href: '/dashboard/customers', icon: Users },
             { name: 'Sales', href: '/dashboard/sales', icon: ShoppingCart },
             { name: 'Requests', href: '/dashboard/requests', icon: MessageSquare },
+            { name: 'Pricing', href: '/dashboard/pricing', icon: Tag },
             { name: 'Essence List', href: '/dashboard/essence-list', icon: List },
         ],
     },

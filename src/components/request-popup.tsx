@@ -63,12 +63,12 @@ export function RequestPopup() {
             */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`relative z-10 w-14 h-14 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center border-2 ${isOpen ? 'bg-paper border-ink' : 'bg-rust border-rust hover:bg-ink hover:border-ink hover:scale-110'
+                className={`relative z-10 w-14 h-14 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center border-2 ${isOpen ? 'bg-paper border-ink' : 'bg-ink border-ink hover:bg-tan-ink hover:border-tan-ink hover:scale-110'
                     }`}
                 aria-label="Parfüm Talebi"
             >
                 {showPulse && !isOpen && (
-                    <span className="absolute inset-0 rounded-full animate-ping bg-rust/30" />
+                    <span className="absolute inset-0 rounded-full animate-ping bg-tan/40" />
                 )}
 
                 {isOpen ? (
@@ -107,40 +107,40 @@ export function RequestPopup() {
 
                     <form id="request-popup-form" action={handleSubmit} className="p-5 space-y-4">
                         <div className="space-y-1.5">
-                            <Label htmlFor="popup-customerName" className="font-storefront-mono text-[10px] text-sand tracking-wide">
+                            <Label htmlFor="popup-customerName" className="font-storefront-mono text-[11px] text-sand tracking-[0.2em]">
                                 İSİM SOYİSİM
                             </Label>
                             <Input
                                 id="popup-customerName"
                                 name="customerName"
                                 required
-                                className="h-10 bg-transparent border-0 border-b border-ink rounded-none px-0 text-ink placeholder:text-sand/60 focus-visible:ring-0 focus-visible:border-rust"
+                                className="h-10 bg-transparent border-0 border-b border-ink rounded-none px-0 text-ink text-lg placeholder:text-sand/60 focus-visible:ring-0 focus-visible:border-tan-ink"
                                 placeholder="Örn: Ahmet Yılmaz"
                             />
                         </div>
 
                         <div className="space-y-1.5">
-                            <Label htmlFor="popup-contactInfo" className="font-storefront-mono text-[10px] text-sand tracking-wide">
+                            <Label htmlFor="popup-contactInfo" className="font-storefront-mono text-[11px] text-sand tracking-[0.2em]">
                                 İLETİŞİM BİLGİSİ
                             </Label>
                             <Input
                                 id="popup-contactInfo"
                                 name="contactInfo"
                                 required
-                                className="h-10 bg-transparent border-0 border-b border-ink rounded-none px-0 text-ink placeholder:text-sand/60 focus-visible:ring-0 focus-visible:border-rust"
+                                className="h-10 bg-transparent border-0 border-b border-ink rounded-none px-0 text-ink text-lg placeholder:text-sand/60 focus-visible:ring-0 focus-visible:border-tan-ink"
                                 placeholder="Telefon veya E-posta"
                             />
                         </div>
 
                         <div className="space-y-1.5">
-                            <Label htmlFor="popup-requestDetails" className="font-storefront-mono text-[10px] text-sand tracking-wide">
+                            <Label htmlFor="popup-requestDetails" className="font-storefront-mono text-[11px] text-sand tracking-[0.2em]">
                                 HAYALİNİZDEKİ PARFÜM
                             </Label>
                             <Textarea
                                 id="popup-requestDetails"
                                 name="requestDetails"
                                 required
-                                className="bg-transparent border-0 border-b border-ink rounded-none px-0 min-h-[80px] resize-none text-ink placeholder:text-sand/60 focus-visible:ring-0 focus-visible:border-rust"
+                                className="bg-transparent border-0 border-b border-ink rounded-none px-0 min-h-[80px] resize-none text-ink text-lg placeholder:text-sand/60 focus-visible:ring-0 focus-visible:border-tan-ink"
                                 placeholder="Hangi parfümü yapmamızı istersiniz? Nasıl notalar seversiniz?"
                             />
                         </div>
@@ -148,7 +148,7 @@ export function RequestPopup() {
                         <Button
                             type="submit"
                             disabled={loading}
-                            className="w-full h-11 bg-rust hover:bg-ink text-paper font-storefront-mono font-semibold text-sm tracking-wide rounded-none"
+                            className="w-full h-11 bg-ink hover:bg-tan-ink text-label font-storefront-mono font-semibold text-sm tracking-wide rounded-none"
                         >
                             {loading ? 'GÖNDERİLİYOR…' : 'TALEBİ GÖNDER →'}
                         </Button>

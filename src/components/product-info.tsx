@@ -1,11 +1,14 @@
 'use client'
 
 import Link from "next/link"
+import Image from "next/image"
 import { useSearchParams } from "next/navigation"
-import { MessageCircle, ShoppingBag } from "lucide-react"
+import { Gift } from "lucide-react"
 import { slugify, genderLabel, inspiredByLabel } from "@/lib/utils"
 import type { Product } from "@/types/database"
 import { useCart } from "@/context/CartContext"
+import { usePricing } from "@/context/PricingContext"
+import { bottlePrice, testerPrice, formatPrice, getSizeMl, GIFT_ELIGIBLE_SIZE_ML } from "@/lib/pricing"
 
 export interface NoteData {
     top: string[]
@@ -21,184 +24,184 @@ export interface SimilarProduct {
 }
 
 interface ProductInfoProps {
+    productId: string
     name: string
-    description: string | null
     stock: number
     gender: string | null
     bottleSizeMl: number | null
     notes?: NoteData
     dbNotes?: string | null
     variants?: Product[]
-    similar?: SimilarProduct[]
+    batchNumber?: string | null
+    rating?: number | null
 }
 
 export function ProductInfo({
+    productId,
     name,
-    description,
     stock,
     gender,
     bottleSizeMl,
     notes,
     dbNotes,
     variants,
-    similar,
+    batchNumber,
+    rating,
 }: ProductInfoProps) {
     const { addToCart } = useCart()
+    const { prices, onlinePayment } = usePricing()
     const searchParams = useSearchParams()
     const catalogQuery = searchParams.toString()
     const withCatalogQuery = (href: string) => `${href}${catalogQuery ? `?${catalogQuery}` : ''}`
-    const inspiredByText = inspiredByLabel(name)
 
-    const currentVariant = variants?.find(v => v.name === name) || {
-        id: name,
+    const currentVariant = variants?.find(v => v.id === productId) || {
+        id: productId,
         name,
         bottle_size_ml: bottleSizeMl,
         stock,
-        gender: gender as any,
+        gender: gender as Product['gender'],
     }
 
-    const totalStock = variants && variants.length > 1
-        ? variants.reduce((sum, v) => sum + v.stock, 0)
-        : stock
+    const price = bottlePrice(prices, currentVariant)
+    const tester = testerPrice(prices)
+    const size = getSizeMl(currentVariant)
+    const earnsGiftTester = size === GIFT_ELIGIBLE_SIZE_ML
+    const canAdd = stock > 0 && (price !== null || !onlinePayment)
 
-    const handleAddToCart = () => {
-        addToCart(currentVariant)
-    }
+    // One pill per size; if two products share a size, link the one with more stock
+    const sizeOptions = (() => {
+        if (!variants || variants.length < 2) return []
+        const bySize = new Map<number, Product>()
+        for (const v of variants) {
+            const s = getSizeMl(v)
+            const existing = bySize.get(s)
+            if (!existing || v.id === productId || (existing.id !== productId && v.stock > existing.stock)) bySize.set(s, v)
+        }
+        return [...bySize.entries()].sort(([a], [b]) => a - b)
+    })()
+
+    const noteRows: Array<[string, string]> = notes
+        ? ([['ÜST', notes.top], ['ORTA', notes.middle], ['ALT', notes.base]] as const)
+            .filter(([, list]) => list.length > 0)
+            .map(([layer, list]) => [layer, list.join(', ').toLocaleLowerCase('tr')])
+        : []
 
     return (
         <div className="flex flex-col gap-8">
-            <div>
-                <h1 className="font-bold text-3xl md:text-4xl text-ink leading-tight">{inspiredByText}</h1>
-
-                <div className="grid grid-cols-3 border border-ink mt-6">
-                    <div className="p-3 border-r border-ink">
-                        <div className="font-storefront-mono text-[9px] text-sand tracking-wide">PROFİL</div>
-                        <div className="font-semibold text-sm mt-1">{genderLabel(gender)}</div>
-                    </div>
-                    <div className="p-3 border-r border-ink">
-                        <div className="font-storefront-mono text-[9px] text-sand tracking-wide">HACİM</div>
-                        <div className="font-semibold text-sm mt-1">{bottleSizeMl ? `${bottleSizeMl} ml` : '—'}</div>
-                    </div>
-                    <div className="p-3">
-                        <div className="font-storefront-mono text-[9px] text-sand tracking-wide">STOK</div>
-                        <div className={`font-semibold text-sm mt-1 ${totalStock > 0 ? 'text-moss' : 'text-rust'}`}>
-                            {totalStock > 0 ? `Son ${totalStock} adet` : 'Tükendi'}
-                        </div>
-                    </div>
-                </div>
-
-                {variants && variants.length > 1 && (() => {
-                    const sizeMap = new Map<number, (typeof variants)[0]>()
-                    for (const v of variants) {
-                        const size = v.bottle_size_ml ?? parseInt(v.name.match(/(\d+)\s*ml/i)?.[1] || '0')
-                        const existing = sizeMap.get(size)
-                        if (!existing || v.stock > existing.stock) sizeMap.set(size, v)
-                    }
-                    const uniqueVariants = Array.from(sizeMap.entries()).sort(([a], [b]) => a - b).map(([, v]) => v)
-
-                    return (
-                        <div className="mt-4 flex flex-wrap gap-2">
-                            {uniqueVariants.map((variant) => {
-                                const isSelected = variant.name === name
-                                const inStock = variant.stock > 0
-                                const sizeLabel = variant.bottle_size_ml
-                                    ? `${variant.bottle_size_ml}ml`
-                                    : (variant.name.match(/(\d+ml)/i)?.[1] || variant.name)
-                                return (
-                                    <Link
-                                        key={variant.id}
-                                        href={withCatalogQuery(`/products/${slugify(variant.name)}`)}
-                                        className={`font-storefront-mono text-xs font-semibold px-3 py-1.5 border ${isSelected
-                                            ? 'bg-ink text-paper border-ink'
-                                            : inStock
-                                                ? 'border-moss text-moss hover:bg-moss hover:text-paper'
-                                                : 'border-hairline text-sand line-through'
-                                            }`}
-                                    >
-                                        {sizeLabel}
-                                    </Link>
-                                )
-                            })}
-                        </div>
-                    )
-                })()}
-            </div>
-
-            <p className="text-ink/80 leading-relaxed whitespace-pre-line">
-                {description || "Bu eserin hikayesi yakında eklenecektir."}
-            </p>
-
-            {(notes || dbNotes) && (
-                <div>
-                    <p className="font-storefront-mono text-xs text-rust tracking-wide mb-3">NOTA PİRAMİDİ</p>
-                    {notes ? (
-                        <div className="space-y-1">
-                            {([
-                                ['ÜST', notes.top],
-                                ['KALP', notes.middle],
-                                ['DİP', notes.base],
-                            ] as const).map(([layer, tags]) => (
-                                <div key={layer} className="grid grid-cols-[70px_1fr] gap-4 items-baseline py-2.5 border-b border-dashed border-hairline">
-                                    <span className="font-storefront-mono text-[10px] text-sand tracking-wide">{layer}</span>
-                                    <div className="flex flex-wrap gap-2">
-                                        {tags.map((tag) => (
-                                            <span key={tag} className="font-storefront-mono text-xs border border-ink rounded-full px-2.5 py-0.5">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <p className="text-sand text-sm whitespace-pre-line">{dbNotes}</p>
-                    )}
-                </div>
-            )}
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <button
-                    type="button"
-                    onClick={handleAddToCart}
-                    disabled={stock <= 0}
-                    className="flex-1 flex items-center justify-center gap-2.5 bg-rust hover:bg-rust/90 text-paper font-storefront-mono font-semibold px-6 py-4 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer shadow-sm"
-                >
-                    <ShoppingBag className="w-5 h-5" />
-                    {stock > 0 ? 'SEPETE EKLE' : 'STOKTA TÜKENDİ'}
-                </button>
-
-                <a
-                    href={`https://wa.me/905369433943?text=${encodeURIComponent(`Merhaba, ${inspiredByText} hakkında bilgi almak istiyorum.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 border border-ink bg-paper text-ink font-storefront-mono font-semibold px-6 py-4 hover:bg-ink hover:text-paper transition-colors"
-                >
-                    <MessageCircle className="w-5 h-5" />
-                    WHATSAPP
-                </a>
-            </div>
-
-            {similar && similar.length > 0 && (
-                <div className="pt-6 border-t border-ink">
-                    <p className="font-storefront-mono text-xs text-rust tracking-wide mb-4">BENZER KAYITLAR</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {similar.map((s) => (
-                            <Link
-                                key={s.id}
-                                href={withCatalogQuery(`/products/${slugify(s.name)}`)}
-                                className="border border-ink px-4 py-3 flex justify-between items-center hover:bg-black/[0.03] transition-colors"
-                            >
-                                <div>
-                                    <div className="font-semibold text-sm text-ink">{s.name}</div>
-                                    {s.house && <div className="font-storefront-mono text-xs text-sand">{s.house}</div>}
-                                </div>
-                                <span className="font-storefront-mono text-xs">→</span>
-                            </Link>
+            {/* Label */}
+            <div className="bg-label border border-label-line px-7 sm:px-8 pt-7 pb-6 flex flex-col gap-4 font-storefront-mono text-[13px] leading-relaxed">
+                <span className="flex items-end justify-between gap-3">
+                    <Image src="/brand/logo-ink.svg" alt="Ashi Aura" width={60} height={34} unoptimized className="h-[34px] w-auto" />
+                    {gender && <span className="text-[11px] tracking-[0.2em] text-sand uppercase">{genderLabel(gender)}</span>}
+                </span>
+                <h1 lang="en" className="border-t border-ink pt-4 font-storefront-mono text-2xl sm:text-3xl font-bold leading-tight tracking-[0.06em] uppercase">
+                    {name}
+                </h1>
+                <span className="font-storefront italic text-[22px] leading-snug text-umber">{inspiredByLabel(name)}</span>
+                {noteRows.length > 0 ? (
+                    <div className="grid grid-cols-[56px_1fr] gap-x-3 gap-y-1.5 text-umber">
+                        {noteRows.map(([layer, text]) => (
+                            <span key={layer} className="contents">
+                                <span className="text-tan-ink">{layer}</span>
+                                <span>{text}</span>
+                            </span>
                         ))}
                     </div>
+                ) : dbNotes ? (
+                    <p className="text-umber whitespace-pre-line">{dbNotes}</p>
+                ) : null}
+                <span className="border-t border-ink pt-3 flex flex-wrap justify-between gap-2 text-xs tracking-[0.12em]">
+                    <span>{size ? `${size} ML · ` : ''}EAU DE PARFUM</span>
+                    {batchNumber && <span>LOT {batchNumber}</span>}
+                </span>
+            </div>
+
+            {/* Price */}
+            <div className="flex flex-wrap items-baseline justify-between gap-4">
+                <span className="font-storefront text-[44px] font-medium leading-none">
+                    {price !== null ? formatPrice(price) : (
+                        <span className="font-storefront-mono text-sm tracking-[0.14em] text-sand">FİYAT İÇİN SORUN</span>
+                    )}
+                </span>
+                {rating != null && (
+                    <span className="font-storefront-mono text-xs tracking-[0.1em] text-sand">★ {Number(rating).toFixed(2)} FRAGRANTICA</span>
+                )}
+            </div>
+
+            {/* Size */}
+            {sizeOptions.length > 1 && (
+                <div className="flex flex-col gap-3">
+                    <span className="font-storefront-mono text-[11px] tracking-[0.24em] text-sand">HACİM</span>
+                    <div className="flex self-start border border-ink" role="group" aria-label="Hacim seçimi">
+                        {sizeOptions.map(([ml, variant], i) => {
+                            const selected = variant.id === productId
+                            return (
+                                <Link
+                                    key={variant.id}
+                                    href={withCatalogQuery(`/products/${slugify(variant.name)}`)}
+                                    aria-current={selected ? 'page' : undefined}
+                                    className={`min-w-[100px] h-12 px-5 flex items-center justify-center font-storefront-mono text-[13px] tracking-[0.18em] ${i > 0 ? 'border-l border-ink' : ''} ${selected
+                                        ? 'bg-ink text-label'
+                                        : variant.stock > 0 ? 'hover:bg-linen' : 'text-sand line-through'
+                                        }`}
+                                >
+                                    {ml ? `${ml} ML` : variant.name}
+                                </Link>
+                            )
+                        })}
+                    </div>
                 </div>
             )}
+
+            {earnsGiftTester && (
+                <div className="flex items-center gap-3 bg-linen px-5 py-3.5 text-lg leading-snug">
+                    <Gift className="w-5 h-5 text-tan-ink shrink-0" strokeWidth={1.5} />
+                    <span>Bu şişeyle <em>3 ml tester hediye.</em> Kokusunu sepette seçersin.</span>
+                </div>
+            )}
+
+            {/* Actions */}
+            <div className="flex flex-col gap-2.5">
+                <button
+                    type="button"
+                    onClick={() => addToCart(currentVariant)}
+                    disabled={!canAdd}
+                    className="h-14 bg-ink text-label font-storefront-mono text-sm tracking-[0.22em] hover:bg-tan-ink transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                    {stock > 0 ? 'SEPETE EKLE' : 'STOKTA TÜKENDİ'}
+                </button>
+                {tester !== null && (
+                    <button
+                        type="button"
+                        onClick={() => addToCart({ ...currentVariant, name }, 1, 'tester')}
+                        className="h-14 border border-ink font-storefront-mono text-sm tracking-[0.22em] hover:bg-ink hover:text-label transition-colors cursor-pointer"
+                    >
+                        3 ML TESTER İLE DENE · {formatPrice(tester)}
+                    </button>
+                )}
+                {stock > 0 && stock <= 3 && (
+                    <span className="font-storefront-mono text-xs tracking-[0.1em] text-rust">BU BOYUTTAN SON {stock} ADET</span>
+                )}
+            </div>
+
+            {/* Details */}
+            <div className="flex flex-col border-t border-ink text-lg">
+                <div className="flex flex-wrap justify-between gap-x-4 gap-y-1 py-4 border-b border-hairline">
+                    <span className="font-storefront-mono text-xs tracking-[0.2em] pt-1">ÖDEME</span>
+                    <span className="text-umber">Kredi ve banka kartı · Shopier</span>
+                </div>
+                <div className="flex flex-wrap justify-between gap-x-4 gap-y-1 py-4 border-b border-hairline">
+                    <span className="font-storefront-mono text-xs tracking-[0.2em] pt-1">SORU</span>
+                    <a
+                        href={`https://wa.me/905369433943?text=${encodeURIComponent(`Merhaba, ${name} hakkında bilgi almak istiyorum.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-umber underline underline-offset-4 hover:text-tan-ink"
+                    >
+                        WhatsApp&apos;tan yaz
+                    </a>
+                </div>
+            </div>
         </div>
     )
 }

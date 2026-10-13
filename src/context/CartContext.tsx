@@ -2,10 +2,12 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import type { Product } from '@/types/database'
+import type { CartItemKind } from '@/lib/pricing'
 import { toast } from 'sonner'
 
 export interface CartItem {
     product_id: string
+    kind: CartItemKind
     name: string
     bottle_size_ml: number | null
     image_url: string | null
@@ -15,23 +17,35 @@ export interface CartItem {
     unit_cost?: number | null
 }
 
+type CartProduct = Product | { id: string; name: string; bottle_size_ml?: number | null; image_url?: string | null; gender?: string | null; stock?: number; unit_cost?: number | null }
+
 interface CartContextType {
     items: CartItem[]
     isOpen: boolean
     setIsOpen: (open: boolean) => void
-    addToCart: (product: Product | { id: string; name: string; bottle_size_ml?: number | null; image_url?: string | null; gender?: string | null; stock?: number; unit_cost?: number | null }, quantity?: number) => void
-    removeFromCart: (productId: string) => void
-    updateQuantity: (productId: string, quantity: number) => void
+    addToCart: (product: CartProduct, quantity?: number, kind?: CartItemKind) => void
+    removeFromCart: (key: string) => void
+    updateQuantity: (key: string, quantity: number) => void
     clearCart: () => void
     totalCount: number
+    /** Scent chosen for each free tester slot (index = slot) */
+    giftTesters: string[]
+    setGiftTester: (index: number, scent: string) => void
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
 const CART_STORAGE_KEY = 'kadir_ayana_perfume_cart'
+const GIFT_STORAGE_KEY = 'kadir_ayana_perfume_gift_testers'
+const MAX_TESTERS_PER_SCENT = 10
+
+export function cartItemKey(item: { product_id: string; kind?: CartItemKind }) {
+    return `${item.product_id}:${item.kind ?? 'bottle'}`
+}
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
     const [items, setItems] = useState<CartItem[]>([])
+    const [giftTesters, setGiftTesters] = useState<string[]>([])
     const [isOpen, setIsOpen] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
 
@@ -40,8 +54,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         try {
             const saved = localStorage.getItem(CART_STORAGE_KEY)
             if (saved) {
-                setItems(JSON.parse(saved))
+                // Carts saved before testers existed have no kind
+                setItems((JSON.parse(saved) as CartItem[]).map(i => ({ ...i, kind: i.kind ?? 'bottle' })))
             }
+            const savedGifts = localStorage.getItem(GIFT_STORAGE_KEY)
+            if (savedGifts) setGiftTesters(JSON.parse(savedGifts))
         } catch (e) {
             console.error('Failed to load cart from localStorage', e)
         } finally {
@@ -54,28 +71,32 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         if (!isLoaded) return
         try {
             localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items))
+            localStorage.setItem(GIFT_STORAGE_KEY, JSON.stringify(giftTesters))
         } catch (e) {
             console.error('Failed to save cart to localStorage', e)
         }
-    }, [items, isLoaded])
+    }, [items, giftTesters, isLoaded])
 
-    const addToCart = (
-        product: Product | { id: string; name: string; bottle_size_ml?: number | null; image_url?: string | null; gender?: string | null; stock?: number; unit_cost?: number | null },
-        quantity: number = 1
-    ) => {
-        const availableStock = product.stock !== undefined ? product.stock : 99
+    const addToCart = (product: CartProduct, quantity: number = 1, kind: CartItemKind = 'bottle') => {
+        // Testers are filled from essence, not from bottle stock
+        const availableStock = kind === 'tester'
+            ? MAX_TESTERS_PER_SCENT
+            : product.stock !== undefined ? product.stock : 99
         if (availableStock <= 0) {
             toast.error('Bu ürün maalesef stokta tükenmiştir.')
             return
         }
 
+        const label = kind === 'tester' ? `${product.name} (3ml tester)` : product.name
+
         setItems(prevItems => {
-            const existingIndex = prevItems.findIndex(i => i.product_id === product.id)
+            const key = cartItemKey({ product_id: product.id, kind })
+            const existingIndex = prevItems.findIndex(i => cartItemKey(i) === key)
             if (existingIndex > -1) {
                 const currentQty = prevItems[existingIndex].quantity
                 const newQty = Math.min(currentQty + quantity, availableStock)
                 if (currentQty >= availableStock) {
-                    toast.info(`Maksimum stok adedine (${availableStock}) ulaştınız.`)
+                    toast.info(`Maksimum adede (${availableStock}) ulaştınız.`)
                     return prevItems
                 }
                 const updated = [...prevItems]
@@ -84,14 +105,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                     quantity: newQty,
                     stock: availableStock,
                 }
-                toast.success(`${product.name} sepet miktarı artırıldı! (${newQty} adet)`)
+                toast.success(`${label} sepet miktarı artırıldı! (${newQty} adet)`)
                 return updated
             } else {
-                toast.success(`${product.name} sepete eklendi!`)
+                toast.success(`${label} sepete eklendi!`)
                 return [
                     ...prevItems,
                     {
                         product_id: product.id,
+                        kind,
                         name: product.name,
                         bottle_size_ml: product.bottle_size_ml ?? null,
                         image_url: product.image_url ?? null,
@@ -106,19 +128,19 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         setIsOpen(true)
     }
 
-    const removeFromCart = (productId: string) => {
-        setItems(prev => prev.filter(i => i.product_id !== productId))
+    const removeFromCart = (key: string) => {
+        setItems(prev => prev.filter(i => cartItemKey(i) !== key))
         toast.info('Ürün sepetten çıkarıldı.')
     }
 
-    const updateQuantity = (productId: string, quantity: number) => {
+    const updateQuantity = (key: string, quantity: number) => {
         if (quantity <= 0) {
-            removeFromCart(productId)
+            removeFromCart(key)
             return
         }
         setItems(prev =>
             prev.map(i => {
-                if (i.product_id === productId) {
+                if (cartItemKey(i) === key) {
                     const finalQty = Math.min(quantity, i.stock || 99)
                     return { ...i, quantity: finalQty }
                 }
@@ -127,10 +149,20 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         )
     }
 
+    const setGiftTester = (index: number, scent: string) => {
+        setGiftTesters(prev => {
+            const next = [...prev]
+            next[index] = scent
+            return next
+        })
+    }
+
     const clearCart = () => {
         setItems([])
+        setGiftTesters([])
         try {
             localStorage.removeItem(CART_STORAGE_KEY)
+            localStorage.removeItem(GIFT_STORAGE_KEY)
         } catch (e) {
             console.error(e)
         }
@@ -149,6 +181,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 updateQuantity,
                 clearCart,
                 totalCount,
+                giftTesters,
+                setGiftTester,
             }}
         >
             {children}

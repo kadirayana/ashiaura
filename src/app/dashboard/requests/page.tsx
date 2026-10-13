@@ -8,22 +8,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import { formatDate } from '@/lib/utils'
-import { ShoppingBag, CheckCircle2, XCircle, Trash2, Search, ArrowDownCircle, AlertTriangle } from 'lucide-react'
-
-interface CartItemMeta {
-    product_id: string
-    name: string
-    quantity: number
-    bottle_size_ml?: number | null
-    unit_cost?: number | null
-}
-
-interface CartOrderMeta {
-    type: 'cart_order'
-    total_bottles: number
-    address_or_notes?: string
-    items: CartItemMeta[]
-}
+import { formatPrice } from '@/lib/pricing'
+import type { CartOrderMeta } from '@/types/orders'
+import { ShoppingBag, CheckCircle2, XCircle, Trash2, Search, ArrowDownCircle, AlertTriangle, Gift } from 'lucide-react'
 
 type ProductRequest = {
     id: string
@@ -32,6 +19,26 @@ type ProductRequest = {
     request_details: string
     status: 'pending' | 'completed' | 'cancelled'
     created_at: string
+    // Online payment (null on offline requests / before supabase/shopier.sql)
+    order_code?: string | null
+    total_price?: number | null
+    payment_status?: 'awaiting_payment' | 'paid' | 'review' | null
+    shopier_product_url?: string | null
+    shopier_order_id?: string | null
+    paid_at?: string | null
+    shipping_info?: Record<string, string> | null
+}
+
+const PAYMENT_BADGES: Record<NonNullable<ProductRequest['payment_status']>, { label: string; className: string }> = {
+    awaiting_payment: { label: '💳 Ödeme Bekleniyor', className: 'bg-ink/5 text-sand border border-hairline' },
+    paid: { label: '💰 Ödendi', className: 'bg-moss text-paper' },
+    review: { label: '⚠️ Ödenen Tutar Farklı', className: 'bg-rust text-paper' },
+}
+
+function formatShipping(info: Record<string, string>): string {
+    const name = [info.firstName, info.lastName].filter(Boolean).join(' ')
+    const place = [info.address, info.district, info.city, info.postcode].filter(Boolean).join(', ')
+    return [name, info.phone, info.email, place].filter(Boolean).join(' · ')
 }
 
 function parseOrderMetadata(details: string): { isCartOrder: boolean; meta: CartOrderMeta | null; cleanText: string } {
@@ -98,7 +105,8 @@ export default function RequestsPage() {
 
     // Approve Cart Order and Deduct Stock
     async function handleApproveCartOrder(req: ProductRequest, meta: CartOrderMeta) {
-        if (!confirm(`"${req.customer_name}" müşterisine ait ${meta.total_bottles} şişelik sipariş onaylanacak ve stoklardan düşülecektir. Onaylıyor musunuz?`)) {
+        const unpaidWarning = req.payment_status === 'awaiting_payment' ? 'DİKKAT: Bu siparişin online ödemesi henüz gelmedi.\n\n' : ''
+        if (!confirm(`${unpaidWarning}"${req.customer_name}" müşterisine ait ${meta.total_bottles} şişelik sipariş onaylanacak ve stoklardan düşülecektir. Onaylıyor musunuz?`)) {
             return
         }
 
@@ -106,8 +114,11 @@ export default function RequestsPage() {
         const toastId = toast.loading('Sipariş onaylanıyor ve stoklar güncelleniyor...')
 
         try {
+            // Testers are filled from essence — they never touch bottle stock or sales
+            const bottleItems = meta.items.filter(i => (i.kind ?? 'bottle') === 'bottle')
+
             // 1. Fetch current products to check stocks and recipe costs
-            const productIds = meta.items.map(i => i.product_id).filter(Boolean)
+            const productIds = bottleItems.map(i => i.product_id).filter(Boolean)
             const { data: currentProducts, error: prodErr } = await supabase
                 .from('products')
                 .select('*')
@@ -151,7 +162,7 @@ export default function RequestsPage() {
             const deductedInfo: string[] = []
 
             // 3. For each item in cart, deduct stock and create sale record
-            for (const item of meta.items) {
+            for (const item of bottleItems) {
                 const prod = productsMap.get(item.product_id)
                 if (prod) {
                     const currentStock = prod.stock || 0
@@ -171,15 +182,19 @@ export default function RequestsPage() {
 
                     // Create sale log
                     const unitCost = prod.unit_cost || item.unit_cost || 0
-                    const totalPrice = (prod.unit_cost ? prod.unit_cost * 1.5 : 0) * item.quantity // default or zero if price undefined
+                    // Orders placed before pricing existed carry no unit_price; fall back to the old cost markup
+                    const unitPrice = item.unit_price ?? (prod.unit_cost ? prod.unit_cost * 1.5 : null)
+                    const totalPrice = (unitPrice ?? 0) * item.quantity
                     await supabase.from('sales').insert({
                         customer_id: customerId,
                         product_id: prod.id,
                         quantity: item.quantity,
                         unit_cost: unitCost,
-                        unit_price: prod.unit_cost ? prod.unit_cost * 1.5 : null,
+                        unit_price: unitPrice,
                         total_price: totalPrice > 0 ? totalPrice : null,
                         profit: totalPrice > 0 ? totalPrice - (unitCost * item.quantity) : 0,
+                        // Paid online via Shopier — record the payment with the sale
+                        payment_amount: req.payment_status === 'paid' ? totalPrice : null,
                         sale_date: today,
                         notes: `Web Sipariş Onayı (İstek #${req.id.slice(0, 8)}) - ${meta.address_or_notes || ''}`.trim()
                     })
@@ -336,6 +351,14 @@ export default function RequestsPage() {
                                                     Özel Talep
                                                 </Badge>
                                             )}
+                                            {req.order_code && (
+                                                <span className="font-storefront-mono text-[11px] text-sand">{req.order_code}</span>
+                                            )}
+                                            {req.payment_status && (
+                                                <Badge className={`text-[11px] ${PAYMENT_BADGES[req.payment_status].className}`}>
+                                                    {PAYMENT_BADGES[req.payment_status].label}
+                                                </Badge>
+                                            )}
                                         </div>
                                         <div className="flex items-center gap-2 text-xs sm:text-sm text-sand font-storefront-mono">
                                             <span>📞 {req.contact_info}</span>
@@ -375,24 +398,56 @@ export default function RequestsPage() {
                                     {meta && meta.items && meta.items.length > 0 ? (
                                         <div className="space-y-3">
                                             <div className="rounded-lg border border-hairline bg-ink/[0.03] p-3 sm:p-4 space-y-2">
-                                                <p className="font-storefront-mono text-xs font-semibold text-sand uppercase">
-                                                    SİPARİŞ VERİLEN PARFÜMLER ({meta.total_bottles} ŞİŞE)
-                                                </p>
+                                                <div className="flex items-center justify-between gap-2">
+                                                    <p className="font-storefront-mono text-xs font-semibold text-sand uppercase">
+                                                        SİPARİŞ ({meta.total_bottles} ŞİŞE{meta.total_testers ? `, ${meta.total_testers} TESTER` : ''})
+                                                    </p>
+                                                    {meta.total_price !== undefined && (
+                                                        <span className="font-bold text-ink font-storefront-mono">{formatPrice(meta.total_price)}</span>
+                                                    )}
+                                                </div>
                                                 <div className="divide-y divide-hairline">
                                                     {meta.items.map((item, idx) => (
                                                         <div key={idx} className="py-2 flex items-center justify-between text-sm">
                                                             <div className="font-medium text-ink">
                                                                 {item.name}{' '}
                                                                 <span className="text-sand text-xs font-storefront-mono">
-                                                                    ({item.bottle_size_ml ? `${item.bottle_size_ml}ml` : 'Özel'})
+                                                                    ({item.kind === 'tester' ? '3ml tester' : item.bottle_size_ml ? `${item.bottle_size_ml}ml` : 'Özel'})
                                                                 </span>
                                                             </div>
                                                             <div className="font-bold text-rust font-storefront-mono">
                                                                 {item.quantity} Adet
+                                                                {item.line_total !== undefined && (
+                                                                    <span className="text-ink font-normal ml-2">{formatPrice(item.line_total)}</span>
+                                                                )}
                                                             </div>
                                                         </div>
                                                     ))}
                                                 </div>
+                                                {meta.gift_testers && meta.gift_testers.length > 0 && (
+                                                    <div className="pt-2 border-t border-hairline text-xs">
+                                                        <span className="inline-flex items-center gap-1 font-semibold text-moss">
+                                                            <Gift className="w-3 h-3" /> Hediye 3ml tester:
+                                                        </span>{' '}
+                                                        <span className="text-ink">{meta.gift_testers.join(', ')}</span>
+                                                    </div>
+                                                )}
+                                                {req.shipping_info && (
+                                                    <div className="pt-2 border-t border-hairline text-xs">
+                                                        <span className="font-semibold text-ink">Teslimat (Shopier):</span>{' '}
+                                                        <span className="text-sand">{formatShipping(req.shipping_info)}</span>
+                                                        {req.shipping_info.note && (
+                                                            <div className="text-sand mt-1">Not: {req.shipping_info.note}</div>
+                                                        )}
+                                                    </div>
+                                                )}
+                                                {req.payment_status === 'awaiting_payment' && req.shopier_product_url && (
+                                                    <div className="pt-2 border-t border-hairline text-xs">
+                                                        <a href={req.shopier_product_url} target="_blank" rel="noopener noreferrer" className="text-moss hover:underline">
+                                                            Shopier ödeme sayfası →
+                                                        </a>
+                                                    </div>
+                                                )}
                                                 {meta.address_or_notes && (
                                                     <div className="pt-2 border-t border-hairline text-xs text-sand">
                                                         <span className="font-semibold text-ink">Adres / Not:</span> {meta.address_or_notes}

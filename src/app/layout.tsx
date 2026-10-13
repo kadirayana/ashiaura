@@ -13,10 +13,7 @@ export const metadata: Metadata = {
   title: "Ashi Aura — El Yapımı Parfüm Koleksiyonu",
   description: "İzmir'den el yapımı lüks parfümler. Her esans özenle formüle edilir ve şişelenir. Shopier üzerinden sipariş verin.",
   applicationName: "Ashi Aura",
-  icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
-  },
+  // Tab and home-screen icons come from app/icon.svg and app/apple-icon.png
 };
 
 export default function RootLayout({

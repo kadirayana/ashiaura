@@ -156,7 +156,7 @@ function ProductListContent({ initialProducts }: ProductListProps) {
     return (
         <div className="space-y-8">
             <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between border-b border-ink pb-4">
-                <div className="flex flex-wrap items-center gap-2 font-storefront-mono text-[11px]">
+                <div className="flex flex-wrap items-center gap-2 font-storefront-mono text-[11px] tracking-[0.16em]">
                     {([
                         { label: 'TÜMÜ', value: 'all' as const },
                         { label: 'ERKEK', value: 'men' as const },
@@ -171,11 +171,11 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                             <button
                                 key={opt.value}
                                 onClick={() => setGenderFilter(opt.value)}
-                                className={`px-3 py-1.5 rounded-full border transition-all cursor-pointer ${active
-                                        ? 'bg-ink text-paper border-ink'
+                                className={`h-10 px-4 border transition-colors cursor-pointer ${active
+                                        ? 'bg-ink text-label border-ink'
                                         : isLow
                                             ? 'text-rust border-rust border-dashed'
-                                            : 'text-ink border-ink/30 hover:border-ink'
+                                            : 'text-ink border-label-line hover:border-ink'
                                     }`}
                             >
                                 {opt.label}
@@ -192,7 +192,7 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                             placeholder="Parfüm adı ara…"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-6 pr-6 py-2 bg-transparent border-0 border-b border-ink text-ink placeholder-sand/60 focus:outline-none text-sm"
+                            className="w-full pl-6 pr-6 py-2 bg-transparent border-0 border-b border-ink text-ink placeholder-sand/60 focus:outline-none text-lg"
                         />
                         {searchQuery && (
                             <button onClick={() => setSearchQuery('')} className="absolute right-0 top-1/2 -translate-y-1/2 text-sand hover:text-ink">
@@ -243,7 +243,7 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                         })}
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-x-8 gap-y-16">
                         {groupedProducts.map((group) => (
                             <div key={group.representative.id} className="h-full">
                                 <ProductCard

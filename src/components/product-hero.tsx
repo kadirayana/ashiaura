@@ -2,87 +2,72 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, Sparkles, Camera } from "lucide-react"
-import { LotStamp } from "@/components/storefront-ui/lot-stamp"
 import { inspiredByLabel } from "@/lib/utils"
+import { BottleIllustration } from "@/components/storefront-ui/bottle-illustration"
 
 interface ProductHeroProps {
     image: string
     hoverImage?: string
     name: string
     stockLabel?: string
-    backHref?: string
+    /** Label caption on the bottle illustration shown when there is no photo */
+    caption?: string
 }
 
-export function ProductHero({ image, hoverImage, name, stockLabel, backHref = "/products" }: ProductHeroProps) {
+export function ProductHero({ image, hoverImage, name, stockLabel, caption }: ProductHeroProps) {
     const [showHandmade, setShowHandmade] = useState(false)
-    const hasHandmadeImage = !!hoverImage
-
-    const toggleImage = () => {
-        if (hasHandmadeImage) setShowHandmade(!showHandmade)
-    }
 
     return (
-        <div className="relative w-full h-[50vh] md:h-[520px] bg-[repeating-linear-gradient(45deg,#eceadf_0_9px,#e3e0d2_9px_18px)] border-b border-ink overflow-hidden">
-            <Link
-                href={backHref}
-                className="absolute top-4 left-4 z-20 flex items-center justify-center w-10 h-10 bg-paper border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
-            >
-                <ArrowLeft className="w-5 h-5" />
-                <span className="sr-only">Geri Dön</span>
-            </Link>
-
-            {stockLabel && <LotStamp label={stockLabel} className="absolute top-4 right-4 z-20" />}
-
-            <div className="relative w-full h-full z-10 p-6 md:p-12">
+        <div className="flex flex-col gap-3">
+            <div className="relative aspect-square bg-linen overflow-hidden">
                 {image ? (
-                    <Image
-                        src={image}
-                        alt={inspiredByLabel(name)}
-                        fill
-                        sizes="100vw"
-                        className={`object-contain transition-all duration-700 ease-in-out ${showHandmade && hasHandmadeImage ? "opacity-0 scale-95" : "opacity-100 scale-100"}`}
-                        priority
-                    />
+                    <>
+                        <Image
+                            src={image}
+                            alt={inspiredByLabel(name)}
+                            fill
+                            priority
+                            sizes="(max-width: 1040px) 100vw, 55vw"
+                            className={`object-contain p-8 md:p-12 transition-opacity duration-700 ${showHandmade ? "opacity-0" : "opacity-100"}`}
+                        />
+                        {hoverImage && (
+                            <Image
+                                src={hoverImage}
+                                alt={`${inspiredByLabel(name)} el yapımı`}
+                                fill
+                                sizes="(max-width: 1040px) 100vw, 55vw"
+                                className={`object-contain p-8 md:p-12 transition-opacity duration-700 ${showHandmade ? "opacity-100" : "opacity-0"}`}
+                            />
+                        )}
+                    </>
                 ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                        <span className="font-storefront-mono text-xs text-sand border border-dashed border-sand px-3 py-2 bg-paper">
-                            [ şişe fotoğrafı ]
-                        </span>
-                    </div>
+                    <BottleIllustration name={name} caption={caption} viewBox="80 20 240 240" className="w-full h-full block" />
                 )}
 
-                {hoverImage && (
-                    <Image
-                        src={hoverImage}
-                        alt={`${inspiredByLabel(name)} el yapımı`}
-                        fill
-                        sizes="100vw"
-                        className={`object-contain transition-all duration-700 ease-in-out absolute inset-0 p-6 md:p-12 ${showHandmade ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-                        loading="lazy"
-                    />
+                {stockLabel && (
+                    <span className="absolute top-4 left-4 font-storefront-mono text-[11px] tracking-[0.14em] bg-ink text-paper px-2.5 py-1">
+                        {stockLabel}
+                    </span>
                 )}
             </div>
 
-            {hasHandmadeImage && (
-                <div className="absolute bottom-6 right-6 z-20">
-                    <button
-                        onClick={toggleImage}
-                        className={`flex items-center gap-2 px-4 py-2 border font-storefront-mono text-xs font-semibold transition-all ${showHandmade ? "bg-moss border-moss text-paper" : "bg-paper border-ink text-ink hover:bg-ink hover:text-paper"}`}
-                    >
-                        {showHandmade ? (
-                            <>
-                                <Sparkles className="w-4 h-4" />
-                                ORİJİNALİNİ GÖR
-                            </>
-                        ) : (
-                            <>
-                                <Camera className="w-4 h-4" />
-                                EL YAPIMI GÖR
-                            </>
-                        )}
-                    </button>
+            {image && hoverImage && (
+                <div className="grid grid-cols-4 gap-3">
+                    {[image, hoverImage].map((src, i) => {
+                        const active = showHandmade === (i === 1)
+                        return (
+                            <button
+                                key={src}
+                                type="button"
+                                onClick={() => setShowHandmade(i === 1)}
+                                aria-label={i === 0 ? "Şişe fotoğrafı" : "El yapımı fotoğraf"}
+                                aria-pressed={active}
+                                className={`relative aspect-square bg-linen border cursor-pointer ${active ? "border-ink" : "border-hairline hover:border-sand"}`}
+                            >
+                                <Image src={src} alt="" fill sizes="120px" className="object-contain p-2" />
+                            </button>
+                        )
+                    })}
                 </div>
             )}
         </div>
