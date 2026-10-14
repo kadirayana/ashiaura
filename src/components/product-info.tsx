@@ -8,7 +8,7 @@ import { slugify, genderLabel, inspiredByLabel } from "@/lib/utils"
 import type { Product } from "@/types/database"
 import { useCart } from "@/context/CartContext"
 import { usePricing } from "@/context/PricingContext"
-import { bottlePrice, testerPrice, formatPrice, getSizeMl, GIFT_ELIGIBLE_SIZE_ML } from "@/lib/pricing"
+import { bottlePrice, testerPrice, formatPrice, getSizeMl, giftTestersFor } from "@/lib/pricing"
 
 export interface NoteData {
     top: string[]
@@ -65,7 +65,7 @@ export function ProductInfo({
     const price = bottlePrice(prices, currentVariant)
     const tester = testerPrice(prices)
     const size = getSizeMl(currentVariant)
-    const earnsGiftTester = size === GIFT_ELIGIBLE_SIZE_ML
+    const giftTesters = giftTestersFor(currentVariant)
     const canAdd = stock > 0 && (price !== null || !onlinePayment)
     const familyInStock = stock > 0 || !!variants?.some(v => v.stock > 0)
 
@@ -154,10 +154,10 @@ export function ProductInfo({
                 </div>
             )}
 
-            {earnsGiftTester && (
+            {giftTesters > 0 && (
                 <div className="flex items-center gap-3 bg-linen px-5 py-3.5 text-lg leading-snug">
                     <Gift className="w-5 h-5 text-tan-ink shrink-0" strokeWidth={1.5} />
-                    <span>Bu şişeyle <em>3 ml tester hediye.</em> Kokusunu sepette seçersin.</span>
+                    <span>Bu şişeyle <em>{giftTesters === 1 ? '3 ml tester' : `${giftTesters} adet 3 ml tester`} hediye.</em> {giftTesters === 1 ? 'Kokusunu' : 'Kokularını'} sepette seçersin.</span>
                 </div>
             )}
 

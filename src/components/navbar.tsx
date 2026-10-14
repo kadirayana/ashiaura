@@ -20,7 +20,7 @@ export function Navbar() {
     return (
         <header className="sticky top-0 z-40">
             <div className="bg-ink text-paper font-storefront-mono text-[11px] sm:text-xs tracking-[0.18em] px-4 py-2.5 flex flex-wrap justify-center gap-x-7 gap-y-1 text-center">
-                <span>HER 50 ML ŞİŞEYE 3 ML TESTER HEDİYE</span>
+                <span>50 ML ŞİŞEYE 1, 100 ML ŞİŞEYE 2 TESTER HEDİYE</span>
                 <span className="hidden sm:inline text-tan" aria-hidden="true">·</span>
                 <span className="hidden sm:inline">SHOPIER İLE GÜVENLİ ÖDEME</span>
             </div>

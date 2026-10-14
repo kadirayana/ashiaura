@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import { Save, Plus, Trash2, Gift } from 'lucide-react'
-import { TESTER_SIZE_ML, GIFT_ELIGIBLE_SIZE_ML, getSizeMl, formatPrice } from '@/lib/pricing'
+import { TESTER_SIZE_ML, GIFT_TESTERS_BY_SIZE, getSizeMl, formatPrice } from '@/lib/pricing'
 
 interface PriceRow {
     size_ml: number
@@ -150,9 +150,9 @@ export default function PricingPage() {
                                             {isTester
                                                 ? 'Ürün sayfasından satılır'
                                                 : `${row.productCount} ürün`}
-                                            {row.size_ml === GIFT_ELIGIBLE_SIZE_ML && (
+                                            {GIFT_TESTERS_BY_SIZE[row.size_ml] > 0 && (
                                                 <span className="inline-flex items-center gap-0.5 ml-1.5 text-moss">
-                                                    <Gift className="w-3 h-3" /> tester hediye
+                                                    <Gift className="w-3 h-3" /> {GIFT_TESTERS_BY_SIZE[row.size_ml]} tester hediye
                                                 </span>
                                             )}
                                         </div>

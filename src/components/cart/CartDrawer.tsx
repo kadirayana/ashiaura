@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { useCart, cartItemKey } from '@/context/CartContext'
 import { usePricing } from '@/context/PricingContext'
-import { bottlePrice, testerPrice, formatPrice, getBaseName, getSizeMl, GIFT_ELIGIBLE_SIZE_ML } from '@/lib/pricing'
+import { bottlePrice, testerPrice, formatPrice, getBaseName, giftTestersFor } from '@/lib/pricing'
 import { X, Plus, Minus, CheckCircle2, Gift, Lock } from 'lucide-react'
 import { submitCartOrder } from '@/app/actions'
 import { toast } from 'sonner'
@@ -32,10 +32,10 @@ export function CartDrawer() {
     // Online payment charges the total, so it needs every price; offline orders are confirmed by phone
     const blockedByPrice = onlinePayment && unpricedItems.length > 0
 
-    // One free tester per 50ml bottle; each slot defaults to that bottle's scent
+    // Free testers per bottle (50ml: 1, 100ml: 2); each slot defaults to that bottle's scent
     const giftDefaults = items
-        .filter(i => i.kind === 'bottle' && getSizeMl(i) === GIFT_ELIGIBLE_SIZE_ML)
-        .flatMap(i => Array<string>(i.quantity).fill(getBaseName(i.name)))
+        .filter(i => i.kind === 'bottle')
+        .flatMap(i => Array<string>(giftTestersFor(i) * i.quantity).fill(getBaseName(i.name)))
     const giftSelections = giftDefaults.map((def, idx) => giftTesters[idx] || def)
 
     const handleClose = () => {

@@ -2,8 +2,12 @@
 
 /** size_prices row that holds the tester price */
 export const TESTER_SIZE_ML = 3
-/** Every bottle of this size earns one free tester */
-export const GIFT_ELIGIBLE_SIZE_ML = 50
+/** Free 3ml testers earned per bottle, by bottle size */
+export const GIFT_TESTERS_BY_SIZE: Record<number, number> = { 50: 1, 100: 2 }
+
+export function giftTestersFor(p: { name: string; bottle_size_ml?: number | null }): number {
+    return GIFT_TESTERS_BY_SIZE[getSizeMl(p)] ?? 0
+}
 
 /** size_ml -> price (TRY) */
 export type PriceMap = Record<number, number>
@@ -32,8 +36,8 @@ export function testerPrice(prices: PriceMap): number | null {
 
 export function giftTesterCount(items: Array<{ kind?: CartItemKind; bottle_size_ml?: number | null; name: string; quantity: number }>): number {
     return items
-        .filter(i => (i.kind ?? 'bottle') === 'bottle' && getSizeMl(i) === GIFT_ELIGIBLE_SIZE_ML)
-        .reduce((sum, i) => sum + i.quantity, 0)
+        .filter(i => (i.kind ?? 'bottle') === 'bottle')
+        .reduce((sum, i) => sum + giftTestersFor(i) * i.quantity, 0)
 }
 
 export function formatPrice(value: number): string {

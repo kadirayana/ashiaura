@@ -211,7 +211,7 @@ export default async function HomePage() {
                     <h2 className="italic font-normal text-5xl md:text-6xl leading-none">Önce teninde dene.</h2>
                     <p className="text-xl md:text-[21px] leading-relaxed text-umber max-w-[460px]">
                         Bir kokuyu tenine sıkmadan bilemezsin. Raftaki her kokuyu 3 ml tester olarak sipariş edebilirsin;
-                        50 ml şişe aldığında, seçtiğin bir tester bizden.
+                        50 ml şişeye 1, 100 ml şişeye 2 tester bizden; kokularını sen seçersin.
                     </p>
                 </div>
                 <div className="flex-[1_1_520px] min-w-0 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -223,7 +223,7 @@ export default async function HomePage() {
                     </div>
                     <div className="bg-ink text-paper px-7 pt-8 pb-6 flex flex-col gap-4 font-storefront-mono text-xs">
                         <Image src="/brand/logo-cream.svg" alt="" width={54} height={30} unoptimized className="h-[30px] w-auto self-start" />
-                        <span className="border-t border-paper pt-4 text-[13px] font-bold tracking-[0.14em]">50 ML ŞİŞEYE</span>
+                        <span className="border-t border-paper pt-4 text-[13px] font-bold tracking-[0.14em]">50 ML'YE 1 · 100 ML'YE 2</span>
                         <span className="font-storefront italic text-6xl leading-none">hediye</span>
                         <span className="border-t border-paper pt-2.5 tracking-[0.08em] text-hairline">KOKUSUNU SEPETTE SEÇERSİN</span>
                     </div>
