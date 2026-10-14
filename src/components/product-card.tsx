@@ -11,6 +11,7 @@ import { useCart } from '@/context/CartContext'
 import { usePricing } from '@/context/PricingContext'
 import { bottlePrice, testerPrice, formatPrice, getSizeMl } from '@/lib/pricing'
 import { BottleIllustration } from '@/components/storefront-ui/bottle-illustration'
+import { GenderBird } from '@/components/storefront-ui/gender-bird'
 
 type ProductWithRecipe = Product & {
     recipe: Recipe | null
@@ -113,7 +114,10 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                 <span className="flex items-end justify-between gap-3">
                     <Image src="/brand/logo-ink.svg" alt="" width={46} height={26} unoptimized className="h-[26px] w-auto" />
                     {product.gender && (
-                        <span className="text-[11px] tracking-[0.2em] text-sand uppercase">{genderLabel(product.gender)}</span>
+                        <span className="flex items-center gap-1.5 text-[11px] tracking-[0.2em] text-sand uppercase">
+                            <GenderBird gender={product.gender} className="h-6 w-auto" />
+                            {genderLabel(product.gender)}
+                        </span>
                     )}
                 </span>
                 {/* Ashi names are Turkish; stored original names are mostly English */}

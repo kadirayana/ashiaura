@@ -8,6 +8,7 @@ import { Search, X } from 'lucide-react'
 import { LedgerRow } from '@/components/storefront-ui/ledger-row'
 import { slugify } from '@/lib/utils'
 import { pickRepresentative, matchesSearch, productTitle, inspiredLine } from '@/lib/catalog'
+import { GenderBird } from '@/components/storefront-ui/gender-bird'
 
 type ProductWithRecipe = Product & {
     recipe: Recipe | null
@@ -156,13 +157,19 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                             <button
                                 key={opt.value}
                                 onClick={() => setGenderFilter(opt.value)}
-                                className={`h-10 px-4 border transition-colors cursor-pointer ${active
+                                className={`h-10 px-4 flex items-center gap-2 border transition-colors cursor-pointer ${active
                                         ? 'bg-ink text-label border-ink'
                                         : isLow
                                             ? 'text-rust border-rust border-dashed'
                                             : 'text-ink border-label-line hover:border-ink'
                                     }`}
                             >
+                                {/* Cream chip keeps the bird visible on the dark active state */}
+                                {(opt.value === 'men' || opt.value === 'women' || opt.value === 'unisex') && (
+                                    <span className="bg-label rounded-sm px-0.5 py-px flex">
+                                        <GenderBird gender={opt.value} className="h-5 w-auto" />
+                                    </span>
+                                )}
                                 {opt.label}
                             </button>
                         )

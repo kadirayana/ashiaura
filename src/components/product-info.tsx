@@ -8,6 +8,7 @@ import { slugify, genderLabel } from "@/lib/utils"
 import type { Product } from "@/types/database"
 import { useCart } from "@/context/CartContext"
 import { usePricing } from "@/context/PricingContext"
+import { GenderBird } from "@/components/storefront-ui/gender-bird"
 import { bottlePrice, testerPrice, formatPrice, getSizeMl, giftTestersFor } from "@/lib/pricing"
 
 export interface NoteData {
@@ -100,7 +101,12 @@ export function ProductInfo({
             <div className="bg-label border border-label-line px-7 sm:px-8 pt-7 pb-6 flex flex-col gap-4 font-storefront-mono text-[13px] leading-relaxed">
                 <span className="flex items-end justify-between gap-3">
                     <Image src="/brand/logo-ink.svg" alt="Ashi Aura" width={60} height={34} unoptimized className="h-[34px] w-auto" />
-                    {gender && <span className="text-[11px] tracking-[0.2em] text-sand uppercase">{genderLabel(gender)}</span>}
+                    {gender && (
+                        <span className="flex items-center gap-2 text-[11px] tracking-[0.2em] text-sand uppercase">
+                            <GenderBird gender={gender} className="h-8 w-auto" />
+                            {genderLabel(gender)}
+                        </span>
+                    )}
                 </span>
                 <h1 lang={nameLang} className="border-t border-ink pt-4 font-storefront-mono text-2xl sm:text-3xl font-bold leading-tight tracking-[0.06em] uppercase">
                     {name}
