@@ -20,9 +20,8 @@ import { Badge } from '@/components/ui/badge'
 import { toast } from 'sonner'
 import type { Product, Recipe, RecipeIngredient, RawMaterial } from '@/types/database'
 import { calculateProductionCost } from '@/lib/calculations'
-import { Search, Plus, Minus, Edit, Trash2, Camera, Package, Palette, Filter, Settings, X, Save, ChevronDown, ChevronRight, Download, Sparkles } from 'lucide-react'
+import { Search, Plus, Minus, Edit, Trash2, Camera, Package, Palette, Filter, Settings, X, Save, ChevronDown, ChevronRight, Download } from 'lucide-react'
 import { exportToExcel } from '@/lib/excelExport'
-import { LeLaboLabelModal, LabelData } from '@/components/label/LeLaboLabelModal'
 
 // ─── Types ────────────────────────────────────────────────────
 type RecipeWithIngredients = Recipe & {
@@ -73,28 +72,6 @@ export default function StockPage() {
     const [hasMore, setHasMore] = useState(true)
     const PAGE_SIZE = 50
     const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(new Set())
-
-    // Le Labo Label Modal state
-    const [labelModalOpen, setLabelModalOpen] = useState(false)
-    const [generatedLabelData, setGeneratedLabelData] = useState<LabelData | null>(null)
-
-    function openLabelModalForProduct(product: Product) {
-        const recipe = recipes.find(r => r.id === product.recipe_id)
-        setGeneratedLabelData({
-            productId: product.id,
-            productName: product.name,
-            bottleSizeMl: getSizeMl(product) || product.bottle_size_ml || 50,
-            gender: product.gender,
-            batchNumber: product.batch_number || `BATCH#${Math.floor(1000 + Math.random() * 9000)}`,
-            productionDate: product.production_date || new Date().toISOString().split('T')[0],
-            version: recipe?.version || 'v1.0',
-            description: product.description || recipe?.description || '',
-            topNotes: product.top_notes || '',
-            middleNotes: product.middle_notes || '',
-            baseNotes: product.base_notes || '',
-        })
-        setLabelModalOpen(true)
-    }
 
     function getBaseName(name: string) {
         return name.replace(/\s*\d+\s*ml\s*/gi, '').trim()
@@ -781,7 +758,7 @@ export default function StockPage() {
                                                             <TableCell className="whitespace-nowrap">₺{product.unit_cost?.toFixed(2) || '0.00'}</TableCell>
                                                             <TableCell className="text-right whitespace-nowrap">
                                                                 <div className="flex justify-end gap-1">
-                                                                    <Button size="icon" variant="ghost" className="h-8 w-8 text-sand hover:text-rust" onClick={() => openLabelModalForProduct(product)} title="Le Labo Etiketi Oluştur / 2. Görsel Yap"><Sparkles className="w-4 h-4 text-rust" /></Button>
+                                                                    
                                                                     <Button size="icon" variant="ghost" className="h-8 w-8 text-sand hover:text-ink" onClick={() => startEditing(product.id)} title="Hızlı Düzenle"><Edit className="w-4 h-4" /></Button>
                                                                     <Button size="icon" variant="ghost" className="h-8 w-8 text-red-500/50 hover:text-red-500" onClick={() => handleDelete(product.id)} title="Sil"><Trash2 className="w-4 h-4" /></Button>
                                                                 </div>
@@ -1242,14 +1219,6 @@ export default function StockPage() {
                     </form>
                 </DialogContent>
             </Dialog>
-
-            {/* Le Labo Label Modal */}
-            <LeLaboLabelModal
-                open={labelModalOpen}
-                onOpenChange={setLabelModalOpen}
-                data={generatedLabelData}
-                onSuccess={() => fetchData(true)}
-            />
         </div>
     )
 }

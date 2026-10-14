@@ -20,8 +20,7 @@ import { calculateProduction, calculateProductionCost, calculateIngredientQuanti
 import { generateBatchNumber, formatNumber } from '@/lib/utils'
 import type { Recipe, RecipeIngredient, RawMaterial, ProductionCalculation } from '@/types/database'
 import type { CalculatedIngredient } from '@/types/database'
-import { LeLaboLabelModal, LabelData } from '@/components/label/LeLaboLabelModal'
-import { Check, ChevronsUpDown, Tag } from 'lucide-react'
+import { Check, ChevronsUpDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
     Command,
@@ -73,8 +72,6 @@ export default function ProductionPage() {
     const [openRecipe, setOpenRecipe] = useState(false)
     const [openBottle, setOpenBottle] = useState(false)
     const [bottles, setBottles] = useState<RawMaterial[]>([])
-    const [labelModalOpen, setLabelModalOpen] = useState(false)
-    const [generatedLabelData, setGeneratedLabelData] = useState<LabelData | null>(null)
 
     const supabase = createClient()
 
@@ -539,19 +536,6 @@ export default function ProductionPage() {
 
             toast.success(`${quantity} adet ${bottleSizeMl}ml ${selectedRecipe.name} üretildi!`)
 
-            // Open Le Labo Label Modal automatically for the produced product
-            setGeneratedLabelData({
-                productId: productId,
-                productName: selectedRecipe.name,
-                bottleSizeMl: bottleSizeMl,
-                gender: selectedRecipe.gender,
-                batchNumber: batchNumber,
-                productionDate: new Date().toISOString().split('T')[0],
-                version: selectedRecipe.version || 'v1.0',
-                description: selectedRecipe.description,
-            })
-            setLabelModalOpen(true)
-
             // Reset form
             setSelectedRecipeId('')
             setSelectedBottleId('')
@@ -899,14 +883,6 @@ export default function ProductionPage() {
                     </CardContent>
                 </Card>
             </div>
-
-            {/* Le Labo Label Generator Modal */}
-            <LeLaboLabelModal
-                open={labelModalOpen}
-                onOpenChange={setLabelModalOpen}
-                data={generatedLabelData}
-                onSuccess={fetchData}
-            />
         </div>
     )
 }
