@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     const title = productTitle(named)
     const inspired = inspiredLine(named)
     return {
-        title: inspired ? `${title} — ${getBaseName(found.name)} esintisi | Ashi Aura` : `${title} | Ashi Aura`,
+        title: inspired ? `${title} — ${getBaseName(found.name)} esintisi` : title,
         description: inspired
             ? `${title}: ${inspired}. İzmir'de küçük partilerle, elle üretilen parfüm.`
             : `${title}: İzmir'de küçük partilerle, elle üretilen Ashi Aura kokusu.`,

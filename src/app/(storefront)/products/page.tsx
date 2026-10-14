@@ -2,6 +2,7 @@ export const dynamic = 'force-dynamic'
 
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ProductList } from '@/components/product-list'
@@ -13,6 +14,8 @@ type ProductWithRecipe = Product & {
 }
 
 export const revalidate = 60
+
+export const metadata: Metadata = { title: 'Koleksiyon' }
 
 export default async function ProductsPage() {
     const supabase = await createClient()

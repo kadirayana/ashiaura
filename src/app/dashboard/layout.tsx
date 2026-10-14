@@ -1,5 +1,11 @@
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google"
+import type { Metadata } from "next"
 import { AppSidebar } from '@/components/layout/app-sidebar'
+
+export const metadata: Metadata = {
+    title: "Yönetim Paneli",
+    robots: { index: false, follow: false },
+}
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
@@ -19,16 +25,7 @@ export default function DashboardLayout({
     children: React.ReactNode
 }) {
     return (
-        <div 
-            className={`${spaceGrotesk.variable} ${plexMono.variable} font-storefront bg-paper text-ink min-h-screen`}
-            style={{
-                '--sidebar': '#f5f3ec',
-                '--sidebar-foreground': '#1d1b16',
-                '--sidebar-border': '#b9b4a4',
-                '--sidebar-accent': '#e3e0d2',
-                '--sidebar-accent-foreground': '#8a1f0e',
-            } as React.CSSProperties}
-        >
+        <div className={`${spaceGrotesk.variable} ${plexMono.variable} font-storefront bg-paper text-ink min-h-screen`}>
             <AppSidebar>{children}</AppSidebar>
         </div>
     )

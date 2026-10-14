@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { ThemeLogo } from '@/components/theme-logo'
 import {
     Sidebar,
     SidebarContent,
@@ -88,22 +89,10 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
         <SidebarProvider>
             <Sidebar className="border-r border-hairline">
                 <SidebarHeader className="border-b border-hairline p-4">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rust to-rust/80 flex items-center justify-center">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                className="w-5 h-5 text-paper"
-                            >
-                                <path d="M12 2C13.1 2 14 2.9 14 4V5.5C14 5.5 18 7 18 12V17L20 19V20H4V19L6 17V12C6 7 10 5.5 10 5.5V4C10 2.9 10.9 2 12 2ZM12 22C10.9 22 10 21.1 10 20H14C14 21.1 13.1 22 12 22Z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h2 className="font-semibold text-ink">Kadir Ayana Parfumes</h2>
-                            <p className="text-xs text-sand">Yönetim Paneli</p>
-                        </div>
-                    </div>
+                    <Link href="/dashboard" className="flex items-end justify-between gap-3 px-1" aria-label="Ashi Aura yönetim paneli">
+                        <ThemeLogo className="h-11 w-auto" priority />
+                        <span className="font-storefront-mono text-[10px] uppercase tracking-[0.2em] text-sand pb-1">Panel</span>
+                    </Link>
                 </SidebarHeader>
                 <SidebarContent className="p-2">
                     {navigation.map((group) => (
@@ -152,10 +141,10 @@ export function AppSidebar({ children }: { children: React.ReactNode }) {
                 <header className="flex h-14 items-center justify-between border-b border-hairline px-3 sm:px-4 md:px-6 sticky top-0 z-30 bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/80">
                     <div className="flex items-center gap-2 sm:gap-3">
                         <SidebarTrigger className="text-sand hover:text-ink h-9 w-9" />
-                        <div className="md:hidden flex items-center gap-2">
-                            <span className="font-bold text-sm text-ink font-storefront">Kadir Ayana</span>
-                            <span className="text-[10px] uppercase font-mono tracking-wider text-rust bg-rust/10 px-1.5 py-0.5 rounded">ERP</span>
-                        </div>
+                        <Link href="/dashboard" className="md:hidden flex items-end gap-2" aria-label="Ashi Aura yönetim paneli">
+                            <ThemeLogo className="h-8 w-auto" />
+                            <span className="font-storefront-mono text-[10px] uppercase tracking-[0.2em] text-sand pb-0.5">Panel</span>
+                        </Link>
                     </div>
                     <div className="flex items-center gap-2">
                         <ThemeToggle />

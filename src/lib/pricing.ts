@@ -24,14 +24,20 @@ export function getSizeMl(p: { name: string; bottle_size_ml?: number | null }): 
     return match ? parseInt(match[1]) : 0
 }
 
+/** A missing or zero price means "not priced yet": never sell for ₺0 */
+function priceFor(prices: PriceMap, size: number): number | null {
+    const price = prices[size]
+    return price && price > 0 ? price : null
+}
+
 export function bottlePrice(prices: PriceMap, p: { name: string; bottle_size_ml?: number | null }): number | null {
     const size = getSizeMl(p)
     if (!size || size === TESTER_SIZE_ML) return null
-    return prices[size] ?? null
+    return priceFor(prices, size)
 }
 
 export function testerPrice(prices: PriceMap): number | null {
-    return prices[TESTER_SIZE_ML] ?? null
+    return priceFor(prices, TESTER_SIZE_ML)
 }
 
 export function giftTesterCount(items: Array<{ kind?: CartItemKind; bottle_size_ml?: number | null; name: string; quantity: number }>): number {

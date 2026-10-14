@@ -60,13 +60,14 @@
   --color-umber: var(--umber);
 }
 
+/* Ashi Aura brand tones (logo package: #2A2420 / #F4EFE6 / #A9825A) */
 :root {
-  --paper: #f5f3ec;
-  --ink: #1d1b16;
+  --paper: #f4efe6;
+  --ink: #2a2420;
   --rust: #8a1f0e;
   --moss: #4c6b2f;
-  --sand: #6f6a5e;
-  --hairline: #b9b4a4;
+  --sand: #6b5f53;
+  --hairline: #cdbfab;
 
   --radius: 0.625rem;
   --background: var(--paper);
@@ -103,12 +104,12 @@
 }
 
 .dark {
-  --paper: #12110e;
-  --ink: #f4f2eb;
+  --paper: #17130f;
+  --ink: #f4efe6;
   --rust: #d64731;
   --moss: #7ba857;
-  --sand: #a19b8e;
-  --hairline: #302e29;
+  --sand: #a99c8c;
+  --hairline: #3a322b;
 
   --background: var(--paper);
   --foreground: var(--ink);

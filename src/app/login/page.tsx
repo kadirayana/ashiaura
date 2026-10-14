@@ -67,14 +67,12 @@ export default function LoginPage() {
                     <div className="h-1 bg-rust w-full" />
                     
                     <CardHeader className="text-center pt-8 pb-4">
-                        <div className="mx-auto w-32 h-16 mb-4 border border-hairline/60 bg-paper flex items-center justify-center shadow-inner px-3">
-                            <ThemeLogo className="w-full h-auto object-contain" />
+                        <div className="mx-auto mb-5">
+                            <ThemeLogo className="h-20 w-auto mx-auto" priority />
                         </div>
-                        <CardTitle className="text-xl font-bold tracking-tight text-ink font-storefront uppercase">
-                            Kadir Ayana Parfumes
-                        </CardTitle>
-                        <CardDescription className="text-sand text-xs tracking-widest font-mono uppercase mt-1">
-                            Sistem Giriş Yetkilendirmesi
+                        <CardTitle className="sr-only">Ashi Aura</CardTitle>
+                        <CardDescription className="text-sand text-xs tracking-widest font-mono uppercase">
+                            Yönetim Paneli
                         </CardDescription>
                     </CardHeader>
 
@@ -93,7 +91,7 @@ export default function LoginPage() {
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="ornek@kadirayana.com"
+                                    placeholder="ornek@ashiaura.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -143,7 +141,7 @@ export default function LoginPage() {
 
                 {/* Footer certificate notice */}
                 <p className="text-center text-[10px] text-sand/80 font-mono mt-6 tracking-wide">
-                    LOT NO: SECURE-AUTH-2026. TÜM HAKLARI SAKLIDIR.
+                    © 2026 ASHI AURA · İZMİR
                 </p>
             </div>
         </div>
