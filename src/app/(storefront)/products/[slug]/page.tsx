@@ -5,9 +5,11 @@ import { notFound } from 'next/navigation'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { ProductHero } from '@/components/product-hero'
-import { ProductInfo, type NoteData, type SimilarProduct } from '@/components/product-info'
+import { ProductInfo, type NoteData } from '@/components/product-info'
 import Link from 'next/link'
-import { slugify, inspiredByLabel } from '@/lib/utils'
+import { slugify } from '@/lib/utils'
+import { productTitle, inspiredLine } from '@/lib/catalog'
+import type { Metadata } from 'next'
 import { getSizeMl } from '@/lib/pricing'
 import type { Product, Recipe } from '@/types/database'
 
@@ -34,6 +36,27 @@ function parseNotes(product: ProductWithRecipe): NoteData | undefined {
 
 function getBaseName(name: string) {
     return name.replace(/\s*\d+\s*ml\s*/gi, '').trim();
+}
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+    const { slug } = await params
+    const supabase = await createClient()
+    let { data } = await supabase.from('products').select('name, ashi_name, is_inspired')
+    if (!data) ({ data } = await supabase.from('products').select('name'))
+    const rows = (data || []) as Array<{ name: string; ashi_name?: string | null; is_inspired?: boolean }>
+    const found = rows.find(p => slugify(p.name) === slug)
+    if (!found) return {}
+
+    const family = rows.filter(p => getBaseName(p.name) === getBaseName(found.name))
+    const named = { ...found, ashi_name: found.ashi_name || family.find(p => p.ashi_name)?.ashi_name }
+    const title = productTitle(named)
+    const inspired = inspiredLine(named)
+    return {
+        title: inspired ? `${title} — ${getBaseName(found.name)} esintisi | Ashi Aura` : `${title} | Ashi Aura`,
+        description: inspired
+            ? `${title}: ${inspired}. İzmir'de küçük partilerle, elle üretilen parfüm.`
+            : `${title}: İzmir'de küçük partilerle, elle üretilen Ashi Aura kokusu.`,
+    }
 }
 
 export default async function ProductPage({ params, searchParams }: ProductPageProps) {
@@ -101,13 +124,17 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
     const notes = parseNotes(displayProduct)
     const totalStock = variants.reduce((sum, v) => sum + v.stock, 0)
 
-    const similar: SimilarProduct[] = [...new Map(
+    const similar = [...new Map(
         normalizedProducts
             .filter(p => getBaseName(p.name) !== baseName && product.gender !== null && p.gender === product.gender && p.stock > 0)
             .map(p => [getBaseName(p.name), p] as const)
-    ).values()]
-        .slice(0, 3)
-        .map(p => ({ id: p.id, name: p.name, house: p.recipe?.name, rating: p.fragrantica_score }))
+    ).values()].slice(0, 3)
+
+    // Any row of the family may carry the Ashi name
+    const named = { ...product, ashi_name: product.ashi_name || variants.find(v => v.ashi_name)?.ashi_name }
+    const title = productTitle(named)
+    const inspired = inspiredLine(named)
+    const titleLang = named.ashi_name ? 'tr' : 'en'
 
     const backHref = `/products${backQuery ? `?${backQuery}` : ''}`
     const sizeMl = product.bottle_size_ml || primaryVariant.bottle_size_ml
@@ -124,7 +151,7 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
                         <span aria-hidden="true">/</span>
                         <Link href={backHref} className="hover:text-ink">KOLEKSİYON</Link>
                         <span aria-hidden="true">/</span>
-                        <span lang="en" className="text-ink uppercase">{getBaseName(product.name)}</span>
+                        <span lang={titleLang} className="text-ink uppercase">{title}</span>
                     </nav>
 
                     <div className="flex flex-wrap items-start gap-12 lg:gap-16">
@@ -132,7 +159,7 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
                             <ProductHero
                                 image={displayImage}
                                 hoverImage={displayHoverImage}
-                                name={getBaseName(product.name)}
+                                name={title}
                                 caption={sizeMl ? `${sizeMl} ML · EDP` : 'EAU DE PARFUM'}
                                 stockLabel={totalStock > 0 && totalStock <= 3 ? `SON ${totalStock} ADET` : undefined}
                             />
@@ -140,7 +167,9 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
                         <div className="flex-[1_1_420px] min-w-0">
                             <ProductInfo
                                 productId={product.id}
-                                name={getBaseName(product.name)}
+                                name={title}
+                                inspired={inspired}
+                                nameLang={titleLang}
                                 stock={product.stock}
                                 gender={product.gender}
                                 bottleSizeMl={sizeMl}
@@ -177,8 +206,8 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
                                     className="py-6 sm:px-6 sm:first:pl-0 border-b sm:border-b-0 sm:border-l sm:first:border-l-0 border-hairline flex justify-between items-baseline gap-4 hover:text-tan-ink"
                                 >
                                     <span className="flex flex-col gap-1">
-                                        <span lang="en" className="font-storefront-mono text-[15px] font-bold tracking-[0.08em] uppercase">{getBaseName(s.name)}</span>
-                                        <span className="italic text-lg text-umber">{inspiredByLabel(getBaseName(s.name))}</span>
+                                        <span lang={s.ashi_name ? 'tr' : 'en'} className="font-storefront-mono text-[15px] font-bold tracking-[0.08em] uppercase">{productTitle(s)}</span>
+                                        {inspiredLine(s) && <span className="italic text-lg text-umber">{inspiredLine(s)}</span>}
                                     </span>
                                     <span className="font-storefront-mono text-xs">→</span>
                                 </Link>

@@ -1,9 +1,12 @@
 import Link from "next/link"
-import { genderLabel, inspiredByLabel } from "@/lib/utils"
+import { genderLabel } from "@/lib/utils"
 
 interface LedgerRowProps {
     no: string | number
     name: string
+    /** e.g. "<original> parfümünden esinlenildi" */
+    subtitle?: string | null
+    nameLang?: 'tr' | 'en'
     house?: string | null
     gender?: string | null
     volumeLabel?: string | null
@@ -16,6 +19,8 @@ interface LedgerRowProps {
 export function LedgerRow({
     no,
     name,
+    subtitle,
+    nameLang = 'en',
     house,
     gender,
     volumeLabel,
@@ -34,9 +39,12 @@ export function LedgerRow({
             <span className="font-storefront-mono text-xs text-rust">{no}</span>
 
             <span className="min-w-0">
-                <span className="block font-semibold text-[15px] md:text-base tracking-tight text-ink truncate">
-                    {inspiredByLabel(name)}
+                <span lang={nameLang} className="block font-semibold text-[15px] md:text-base tracking-tight text-ink truncate">
+                    {name}
                 </span>
+                {subtitle && (
+                    <span className="block italic text-sm text-umber truncate">{subtitle}</span>
+                )}
                 {house && (
                     <span className="block font-storefront-mono text-xs text-sand truncate">{house}</span>
                 )}

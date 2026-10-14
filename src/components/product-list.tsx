@@ -7,7 +7,7 @@ import type { Product, Recipe } from '@/types/database'
 import { Search, X } from 'lucide-react'
 import { LedgerRow } from '@/components/storefront-ui/ledger-row'
 import { slugify } from '@/lib/utils'
-import { pickRepresentative } from '@/lib/catalog'
+import { pickRepresentative, matchesSearch, productTitle, inspiredLine } from '@/lib/catalog'
 
 type ProductWithRecipe = Product & {
     recipe: Recipe | null
@@ -76,10 +76,11 @@ function ProductListContent({ initialProducts }: ProductListProps) {
         let products = [...initialProducts]
 
         // 1. Filter by search
+        // Finds a scent by its Ashi name or by the original perfume it is inspired by
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase().trim()
             products = products.filter(product =>
-                product.name.toLowerCase().includes(query) ||
+                matchesSearch(product, searchQuery) ||
                 product.recipe?.description?.toLowerCase().includes(query) ||
                 product.notes?.toLowerCase().includes(query)
             )
@@ -173,7 +174,7 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                         <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-sand" />
                         <input
                             type="text"
-                            placeholder="Parfüm adı ara…"
+                            placeholder="Koku ya da parfüm adı ara…"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full pl-6 pr-6 py-2 bg-transparent border-0 border-b border-ink text-ink placeholder-sand/60 focus:outline-none text-lg"
@@ -214,7 +215,9 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                                 <LedgerRow
                                     key={p.id}
                                     no={p.id.slice(0, 3).toUpperCase()}
-                                    name={group.baseName}
+                                    name={productTitle(p)}
+                                    subtitle={inspiredLine(p)}
+                                    nameLang={p.ashi_name ? 'tr' : 'en'}
                                     house={p.recipe?.name !== group.baseName ? p.recipe?.name : undefined}
                                     gender={p.gender}
                                     volumeLabel={size ? `${size} ml` : undefined}

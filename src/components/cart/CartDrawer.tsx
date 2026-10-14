@@ -150,7 +150,7 @@ export function CartDrawer() {
                                     {items.map((item) => {
                                         const key = cartItemKey(item)
                                         const unitPrice = unitPriceOf(item)
-                                        const scent = item.kind === 'tester' ? item.name : getBaseName(item.name)
+                                        const scent = item.display_name ?? getBaseName(item.name)
                                         return (
                                             <div key={key} className="py-4 flex gap-4 border-b border-hairline">
                                                 <div className="relative w-20 h-24 shrink-0 bg-linen overflow-hidden">
@@ -162,7 +162,7 @@ export function CartDrawer() {
                                                 </div>
                                                 <div className="min-w-0 flex-1 flex flex-col gap-1">
                                                     <div className="flex justify-between gap-3">
-                                                        <span lang="en" className="font-storefront-mono text-sm font-bold tracking-[0.06em] uppercase truncate">{scent}</span>
+                                                        <span lang={item.display_name ? 'tr' : 'en'} className="font-storefront-mono text-sm font-bold tracking-[0.06em] uppercase truncate">{scent}</span>
                                                         <span className="font-storefront-mono text-[13px] whitespace-nowrap">
                                                             {unitPrice === null ? '—' : formatPrice(unitPrice * item.quantity)}
                                                         </span>
@@ -222,9 +222,9 @@ export function CartDrawer() {
                                                 aria-label={`Hediye tester ${idx + 1}`}
                                                 className="h-11 px-2.5 bg-paper border border-ink text-ink font-storefront text-base"
                                             >
-                                                {!scents.includes(scent) && <option value={scent}>{scent}</option>}
+                                                {!scents.some(s => s.value === scent) && <option value={scent}>{scent}</option>}
                                                 {scents.map(s => (
-                                                    <option key={s} value={s}>{s}</option>
+                                                    <option key={s.value} value={s.value}>{s.label}</option>
                                                 ))}
                                             </select>
                                         ))}

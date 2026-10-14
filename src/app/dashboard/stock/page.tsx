@@ -112,6 +112,9 @@ export default function StockPage() {
 
     const hasUnsavedChanges = editedData.size > 0
 
+    // ashi_name / is_inspired exist only after supabase/ashi-names.sql has run
+    const hasAshiColumns = products.some(p => 'ashi_name' in p)
+
     const fileInputRef = useRef<HTMLInputElement>(null)
     const hoverFileInputRef = useRef<HTMLInputElement>(null)
 
@@ -128,6 +131,8 @@ export default function StockPage() {
         gender: 'kolonya',
         notes: '',
         // ─ Showcase fields ─
+        ashi_name: '',
+        is_inspired: true,
         description: '',
         top_notes: '',
         middle_notes: '',
@@ -203,6 +208,7 @@ export default function StockPage() {
             image_url: '', hover_image_url: '',
             fragrantica_score: '', fragrantica_url: '',
             batch_number: '', gender: 'kolonya', notes: '',
+            ashi_name: '', is_inspired: true,
             description: '', top_notes: '', middle_notes: '', base_notes: '',
         })
         setEditingProduct(null)
@@ -236,6 +242,8 @@ export default function StockPage() {
             batch_number: product.batch_number || '',
             gender: product.gender || 'kolonya',
             notes: product.notes || '',
+            ashi_name: product.ashi_name || '',
+            is_inspired: product.is_inspired ?? true,
             description: product.description || '',
             top_notes: product.top_notes || '',
             middle_notes: product.middle_notes || '',
@@ -303,6 +311,10 @@ export default function StockPage() {
             top_notes: formData.top_notes || null,
             middle_notes: formData.middle_notes || null,
             base_notes: formData.base_notes || null,
+            ...(hasAshiColumns && {
+                ashi_name: formData.ashi_name.trim() || null,
+                is_inspired: formData.is_inspired,
+            }),
         }
 
         try {
@@ -987,6 +999,27 @@ export default function StockPage() {
                                             placeholder="e.g. Summer Rose 50ml"
                                         />
                                     </div>
+
+                                    {/* Storefront name */}
+                                    {hasAshiColumns && (
+                                        <div className="space-y-2">
+                                            <Label className="text-ink">Ashi Adı (sitede görünen isim)</Label>
+                                            <Input
+                                                value={formData.ashi_name}
+                                                onChange={(e) => setFormData({ ...formData, ashi_name: e.target.value })}
+                                                className="bg-paper border-hairline text-ink"
+                                                placeholder="ör. Kehribar Gecesi — boş bırakılırsa ürün adı görünür"
+                                            />
+                                            <label className="flex items-center gap-2 text-sm text-ink cursor-pointer select-none w-fit">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={formData.is_inspired}
+                                                    onChange={(e) => setFormData({ ...formData, is_inspired: e.target.checked })}
+                                                />
+                                                Sitede &quot;… parfümünden esinlenildi&quot; satırını göster
+                                            </label>
+                                        </div>
+                                    )}
 
                                     {/* Stock & Cost & Batch */}
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -78,6 +78,10 @@ export interface Product {
     top_notes: string | null
     middle_notes: string | null
     base_notes: string | null
+    /** Storefront name (supabase/ashi-names.sql); absent before that migration */
+    ashi_name?: string | null
+    /** false for Ashi's own scents: no "inspired by" line */
+    is_inspired?: boolean
     created_at: string
     updated_at: string
     // Joined data

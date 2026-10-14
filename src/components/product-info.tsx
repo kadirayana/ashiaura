@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import { Gift } from "lucide-react"
-import { slugify, genderLabel, inspiredByLabel } from "@/lib/utils"
+import { slugify, genderLabel } from "@/lib/utils"
 import type { Product } from "@/types/database"
 import { useCart } from "@/context/CartContext"
 import { usePricing } from "@/context/PricingContext"
@@ -25,7 +25,12 @@ export interface SimilarProduct {
 
 interface ProductInfoProps {
     productId: string
+    /** Storefront (Ashi) name */
     name: string
+    /** "<original> parfümünden esinlenildi", null for Ashi's own scents */
+    inspired?: string | null
+    /** Ashi names are Turkish; original names are uppercased with English rules */
+    nameLang?: 'tr' | 'en'
     stock: number
     gender: string | null
     bottleSizeMl: number | null
@@ -39,6 +44,8 @@ interface ProductInfoProps {
 export function ProductInfo({
     productId,
     name,
+    inspired,
+    nameLang = 'en',
     stock,
     gender,
     bottleSizeMl,
@@ -95,10 +102,10 @@ export function ProductInfo({
                     <Image src="/brand/logo-ink.svg" alt="Ashi Aura" width={60} height={34} unoptimized className="h-[34px] w-auto" />
                     {gender && <span className="text-[11px] tracking-[0.2em] text-sand uppercase">{genderLabel(gender)}</span>}
                 </span>
-                <h1 lang="en" className="border-t border-ink pt-4 font-storefront-mono text-2xl sm:text-3xl font-bold leading-tight tracking-[0.06em] uppercase">
+                <h1 lang={nameLang} className="border-t border-ink pt-4 font-storefront-mono text-2xl sm:text-3xl font-bold leading-tight tracking-[0.06em] uppercase">
                     {name}
                 </h1>
-                <span className="font-storefront italic text-[22px] leading-snug text-umber">{inspiredByLabel(name)}</span>
+                {inspired && <span className="font-storefront italic text-[22px] leading-snug text-umber">{inspired}</span>}
                 {noteRows.length > 0 ? (
                     <div className="grid grid-cols-[56px_1fr] gap-x-3 gap-y-1.5 text-umber">
                         {noteRows.map(([layer, text]) => (
@@ -174,7 +181,7 @@ export function ProductInfo({
                 {tester !== null && familyInStock && (
                     <button
                         type="button"
-                        onClick={() => addToCart({ ...currentVariant, name }, 1, 'tester')}
+                        onClick={() => addToCart(currentVariant, 1, 'tester')}
                         className="h-14 border border-ink font-storefront-mono text-sm tracking-[0.22em] hover:bg-ink hover:text-label transition-colors cursor-pointer"
                     >
                         3 ML TESTER İLE DENE · {formatPrice(tester)}

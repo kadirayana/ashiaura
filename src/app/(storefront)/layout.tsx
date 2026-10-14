@@ -4,6 +4,8 @@ import { PricingProvider } from "@/context/PricingContext"
 import { CartDrawer } from "@/components/cart/CartDrawer"
 import { createClient } from "@/lib/supabase/server"
 import { getBaseName, type PriceMap } from "@/lib/pricing"
+import { productTitle } from "@/lib/catalog"
+import type { ScentOption } from "@/context/PricingContext"
 import { isShopierCheckoutEnabled } from "@/lib/shopier"
 
 const cormorant = Cormorant_Garamond({
@@ -19,20 +21,34 @@ const courierPrime = Courier_Prime({
     variable: "--font-courier-prime",
 })
 
-async function loadPricing(): Promise<{ prices: PriceMap; scents: string[] }> {
+/** Testers are only offered for scents that are on the shelf */
+async function loadInStockNames(): Promise<Array<{ name: string; ashi_name?: string | null }>> {
     const supabase = await createClient()
-    const [{ data: priceRows, error: priceErr }, { data: productRows }] = await Promise.all([
+    const { data, error } = await supabase.from('products').select('name, ashi_name').gt('stock', 0)
+    if (!error) return data || []
+    // ashi_name arrives with supabase/ashi-names.sql; until then fall back to the stored names
+    const { data: fallback } = await supabase.from('products').select('name').gt('stock', 0)
+    return fallback || []
+}
+
+async function loadPricing(): Promise<{ prices: PriceMap; scents: ScentOption[] }> {
+    const supabase = await createClient()
+    const [{ data: priceRows, error: priceErr }, productRows] = await Promise.all([
         supabase.from('size_prices').select('size_ml, price'),
-        // Testers are only offered for scents that are on the shelf
-        supabase.from('products').select('name').gt('stock', 0),
+        loadInStockNames(),
     ])
     if (priceErr) console.error('size_prices could not be loaded:', priceErr.message)
 
     const prices: PriceMap = {}
     for (const row of priceRows || []) prices[row.size_ml] = Number(row.price)
 
-    const scents = [...new Set((productRows || []).map(p => getBaseName(p.name)).filter(Boolean))]
-        .sort((a, b) => a.localeCompare(b, 'tr'))
+    // One option per scent, labelled with its Ashi name
+    const byScent = new Map<string, ScentOption>()
+    for (const p of productRows) {
+        const value = getBaseName(p.name)
+        if (value && !byScent.has(value)) byScent.set(value, { value, label: productTitle(p) })
+    }
+    const scents = [...byScent.values()].sort((a, b) => a.label.localeCompare(b.label, 'tr'))
 
     return { prices, scents }
 }

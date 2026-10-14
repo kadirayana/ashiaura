@@ -3,10 +3,15 @@
 import React, { createContext, useContext } from 'react'
 import type { PriceMap } from '@/lib/pricing'
 
+export interface ScentOption {
+    value: string
+    label: string
+}
+
 interface PricingContextType {
     prices: PriceMap
-    /** Scent names a customer can pick for testers */
-    scents: string[]
+    /** In-stock scents a customer can pick for gift testers: value = stored base name, label = Ashi name */
+    scents: ScentOption[]
     /** Checkout sends the customer to Shopier to pay */
     onlinePayment: boolean
 }

@@ -4,11 +4,12 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { slugify, genderLabel, inspiredByLabel } from '@/lib/utils'
+import { slugify, genderLabel } from '@/lib/utils'
+import { productTitle, inspiredLine } from '@/lib/catalog'
 import type { Product, Recipe } from '@/types/database'
 import { useCart } from '@/context/CartContext'
 import { usePricing } from '@/context/PricingContext'
-import { bottlePrice, testerPrice, formatPrice, getBaseName, getSizeMl } from '@/lib/pricing'
+import { bottlePrice, testerPrice, formatPrice, getSizeMl } from '@/lib/pricing'
 import { BottleIllustration } from '@/components/storefront-ui/bottle-illustration'
 
 type ProductWithRecipe = Product & {
@@ -32,7 +33,9 @@ export function ProductCard({ product, variants }: ProductCardProps) {
     const { prices, onlinePayment } = usePricing()
     const hasHandmadeImage = !!product.hover_image_url
 
-    const displayName = getBaseName(product.name) || product.name
+    const displayName = productTitle(product)
+    const inspired = inspiredLine(product)
+    const imageAlt = inspired ? `${displayName} — ${inspired}` : displayName
     const totalStock = variants && variants.length > 1
         ? variants.reduce((sum, v) => sum + v.stock, 0)
         : product.stock
@@ -72,7 +75,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                     <>
                         <Image
                             src={product.image_url}
-                            alt={inspiredByLabel(displayName)}
+                            alt={imageAlt}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className={`object-contain p-4 pb-12 transition-all duration-700 group-hover:scale-[1.03] ${showHandmade ? 'opacity-0' : 'opacity-100'}`}
@@ -80,7 +83,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                         {product.hover_image_url && (
                             <Image
                                 src={product.hover_image_url}
-                                alt={`${inspiredByLabel(displayName)} el yapımı`}
+                                alt={`${imageAlt} — el yapımı`}
                                 fill
                                 unoptimized={product.hover_image_url.startsWith('data:')}
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -113,12 +116,13 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                         <span className="text-[11px] tracking-[0.2em] text-sand uppercase">{genderLabel(product.gender)}</span>
                     )}
                 </span>
-                <span lang="en" className="border-t border-ink pt-3 text-[17px] font-bold tracking-[0.08em] uppercase leading-snug">
+                {/* Ashi names are Turkish; stored original names are mostly English */}
+                <span lang={product.ashi_name ? 'tr' : 'en'} className="border-t border-ink pt-3 text-[17px] font-bold tracking-[0.08em] uppercase leading-snug">
                     {displayName}
                 </span>
-                <span className="font-storefront italic text-[17px] text-umber leading-snug">
-                    {inspiredByLabel(displayName)}
-                </span>
+                {inspired && (
+                    <span className="font-storefront italic text-[17px] text-umber leading-snug">{inspired}</span>
+                )}
                 {notes.length > 0 && (
                     <span className="grid grid-cols-[46px_1fr] gap-x-2 gap-y-0.5 text-umber">
                         {notes.map(([layer, text]) => (
@@ -149,7 +153,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                 {tester !== null && addTarget && (
                     <button
                         type="button"
-                        onClick={() => addToCart({ ...product, name: displayName }, 1, 'tester')}
+                        onClick={() => addToCart(product, 1, 'tester')}
                         className="h-11 px-3.5 border border-ink font-storefront-mono text-[11px] tracking-[0.14em] hover:bg-ink hover:text-paper transition-colors cursor-pointer"
                     >
                         TESTER {formatPrice(tester)}

@@ -3,12 +3,16 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import type { Product } from '@/types/database'
 import type { CartItemKind } from '@/lib/pricing'
+import { productTitle } from '@/lib/catalog'
 import { toast } from 'sonner'
 
 export interface CartItem {
     product_id: string
     kind: CartItemKind
+    /** Stored product name; order logic and gift-tester scents key off it */
     name: string
+    /** Storefront (Ashi) name; missing on carts saved before Ashi names */
+    display_name?: string
     bottle_size_ml: number | null
     image_url: string | null
     gender: string | null
@@ -17,7 +21,7 @@ export interface CartItem {
     unit_cost?: number | null
 }
 
-type CartProduct = Product | { id: string; name: string; bottle_size_ml?: number | null; image_url?: string | null; gender?: string | null; stock?: number; unit_cost?: number | null }
+type CartProduct = Product | { id: string; name: string; ashi_name?: string | null; bottle_size_ml?: number | null; image_url?: string | null; gender?: string | null; stock?: number; unit_cost?: number | null }
 
 interface CartContextType {
     items: CartItem[]
@@ -87,7 +91,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             return
         }
 
-        const label = kind === 'tester' ? `${product.name} (3ml tester)` : product.name
+        const displayName = productTitle(product)
+        const label = kind === 'tester' ? `${displayName} (3ml tester)` : displayName
 
         setItems(prevItems => {
             const key = cartItemKey({ product_id: product.id, kind })
@@ -115,6 +120,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                         product_id: product.id,
                         kind,
                         name: product.name,
+                        display_name: displayName,
                         bottle_size_ml: product.bottle_size_ml ?? null,
                         image_url: product.image_url ?? null,
                         gender: product.gender ?? null,
