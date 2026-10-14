@@ -223,7 +223,7 @@ export default async function HomePage() {
                     </div>
                     <div className="bg-ink text-paper px-7 pt-8 pb-6 flex flex-col gap-4 font-storefront-mono text-xs">
                         <Image src="/brand/logo-cream.svg" alt="" width={54} height={30} unoptimized className="h-[30px] w-auto self-start" />
-                        <span className="border-t border-paper pt-4 text-[13px] font-bold tracking-[0.14em]">50 ML'YE 1 · 100 ML'YE 2</span>
+                        <span className="border-t border-paper pt-4 text-[13px] font-bold tracking-[0.14em]">50 ML&apos;YE 1 · 100 ML&apos;YE 2</span>
                         <span className="font-storefront italic text-6xl leading-none">hediye</span>
                         <span className="border-t border-paper pt-2.5 tracking-[0.08em] text-hairline">KOKUSUNU SEPETTE SEÇERSİN</span>
                     </div>
