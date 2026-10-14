@@ -218,7 +218,6 @@ function ProductListContent({ initialProducts }: ProductListProps) {
                                     name={productTitle(p)}
                                     subtitle={inspiredLine(p)}
                                     nameLang={p.ashi_name ? 'tr' : 'en'}
-                                    house={p.recipe?.name !== group.baseName ? p.recipe?.name : undefined}
                                     gender={p.gender}
                                     volumeLabel={size ? `${size} ml` : undefined}
                                     rating={p.fragrantica_score}
