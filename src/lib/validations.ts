@@ -12,7 +12,9 @@ export const salesSchema = z.object({
     customer_id: z.string().uuid('Geçersiz müşteri ID formatı.').nullable().optional(),
     unit_price: z.number().min(0, 'Birim fiyat negatif olamaz.').max(1_000_000, 'Fiyat çok büyük.').optional().default(0),
     payment_amount: z.number().min(0, 'Ödeme tutarı negatif olamaz.').max(1_000_000, 'Tutar çok büyük.').optional().default(0),
-    notes: z.string().max(2000, 'Notlar en fazla 2000 karakter olabilir.').optional().default(''),
+    // The sales form sends null when the note field is empty
+    notes: z.string().max(2000, 'Notlar en fazla 2000 karakter olabilir.').nullable().optional().transform(v => v ?? ''),
+    sale_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Geçersiz satış tarihi.').nullable().optional(),
 })
 
 // Product request (storefront) schema

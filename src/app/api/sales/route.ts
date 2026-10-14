@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: firstError }, { status: 400 });
     }
 
-    const { product_id, quantity, customer_id, unit_price, payment_amount, notes } = parseResult.data;
+    const { product_id, quantity, customer_id, unit_price, payment_amount, notes, sale_date } = parseResult.data;
 
     const supabase = await createClient();
 
@@ -47,7 +47,14 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Satış Hatası:', error.message);
-      return NextResponse.json({ error: 'Satış gerçekleştirilemedi.' }, { status: 500 });
+      // Admin-only endpoint: surface the database reason so the dashboard can show it
+      return NextResponse.json({ error: `Satış gerçekleştirilemedi: ${error.message}` }, { status: 500 });
+    }
+
+    // execute_sale_fifo stamps today's date; keep the date picked in the form
+    if (sale_date) {
+      const { error: dateError } = await supabase.from('sales').update({ sale_date }).eq('id', saleId);
+      if (dateError) console.error('Satış tarihi güncellenemedi:', dateError.message);
     }
 
     return NextResponse.json({ 

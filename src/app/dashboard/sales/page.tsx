@@ -437,7 +437,8 @@ export default function SalesPage() {
             resetForm()
         } catch (error) {
             console.error(error)
-            toast.error(editingSale ? 'Failed to update sale' : 'Failed to log sales')
+            const reason = error instanceof Error ? error.message : (error as { message?: string })?.message
+            toast.error(`${editingSale ? 'Failed to update sale' : 'Failed to log sales'}${reason ? `: ${reason}` : ''}`)
         } finally {
             setSubmitting(false)
         }
