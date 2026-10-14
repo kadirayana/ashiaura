@@ -75,41 +75,43 @@ export default async function HomePage() {
         <div className="min-h-screen">
             <Navbar />
 
-            {/* Hero */}
+            {/* Hero: campaign banners, used as designed (headline and button are part of the artwork) */}
             <section className="bg-linen border-b border-hairline">
-                <div className="flex flex-wrap items-stretch">
-                    <div className="flex-[1_1_480px] min-w-0 px-6 lg:pl-[max(48px,calc((100vw-1320px)/2+48px))] lg:pr-12 py-16 md:py-24 flex flex-col justify-center gap-6">
-                        <p className="font-storefront-mono text-xs sm:text-[13px] tracking-[0.32em] text-umber">
-                            İZMİR · EL YAPIMI · KÜÇÜK PARTİLER
-                        </p>
-                        <h1 className="italic font-normal text-[64px] sm:text-[88px] lg:text-[112px] leading-[0.92] tracking-[-0.01em]">
-                            Kendi<br />auranı bul.
-                        </h1>
-                        <p className="text-[28px] sm:text-[32px] leading-tight text-umber">Sana ait bir iz.</p>
-                        <div className="flex flex-wrap gap-3.5 pt-2">
-                            <Link
-                                href="/products"
-                                className="h-14 px-8 inline-flex items-center bg-ink text-label font-storefront-mono text-[13px] sm:text-sm tracking-[0.22em] hover:bg-tan-ink transition-colors"
-                            >
-                                KOLEKSİYONU KEŞFET →
-                            </Link>
-                            <a
-                                href="#tester"
-                                className="h-14 px-6 inline-flex items-center border border-ink font-storefront-mono text-[13px] sm:text-sm tracking-[0.22em] hover:bg-ink hover:text-label transition-colors"
-                            >
-                                3 ML TESTER
-                            </a>
-                        </div>
-                    </div>
-                    <div className="flex-[1.25_1_560px] min-w-0 min-h-[420px] md:min-h-[640px] relative overflow-hidden">
-                        <Image
-                            src="/brand/hero.jpg"
-                            alt="Ahşap kapaklı Ashi Aura parfüm şişesi traverten üzerinde"
-                            fill
-                            priority
-                            sizes="(max-width: 1040px) 100vw, 60vw"
-                            className="object-cover object-right"
-                        />
+                <h1 className="sr-only">Kendi auranı bul. Sana ait bir iz.</h1>
+                <Link href="/products" aria-label="Koleksiyonu keşfet" className="hidden md:block">
+                    <Image
+                        src="/brand/hero-banner.jpg"
+                        alt="İzmir · el yapımı · küçük partiler. Kendi auranı bul. Sana ait bir iz. Ahşap kapaklı Ashi Aura şişesi traverten üzerinde."
+                        width={2576}
+                        height={1093}
+                        priority
+                        sizes="100vw"
+                        className="w-full h-auto"
+                    />
+                </Link>
+                <div className="md:hidden">
+                    <Image
+                        src="/brand/hero-mobile.jpg"
+                        alt="Kendi auranı bul. Sana ait bir iz. İzmir · el yapımı · küçük partiler. Ahşap kapaklı Ashi Aura şişesi."
+                        width={1856}
+                        height={2304}
+                        priority
+                        sizes="100vw"
+                        className="w-full h-auto"
+                    />
+                    <div className="px-6 py-6 flex flex-col gap-3">
+                        <Link
+                            href="/products"
+                            className="h-14 flex items-center justify-center bg-ink text-label font-storefront-mono text-[13px] tracking-[0.22em] hover:bg-tan-ink transition-colors"
+                        >
+                            KOLEKSİYONU KEŞFET →
+                        </Link>
+                        <a
+                            href="#tester"
+                            className="h-14 flex items-center justify-center border border-ink font-storefront-mono text-[13px] tracking-[0.22em]"
+                        >
+                            3 ML TESTER
+                        </a>
                     </div>
                 </div>
             </section>
