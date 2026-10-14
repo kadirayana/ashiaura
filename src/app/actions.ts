@@ -102,6 +102,10 @@ export async function submitCartOrder(payload: {
   for (const row of priceRows || []) prices[row.size_ml] = Number(row.price)
   const productsMap = new Map((products || []).map(p => [p.id, p]))
 
+  // Testers (bought or gifted) are only made for scents that are in stock
+  const { data: inStockNames } = await supabase.from('products').select('name').gt('stock', 0)
+  const validScents = new Set((inStockNames || []).map(p => getBaseName(p.name)))
+
   const orderItems: Array<CartOrderItem & Required<Pick<CartOrderItem, 'kind'>>> = []
   for (const raw of payload.items) {
     const kind: CartItemKind = raw.kind === 'tester' ? 'tester' : 'bottle'
@@ -116,6 +120,9 @@ export async function submitCartOrder(payload: {
     // the workshop confirms the price when following up on the request.
     if (unitPrice === null && onlinePayment) {
       return { error: `${getBaseName(prod.name)} için fiyat henüz belirlenmedi. Lütfen WhatsApp üzerinden bize ulaşın.` }
+    }
+    if (kind === 'tester' && !validScents.has(getBaseName(prod.name))) {
+      return { error: `${getBaseName(prod.name)} şu an stokta olmadığı için tester olarak sunulamıyor.` }
     }
     if (kind === 'bottle' && prod.stock < quantity) {
       return { error: `${getBaseName(prod.name)} için yeterli stok yok (kalan: ${prod.stock}).` }
@@ -133,8 +140,6 @@ export async function submitCartOrder(payload: {
   }
 
   // One free tester per 50ml bottle; the customer picks the scent
-  const { data: allNames } = await supabase.from('products').select('name')
-  const validScents = new Set((allNames || []).map(p => getBaseName(p.name)))
   const giftCount = giftTesterCount(orderItems)
   const giftTesters = (payload.giftTesters || [])
     .slice(0, giftCount)

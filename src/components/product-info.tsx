@@ -67,6 +67,7 @@ export function ProductInfo({
     const size = getSizeMl(currentVariant)
     const earnsGiftTester = size === GIFT_ELIGIBLE_SIZE_ML
     const canAdd = stock > 0 && (price !== null || !onlinePayment)
+    const familyInStock = stock > 0 || !!variants?.some(v => v.stock > 0)
 
     // One pill per size; if two products share a size, link the one with more stock
     const sizeOptions = (() => {
@@ -170,7 +171,7 @@ export function ProductInfo({
                 >
                     {stock > 0 ? 'SEPETE EKLE' : 'STOKTA TÜKENDİ'}
                 </button>
-                {tester !== null && (
+                {tester !== null && familyInStock && (
                     <button
                         type="button"
                         onClick={() => addToCart({ ...currentVariant, name }, 1, 'tester')}

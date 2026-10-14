@@ -9,6 +9,7 @@ import { RequestForm } from '@/components/request-form'
 import { RequestPopup } from '@/components/request-popup'
 import { ProductCard } from '@/components/product-card'
 import { getBaseName } from '@/lib/pricing'
+import { pickRepresentative } from '@/lib/catalog'
 import type { Product, Recipe } from '@/types/database'
 
 type ProductWithRecipe = Product & {
@@ -36,25 +37,20 @@ async function getFeaturedFamilies(): Promise<ProductFamily[]> {
         return []
     }
 
-    const families = new Map<string, ProductFamily>()
+    const families = new Map<string, ProductWithRecipe[]>()
     for (const raw of data || []) {
         const product: ProductWithRecipe = {
             ...raw,
             recipe: Array.isArray(raw.recipe) ? raw.recipe[0] || null : raw.recipe,
         }
         const key = getBaseName(product.name)
-        const family = families.get(key)
-        if (!family) {
-            families.set(key, { representative: product, variants: [product] })
-            continue
-        }
-        family.variants.push(product)
-        if (!family.representative.image_url && product.image_url) family.representative = product
+        families.set(key, [...(families.get(key) || []), product])
     }
 
     return [...families.values()]
-        .filter(f => f.variants.some(v => v.stock > 0))
+        .filter(variants => variants.some(v => v.stock > 0))
         .slice(0, FEATURED_COUNT)
+        .map(variants => ({ representative: pickRepresentative(variants), variants }))
 }
 
 const PROMISES = [

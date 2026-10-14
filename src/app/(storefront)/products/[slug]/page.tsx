@@ -8,6 +8,7 @@ import { ProductHero } from '@/components/product-hero'
 import { ProductInfo, type NoteData, type SimilarProduct } from '@/components/product-info'
 import Link from 'next/link'
 import { slugify, inspiredByLabel } from '@/lib/utils'
+import { getSizeMl } from '@/lib/pricing'
 import type { Product, Recipe } from '@/types/database'
 
 interface ProductPageProps {
@@ -53,16 +54,17 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
         recipe: Array.isArray(product.recipe) ? product.recipe[0] || null : product.recipe,
     }))
 
-    let product = normalizedProducts.find(p => slugify(p.name) === slug)
-    if (!product) {
-        product = normalizedProducts.find(p => p.id.toString() === slug)
+    let found = normalizedProducts.find(p => slugify(p.name) === slug)
+    if (!found) {
+        found = normalizedProducts.find(p => p.id.toString() === slug)
     }
-    if (!product) {
-        product = normalizedProducts.find(p => p.name === slug)
+    if (!found) {
+        found = normalizedProducts.find(p => p.name === slug)
     }
-    if (!product) {
+    if (!found) {
         notFound()
     }
+    const requested = found
     const backParams = new URLSearchParams()
     for (const [key, value] of Object.entries(catalogParams)) {
         if (typeof value === 'string') backParams.set(key, value)
@@ -70,8 +72,13 @@ export default async function ProductPage({ params, searchParams }: ProductPageP
     }
     const backQuery = backParams.toString()
 
-    const baseName = getBaseName(product.name)
+    const baseName = getBaseName(requested.name)
     const variants = normalizedProducts.filter(p => getBaseName(p.name) === baseName)
+
+    // Some scents have a sold-out duplicate row of the same size; sell the row that has stock
+    const product = requested.stock > 0
+        ? requested
+        : variants.find(v => v.stock > 0 && getSizeMl(v) === getSizeMl(requested)) ?? requested
 
     const primaryVariant = variants.length > 1
         ? variants.reduce((best, v) => {

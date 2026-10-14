@@ -146,7 +146,7 @@ export function ProductCard({ product, variants }: ProductCardProps) {
                         <span className="font-storefront-mono text-[11px] tracking-[0.1em] text-sand">FİYAT İÇİN SORUN</span>
                     )}
                 </span>
-                {tester !== null && (
+                {tester !== null && addTarget && (
                     <button
                         type="button"
                         onClick={() => addToCart({ ...product, name: displayName }, 1, 'tester')}

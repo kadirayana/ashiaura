@@ -7,6 +7,7 @@ import type { Product, Recipe } from '@/types/database'
 import { Search, X } from 'lucide-react'
 import { LedgerRow } from '@/components/storefront-ui/ledger-row'
 import { slugify } from '@/lib/utils'
+import { pickRepresentative } from '@/lib/catalog'
 
 type ProductWithRecipe = Product & {
     recipe: Recipe | null
@@ -98,15 +99,7 @@ function ProductListContent({ initialProducts }: ProductListProps) {
             const groupKey = getBaseName(product.name)
 
             if (groups.has(groupKey)) {
-                const group = groups.get(groupKey)!
-                group.variants.push(product)
-                // Pick the best representative (highest score, or has image, or most stock)
-                if (
-                    (product.fragrantica_score || 0) > (group.representative.fragrantica_score || 0) ||
-                    (!group.representative.image_url && product.image_url)
-                ) {
-                    group.representative = product
-                }
+                groups.get(groupKey)!.variants.push(product)
             } else {
                 groups.set(groupKey, {
                     baseName: getBaseName(product.name),
@@ -116,18 +109,9 @@ function ProductListContent({ initialProducts }: ProductListProps) {
             }
         }
 
-        // 4. For each group, ensure the representative has the best available image
+        // 4. Represent each family by a row that can be bought (and borrow a photo if it has none)
         for (const group of groups.values()) {
-            if (!group.representative.image_url) {
-                const withImage = group.variants.find(v => v.image_url)
-                if (withImage) {
-                    group.representative = {
-                        ...group.representative,
-                        image_url: withImage.image_url,
-                        hover_image_url: withImage.hover_image_url || group.representative.hover_image_url,
-                    }
-                }
-            }
+            group.representative = pickRepresentative(group.variants)
         }
 
         // 5. Filter out groups where all variants have 0 stock

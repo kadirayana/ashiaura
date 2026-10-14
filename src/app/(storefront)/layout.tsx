@@ -23,7 +23,8 @@ async function loadPricing(): Promise<{ prices: PriceMap; scents: string[] }> {
     const supabase = await createClient()
     const [{ data: priceRows, error: priceErr }, { data: productRows }] = await Promise.all([
         supabase.from('size_prices').select('size_ml, price'),
-        supabase.from('products').select('name'),
+        // Testers are only offered for scents that are on the shelf
+        supabase.from('products').select('name').gt('stock', 0),
     ])
     if (priceErr) console.error('size_prices could not be loaded:', priceErr.message)
 
