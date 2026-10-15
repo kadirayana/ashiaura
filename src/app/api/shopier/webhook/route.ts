@@ -8,6 +8,11 @@ export async function POST(request: NextRequest) {
     const rawBody = await request.text()
     // Trimmed: a pasted env value can carry a stray newline or space
     const token = (process.env.SHOPIER_WEBHOOK_TOKEN || '').trim()
+    if (!token) {
+        // 503 so Shopier keeps retrying until the deployment is configured
+        console.error('Shopier webhook: SHOPIER_WEBHOOK_TOKEN is not set')
+        return NextResponse.json({ error: 'webhook token not configured' }, { status: 503 })
+    }
 
     if (!verifyShopierSignature(rawBody, request.headers.get('shopier-signature'), token)) {
         console.warn('Shopier webhook: invalid signature')
