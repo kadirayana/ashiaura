@@ -44,7 +44,7 @@ export async function createOrderListing(params: {
     total: number
     summary: string
 }): Promise<ShopierProduct> {
-    const imageUrl = process.env.SHOPIER_ORDER_IMAGE_URL || `${siteConfig.url}/logo.png`
+    const imageUrl = process.env.SHOPIER_ORDER_IMAGE_URL || `${siteConfig.url}/apple-icon.png`
     return shopierFetch<ShopierProduct>('/products', {
         method: 'POST',
         body: JSON.stringify({
