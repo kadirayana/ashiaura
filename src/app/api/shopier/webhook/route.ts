@@ -6,7 +6,8 @@ import { deleteListing, verifyShopierSignature, type ShopierOrder } from '@/lib/
 // non-authentication outcome (including "not ours") answers 200.
 export async function POST(request: NextRequest) {
     const rawBody = await request.text()
-    const token = process.env.SHOPIER_WEBHOOK_TOKEN || ''
+    // Trimmed: a pasted env value can carry a stray newline or space
+    const token = (process.env.SHOPIER_WEBHOOK_TOKEN || '').trim()
 
     if (!verifyShopierSignature(rawBody, request.headers.get('shopier-signature'), token)) {
         console.warn('Shopier webhook: invalid signature')
