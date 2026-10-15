@@ -85,6 +85,15 @@ export async function POST(request: NextRequest) {
 
     if (!amountOk) {
         console.warn(`Shopier webhook: order ${order.id} paid ${paidTotal}, expected ${expected}`)
+    } else {
+        // Paid in full: record the sales and deduct stock right away. If it fails
+        // (e.g. a bottle sold out meanwhile) the order stays pending as "Ödendi"
+        // for the workshop to approve by hand.
+        const { error: processErr } = await admin.rpc('process_web_order', {
+            p_request_id: webOrder.id,
+            p_paid: true,
+        })
+        if (processErr) console.error('Shopier webhook: sales could not be recorded:', processErr.message)
     }
 
     // The one-off listing has done its job; failure here only leaves a sold-out listing behind

@@ -113,107 +113,22 @@ export default function RequestsPage() {
         setProcessingId(req.id)
         const toastId = toast.loading('Sipariş onaylanıyor ve stoklar güncelleniyor...')
 
+        // Same server path as the Shopier webhook: FIFO stock deduction, sales,
+        // customer and status in one transaction (testers are not stock-tracked)
         try {
-            // Testers are filled from essence — they never touch bottle stock or sales
-            const bottleItems = meta.items.filter(i => (i.kind ?? 'bottle') === 'bottle')
+            const response = await fetch('/api/orders/approve', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ requestId: req.id }),
+            })
+            const result = await response.json() as { error?: string; salesRecorded?: number }
+            if (!response.ok) throw new Error(result.error || 'Sipariş onaylanamadı.')
 
-            // 1. Fetch current products to check stocks and recipe costs
-            const productIds = bottleItems.map(i => i.product_id).filter(Boolean)
-            const { data: currentProducts, error: prodErr } = await supabase
-                .from('products')
-                .select('*')
-                .in('id', productIds)
-
-            if (prodErr) throw prodErr
-
-            const productsMap = new Map((currentProducts || []).map(p => [p.id, p]))
-
-            // 2. Find or create customer
-            let customerId: string | null = null
-            if (req.customer_name) {
-                const { data: existingCustomer } = await supabase
-                    .from('customers')
-                    .select('id')
-                    .or(`phone.eq.${req.contact_info},name.ilike.${req.customer_name}`)
-                    .limit(1)
-                    .single()
-
-                if (existingCustomer?.id) {
-                    customerId = existingCustomer.id
-                } else {
-                    const { data: newCustomer, error: createCustErr } = await supabase
-                        .from('customers')
-                        .insert({
-                            name: req.customer_name,
-                            phone: req.contact_info,
-                            notes: meta.address_or_notes || 'Web sepetinden otomatik oluşturuldu.',
-                            balance: 0,
-                        })
-                        .select('id')
-                        .single()
-
-                    if (!createCustErr && newCustomer) {
-                        customerId = newCustomer.id
-                    }
-                }
-            }
-
-            const today = new Date().toISOString().split('T')[0]
-            const deductedInfo: string[] = []
-
-            // 3. For each item in cart, deduct stock and create sale record
-            for (const item of bottleItems) {
-                const prod = productsMap.get(item.product_id)
-                if (prod) {
-                    const currentStock = prod.stock || 0
-                    const newStock = Math.max(0, currentStock - item.quantity)
-
-                    // Update stock
-                    const { error: stockUpdateErr } = await supabase
-                        .from('products')
-                        .update({ stock: newStock })
-                        .eq('id', prod.id)
-
-                    if (stockUpdateErr) {
-                        console.error('Stock update error for product:', prod.name, stockUpdateErr)
-                    } else {
-                        deductedInfo.push(`${prod.name}: ${currentStock} -> ${newStock}`)
-                    }
-
-                    // Create sale log
-                    const unitCost = prod.unit_cost || item.unit_cost || 0
-                    // Orders placed before pricing existed carry no unit_price; fall back to the old cost markup
-                    const unitPrice = item.unit_price ?? (prod.unit_cost ? prod.unit_cost * 1.5 : null)
-                    const totalPrice = (unitPrice ?? 0) * item.quantity
-                    await supabase.from('sales').insert({
-                        customer_id: customerId,
-                        product_id: prod.id,
-                        quantity: item.quantity,
-                        unit_cost: unitCost,
-                        unit_price: unitPrice,
-                        total_price: totalPrice > 0 ? totalPrice : null,
-                        profit: totalPrice > 0 ? totalPrice - (unitCost * item.quantity) : 0,
-                        // Paid online via Shopier — record the payment with the sale
-                        payment_amount: req.payment_status === 'paid' ? totalPrice : null,
-                        sale_date: today,
-                        notes: `Web Sipariş Onayı (İstek #${req.id.slice(0, 8)}) - ${meta.address_or_notes || ''}`.trim()
-                    })
-                }
-            }
-
-            // 4. Update request status to completed
-            const { error: updateReqErr } = await supabase
-                .from('product_requests')
-                .update({ status: 'completed' })
-                .eq('id', req.id)
-
-            if (updateReqErr) throw updateReqErr
-
-            toast.success(`Sipariş onaylandı! Stoklar düşüldü ve satış kaydı işlendi.`, { id: toastId })
+            toast.success(`Sipariş onaylandı: ${result.salesRecorded ?? 0} satış kaydedildi, stoklar lotlardan düşüldü.`, { id: toastId })
             fetchRequests()
-        } catch (err: any) {
+        } catch (err) {
             console.error('Order approval error:', err)
-            toast.error(err.message || 'Sipariş onaylanırken bir hata oluştu.', { id: toastId })
+            toast.error(err instanceof Error ? err.message : 'Sipariş onaylanırken bir hata oluştu.', { id: toastId })
         } finally {
             setProcessingId(null)
         }
